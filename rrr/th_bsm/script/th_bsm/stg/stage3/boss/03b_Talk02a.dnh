@@ -86,7 +86,7 @@ SetTalkEx(cutinBoss1, "啊～，就说了打倒我也[r]没意义啊");
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "别故弄玄虚，赶紧把黑幕告诉我啊。[r]这不是玩推理游戏");
+SetTalkEx(cutinPlayer1, "别故弄玄虚，赶紧把黑幕告诉我啊。[r]这不是玩推理游戏的时候了吧");
 		}
 		case(2)
 		{

@@ -151,7 +151,7 @@ SetTalkEx(cutinBoss2, "已经晚了。反复改良品种，[r]我们今天已经
 		case(10)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "私たちの[ruby rb=\"優性遺伝結界\" rt=\"　メンデルス・ゾーン　\"]の中で、[r]让你尽情见识一下哦！");
+SetTalkEx(cutinBoss1, "在我们的[ruby rb=\"显性遗传结界\" rt=\"Mendel's Zone\"]中，[r]让你尽情见识一下哦！");
 		}
 		others
 		{

@@ -88,7 +88,7 @@ SetTalkEx(cutinPlayer1, "话说回来，这夕阳还真漂亮。");
 			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
 			
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "不过飞鸢啼鸣不如归[r]按这说法倒是不该走下去了");
+SetTalkEx(cutinPlayer1, "不过飞鸢啼鸣不如归，[r]按这说法倒是不该走下去了");
 		}
 		case(2)
 		{
@@ -113,7 +113,7 @@ SetTalkEx(cutinPlayer1, "什么时候？那时候你在别人面前出现[r]射�
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "これは失敬！　[ruby rb=\"河童の光学迷彩マント\" rt=\"てんぐのかくれみの\"]は[r]容易损坏，乃是白璧微瑕");
+SetTalkEx(cutinBoss1, "这可真是失礼！[ruby rb=\"河童的光学迷彩衣\" rt=\"天狗的隐身蓑衣\"][r]容易损坏，乃是白璧微瑕");
 		}
 		case(6)
 		{

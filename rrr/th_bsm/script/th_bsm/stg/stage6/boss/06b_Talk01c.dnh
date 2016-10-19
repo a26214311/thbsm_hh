@@ -112,7 +112,7 @@ SetTalkEx(cutinPlayer1, "72恶魔？不是王者的你，[r]怎么可能用得�
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-SetTalkEx(cutinPlayer1, "啊，说起来以前曾经在一本不知真假的书上读到过，[r][ruby rb=\" 悪魔\" rt=\"ミシャンドラ\"]って昔インチキ臭い本で読んだような…");
+SetTalkEx(cutinPlayer1, "啊，说起来以前曾经在一本不知真假的书上读到过，[r]有个比72恶魔还有厉害的第73柱[ruby rb=\"恶魔\" rt=\"米山多拉\"]来着……");
 		}
 		case(5)
 		{
@@ -137,7 +137,7 @@ SetTalkEx(cutinPlayer1, "既然如此，[r]为何要对我们的计划横插一�
 		case(9)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "神奈子大人制定的是新七夕、[r][ruby rb=\"御神事\" rt=\"イベント\"]として企画なされたのです。");
+SetTalkEx(cutinPlayer1, "神奈子大人制定的是新七夕、[r]招徕客人的[ruby rb=\"御神事\" rt=\"event\"]企划。");
 		}
 		case(10)
 		{
@@ -210,7 +210,7 @@ SetTalkEx(cutinBoss1, "你马上就会被恶魔所包围，[r]到那时，哪怕
 		case(23)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "是，你嘴尖舌利，尽可自负。[r]但我却会对我说的每一个字负责！<ref name=Pythias>这段捏他自太宰治的著名短篇小说《奔跑吧梅勒斯》。</ref>");
+SetTalkEx(cutinPlayer1, "是，你嘴尖舌利，尽可自负。[r]但我却会对我说的每一个字负责！");
 		}
 		case(24)
 		{

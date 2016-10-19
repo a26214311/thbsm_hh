@@ -159,7 +159,7 @@ SetTalkEx(cutinBoss1, "亏我忍耐到今，[r]你却如此熟稔者也。");
 		case(14)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "比起步行巫女[r]更渊博咯。");
+SetTalkEx(cutinPlayer1, "比起步行巫女，当然是会飞的巫女[r]更渊博咯。");
 		}
 		case(15)
 		{

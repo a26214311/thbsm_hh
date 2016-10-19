@@ -101,7 +101,7 @@ SetTalkEx(cutinBoss1, "Q.E.D. 证明完毕哦");
 		case(3)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "答案一开始就清楚的命题吗。[r]これからは[ruby rb=\" 妖精の証明 \" rt=\"フェアリーズプルーフ\"]と名付けよう");
+SetTalkEx(cutinPlayer1, "答案一开始就清楚的命题吗。[r]从今天开始就叫做[ruby rb=\"妖精的证明\" rt=\"Fairy's Proof\"]好了。");
 		}
 		others
 		{

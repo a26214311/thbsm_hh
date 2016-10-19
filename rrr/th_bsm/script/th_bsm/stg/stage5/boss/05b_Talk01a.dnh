@@ -184,7 +184,7 @@ SetTalkEx(cutinPlayer1, "刚刚那个忍者狂魔让我想起一件事。[r]似�
 		case(12)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "夏至蝉住口——<ref name=wuchilaozei></ref>");
+SetTalkEx(cutinPlayer1, "夏至蝉住口——");
 		}
 		case(13)
 		{

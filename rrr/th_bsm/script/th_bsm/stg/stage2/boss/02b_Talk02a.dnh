@@ -86,7 +86,7 @@ SetTalkEx(cutinBoss1, "说到底只在黎明的时候才会实现愿望啦，[r]
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "区区妖怪鸢算不了什么。[r]下次让金鵄");
+SetTalkEx(cutinPlayer1, "区区妖怪鸢算不了什么。[r]下次让金鵄或者崇德院过来吧");
 		}
 		case(2)
 		{

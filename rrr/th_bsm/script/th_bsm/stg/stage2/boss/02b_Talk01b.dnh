@@ -136,7 +136,7 @@ SetTalkEx(cutinBoss1, "很遗憾你已经逃不掉了。");
 			PlayMusicWithName(5, 180, 30);
 
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "在被我叫住的那个瞬间，[r]君は僕の[ruby rb=\"　幻想　\" rt=\"イリュージョン\"]に迷い込んだのだ。");
+SetTalkEx(cutinBoss1, "在被我叫住的那个瞬间，[r]你就已经被迷进了我的[ruby rb=\"幻想\" rt=\"Illusion\"]中。");
 		}
 		case(10)
 		{

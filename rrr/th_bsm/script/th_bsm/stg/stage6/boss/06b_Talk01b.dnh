@@ -132,7 +132,7 @@ SetTalkEx(cutinBoss1, "魔法使，你会去和别人分享[r]这世上仅存孤
 		case(8)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "いい事を聞いた。[ruby rb=\" 本題\" rt=\"ゴエティア\"]以外の[r]部分，谁愿意拿走都可以。");
+SetTalkEx(cutinPlayer1, "好问题。[ruby rb=\"正题\" rt=\"Ars Goetia\"]以外的[r]部分，谁愿意拿走都可以。");
 		}
 		case(9)
 		{
@@ -200,7 +200,7 @@ SetTalkEx(cutinPlayer1, "好了，所以把莱梅杰通给我吧，[r]快快的�
 			PlayMusicWithName(13, 180, 30);
 
 			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "钥匙[r]只有超越常人之人才能掌握。");
+SetTalkEx(cutinBoss1, "钥匙之力是王者之力。[r]只有超越常人之人才能掌握。");
 		}
 		case(22)
 		{

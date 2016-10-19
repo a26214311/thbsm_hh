@@ -91,12 +91,12 @@ SetTalkEx(cutinPlayer1, "不会发生的才是奇迹，而我将引发这些奇�
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "口舌不错。你没有使唤人的素质，[r][ruby rb=\"大道芸人\" rt=\"　パフォーマー\"]の芽があるな");
+SetTalkEx(cutinBoss1, "口舌不错。你没有使唤人的素质，[r]却是个当[ruby rb=\"街头艺人\" rt=\"performer\"]的好苗子");
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "[ruby rb=\"指導者\" rt=\"　リーダー\"]は苦労ばかりで報われない物です[r]我被人使唤就够了");
+SetTalkEx(cutinPlayer1, "[ruby rb=\"指导者\" rt=\"leader\"]净是辛苦毫无回报。[r]我被人使唤就够了");
 		}
 		case(4)
 		{

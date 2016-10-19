@@ -139,7 +139,7 @@ SetTalkEx(cutinBoss1, "随便你骗他们也罢[r]赶紧劝劝地上的庶民吧
 		case(10)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "要是愿望不停下的话[r]就会有恐怖大王从天而降了");
+SetTalkEx(cutinBoss1, "要是愿望不停下的话[r]就会有恐怖大王从天而降了。");
 		}
 		case(11)
 		{

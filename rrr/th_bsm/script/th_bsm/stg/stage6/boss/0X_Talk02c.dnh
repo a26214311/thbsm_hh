@@ -104,7 +104,7 @@ SetTalkEx(cutinDescri, "早苗[r]「真想让您看看我那鲜红的心脏。�
 		}
 		case(4)
 		{
-SetTalkEx(cutinDescri, "已矣哉。早苗舒展四肢，总算可以闭上眼睛休息一下了。<ref name=Pythias></ref>[r]就在那个时候。", COL0);
+SetTalkEx(cutinDescri, "已矣哉。早苗舒展四肢，总算可以闭上眼睛休息一下了。[r]就在那个时候。", COL0);
 		}
 		case(5)
 		{

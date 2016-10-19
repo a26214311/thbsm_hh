@@ -130,7 +130,7 @@ SetTalkEx(cutinDescri, "諏訪子[r]「神奈子啊，那是什么？」", COL4)
 		}
 		case(11)
 		{
-SetTalkEx(cutinDescri, "神奈子[r]「诹访子啊，那是忍者。」<ref name=renja>捏他自《忍者战队隐连者》。</ref>", COL3);
+SetTalkEx(cutinDescri, "神奈子[r]「诹访子啊，那是忍者。」", COL3);
 		}
 		case(12)
 		{
@@ -150,7 +150,7 @@ SetTalkEx(cutinDescri, "您或许已经想到了，能跨越结界、搬进幻�
 		}
 		case(16)
 		{
-SetTalkEx(cutinDescri, "然而现代的外界，早已是耀眼的五色忍者操纵合体机器人<ref name=renja></ref>、输掉战斗的忍者会爆炸", COL0);
+SetTalkEx(cutinDescri, "然而现代的外界，早已是耀眼的五色忍者操纵合体机器人、输掉战斗的忍者会爆炸的末法世界。", COL0);
 		}
 		case(17)
 		{

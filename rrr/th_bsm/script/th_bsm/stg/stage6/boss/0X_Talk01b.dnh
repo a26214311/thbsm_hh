@@ -98,7 +98,7 @@ SetTalkEx(cutinDescri, "禰津[r]「空空，我是祢津。[r]上次的战斗�
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, "魔理沙[r]「敲门就敲门，别用嘴模拟。就算你是狐狸也不行。", COL1);
+SetTalkEx(cutinDescri, "魔理沙[r]「敲门就敲门，别用嘴模拟。就算你是狐狸也不行。」", COL1);
 		}
 		case(4)
 		{

@@ -122,7 +122,7 @@ SetTalkEx(cutinBoss1, "记载其关窍的魔之书，[r]渡海而来，被子子
 		case(6)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-SetTalkEx(cutinBoss1, "其象征，星之纹章[r]——[ruby rb=\"六芒星\" rt=\"ヘキサグラム\"]を巧みに隠しながらな");
+SetTalkEx(cutinBoss1, "其象征，星之纹章[r]——[ruby rb=\"六芒星\" rt=\"hexagram\"]，被巧妙地隐藏了起来");
 		}
 		case(7)
 		{
@@ -157,7 +157,7 @@ SetTalkEx(cutinBoss1, "但芙玛明白的。[r]芙玛的使命，这个时代已
 		case(13)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "三角形の星、忍者が狙う魔宝、そして[ruby rb=\"風魔\" rt=\"フーマ\"]。");
+SetTalkEx(cutinPlayer1, "三角形的星星，忍者盯上的魔宝，以及[ruby rb=\"风魔\" rt=\"Fūma\"]。");
 		}
 		case(14)
 		{

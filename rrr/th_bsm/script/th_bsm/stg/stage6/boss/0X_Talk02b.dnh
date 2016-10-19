@@ -99,7 +99,7 @@ SetTalkEx(cutinDescri, "魔理沙靠着得意的逃跑技术逃离了魔宝城�
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, "疲劳浑浊了她的思考，无法随心所欲。[r]振り続ける催涙雨がとても冷たい。", COL0);
+SetTalkEx(cutinDescri, "疲劳浑浊了她的思考，无法随心所欲。[r]下个不停的催泪雨是如此冰冷。", COL0);
 		}
 		case(4)
 		{
@@ -116,7 +116,7 @@ SetTalkEx(cutinDescri, "魔理沙[r]「那个星灵基本上已经明白了事�
 		case(7)
 		{
 			TEndingImage(imgEDMarisa[1], 30);
-SetTalkEx(cutinDescri, "？？？[r]「谢莉亚？她到点下班了。[r]我是换班的天琴座γ，苏拉法特[r]有话对她讲？联络倒是可以，要花多少年就不知道了」", COL2);
+SetTalkEx(cutinDescri, "？？？[r]「谢莉亚？她到点下班了。[r]我是换班的天琴座γ，苏拉法特。[r]有话对她讲？联络倒是可以，要花多少年就不知道了」", COL2);
 		}
 		case(8)
 		{

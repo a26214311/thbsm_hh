@@ -87,7 +87,7 @@ SetTalkEx(cutinPlayer1, "天河之桥好像通了。[r]我终于也要去拜谒�
 		{
 			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
 			
-SetTalkEx2(cutinBoss1, "あ〜[ruby rb=\"死兆星\" rt=\"　アルコル\"]が急に光り出したね〜", -32, -280);
+SetTalkEx2(cutinBoss1, "啊～[ruby rb=\"死兆星\" rt=\"Alcor\"]突然绽放出了光芒～", -32, -280);
 		}
 		case(2)
 		{
@@ -119,7 +119,7 @@ SetTalkEx(cutinBoss1, "啊～麻烦。都怪你们有了多余的智慧，[r]给
 		case(6)
 		{
 			ChangeTalkTexture(cutinBoss1, I_ANGER);
-SetTalkEx(cutinBoss1, "赶紧回到地上，也告诉其他人类，[r]そうやって願いの[ruby rb=\"質的低下\" rt=\"ダウングレード\"]を促しなさい");
+SetTalkEx(cutinBoss1, "赶紧回到地上，也告诉其他人类，[r]促进愿望发生[ruby rb=\"质的减少\" rt=\"downgrade\"]吧");
 		}
 		case(7)
 		{
@@ -128,7 +128,7 @@ SetTalkEx(cutinPlayer1, "好奇怪啊，正因为是七夕，[r]才应该发奋�
 		}
 		case(8)
 		{
-SetTalkEx(cutinPlayer1, "健康长寿、及格祈愿、生意兴隆、[r]IT信息安全……<ref name=negai>捏他[[东方神灵庙/其他#游戏内标题及说明文字|神灵庙难度名]]。EX难度的标题在神灵庙中写作「除け」译成了“退散”，但更常见的写法是同音的「避け」，也即“躲避”才对。<del>2UN又喝醉了。</del></ref>");
+SetTalkEx(cutinPlayer1, "健康长寿、及格祈愿、生意兴隆、[r]IT信息安全……");
 		}
 		case(9)
 		{
@@ -148,7 +148,7 @@ SetTalkEx(cutinBoss1, "那么乘着北斗七星，[r]恐怖的天帝将会降临
 		case(12)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "[ruby rb=\"恐怖の大王\" rt=\"アンゴルモア\"]はもう時効だろ");
+SetTalkEx(cutinPlayer1, "[ruby rb=\"恐怖大王\" rt=\"Angolmois\"]已经过期了");
 		}
 		case(13)
 		{

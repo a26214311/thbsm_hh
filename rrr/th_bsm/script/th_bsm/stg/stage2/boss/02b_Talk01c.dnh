@@ -164,7 +164,7 @@ SetTalkEx(cutinBoss1, "很好！很好！就像你一样，[r]我也来探探雇
 		case(15)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "传说的新人神明，到底深浅如何！[r]来吧，猛犬");
+SetTalkEx(cutinBoss1, "传说的新人神明，到底深浅如何！[r]来吧，猛犬或是枪林，随便你用哪个！");
 		}
 		others
 		{

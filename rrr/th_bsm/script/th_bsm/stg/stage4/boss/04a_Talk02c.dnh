@@ -80,7 +80,7 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "不是事的引路人，倒确实是不死身");
+SetTalkEx(cutinBoss1, "不是事的引路人，倒确实是不死身。");
 		}
 		case(1)
 		{

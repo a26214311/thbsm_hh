@@ -112,7 +112,7 @@ SetTalkEx(cutinBoss1, "哼哼哼，即便是幻想乡也没有关系。");
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "我们望月的步行巫女[r]没有潜入不了的地方。");
+SetTalkEx(cutinBoss1, "我们望月的步行巫女，[r]没有潜入不了的地方。");
 		}
 		case(6)
 		{

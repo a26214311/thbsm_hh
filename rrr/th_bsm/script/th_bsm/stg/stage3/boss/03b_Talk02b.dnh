@@ -81,7 +81,7 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "许的最后一个愿生效了啊。[r]「弹幕躲避祈愿」<ref name=negai></ref>");
+SetTalkEx(cutinPlayer1, "许的最后一个愿生效了啊。[r]「弹幕躲避祈愿」");
 		}
 		case(1)
 		{
