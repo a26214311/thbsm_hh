@@ -91,7 +91,7 @@ SetTalkEx(cutinPlayer1, "超越朝颜？你们也就知道朝颜的朝颜[r]（�
 		case(1)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "ぐすん、夕の顔くらい知っているのです。");
+SetTalkEx(cutinBoss1, "呜呜，夕颜（晚上的样子）还是知道的哦");
 		}
 		case(2)
 		{
@@ -101,7 +101,7 @@ SetTalkEx(cutinPlayer1, "我们那儿小学生的时候[r]都会培育朝颜的�
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss2, I_BORO1);
-SetTalkEx(cutinBoss2, "知道得清楚好羡慕。[r]フォニー、私達も小学生になろう〜");
+SetTalkEx(cutinBoss2, "知道得清楚好羡慕。[r]芙妮，我们也去做小学生吧～");
 		}
 		others
 		{

@@ -83,76 +83,76 @@ function FuncTalk()
 		alternative(talkID)
 		case(0)
 		{
-SetTalkEx(cutinDescri, "博麗神社", COL0);
+SetTalkEx(cutinDescri, "博丽神社", COL0);
 		}
 		case(1)
 		{
-SetTalkEx(cutinDescri, "異変は解決したが、勿論参拝客が増えたりはしない。", COL0);
+SetTalkEx(cutinDescri, "异变虽然解决了，但不用说，参拜客并没有增加。", COL0);
 		}
 		case(2)
 		{
-SetTalkEx(cutinDescri, "霊夢[r]「って！　なんでよ！[r]　なんでいつもそうなのよ！」", COL1);
+SetTalkEx(cutinDescri, "霊夢[r]「我说！为啥啊！[r]为什么每次都是这样！」", COL1);
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, "フーマ[r]「当たり前だ。妖怪が出入りする君の神社は、[r]　麓の人里でも有名なオカルトスポットだよ」", COL2);
+SetTalkEx(cutinDescri, "フーマ[r]「当然如此。你那妖怪时常出入的神社，[r]在山麓的人类村落也是很有名的灵异场所啊。」", COL2);
 		}
 		case(4)
 		{
-SetTalkEx(cutinDescri, "霊夢[r]「そして何勝手に上り込んでる！？」", COL1);
+SetTalkEx(cutinDescri, "霊夢[r]「话说你又是为何会擅自过来啊！？」", COL1);
 		}
 		case(5)
 		{
-SetTalkEx(cutinDescri, "フーマ[r]「本は魔力の源であり、知識の泉である。[r]　現代の幻想郷のしきたりは調べておいたよ。[r]　異変の後は巫女の神社へ行き酒を飲む」", COL2);
+SetTalkEx(cutinDescri, "フーマ[r]「书是魔力之源，也是知识之泉。[r]我调查了一下现代幻想乡的惯例。[r]异变之后，一定会去巫女的神社喝酒。」", COL2);
 		}
 		case(6)
 		{
-SetTalkEx(cutinDescri, "霊夢[r]「無い無い！　そんなしきたり無い！」", COL1);
+SetTalkEx(cutinDescri, "霊夢[r]「没有没有！才没有这种惯例！」", COL1);
 		}
 		case(7)
 		{
 			TEndingImage(imgEDReimu[3], 30);
-SetTalkEx(cutinDescri, "フーマ[r]「それからフーマのオカルトはミシャンドラ。[r]　新時代を象徴するネット都市伝説でオカルトボールは[r]　頂くよ」", COL2);
+SetTalkEx(cutinDescri, "フーマ[r]「以及，芙玛的灵异是米山多拉。[r]我拿到了象征新时代的网络都市传说的[r]　頂くよ」", COL2);
 		}
 		case(8)
 		{
-SetTalkEx(cutinDescri, "霊夢[r]「それももう終わってるから！」", COL1);
+SetTalkEx(cutinDescri, "霊夢[r]「那个已经结束了！」", COL1);
 		}
 		case(9)
 		{
-SetTalkEx(cutinDescri, "フーマが名乗るミシャンドラの名。[r]それはソロモン72柱の悪魔の、知られざる73番目。", COL0);
+SetTalkEx(cutinDescri, "芙玛所顶替的米珊朵拉之名。[r]那是所罗门72柱恶魔中，不为人知的第73柱。", COL0);
 		}
 		case(10)
 		{
-SetTalkEx(cutinDescri, "いかなる記録も文献も残されていないが、[r]それは召喚者に自らを記録・記憶させない呪いをかける為。", COL0);
+SetTalkEx(cutinDescri, "任何记录与文献都没有记载，[r]是因为它施加了召唤者无法记录、记忆自己的诅咒。", COL0);
 		}
 		case(11)
 		{
-SetTalkEx(cutinDescri, "…という設定で、インターネットを介し都市伝説となった架空の悪魔。[r]つまりどこかの誰かのオリジナルキャラクターなのだ。", COL0);
+SetTalkEx(cutinDescri, "…设定如上，其实只是介由网络成了都市传说的架空的恶魔。[r]换句话说，就是某人的原创角色而已。", COL0);
 		}
 		case(12)
 		{
-SetTalkEx(cutinDescri, "フーマ[r]「だが構わん。元はと言えばサタンもベリアルも[r]　似たような物だ。[r]　主と目的を失いフーマは自分が何者なのかを忘れた」", COL2);
+SetTalkEx(cutinDescri, "フーマ[r]「但是没关系。追本溯源，撒旦也好彼列也好[r]也都是类似的东西。[r]失去主人与目的的芙玛，已经不记得自己是谁了」", COL2);
 		}
 		case(13)
 		{
-SetTalkEx(cutinDescri, "フーマ[r]「だがフーマがその名を名乗る事で、[r]　73番目の悪魔はここに確かに顕現する」", COL2);
+SetTalkEx(cutinDescri, "フーマ[r]「但因为芙玛使用了这个名字，[r]第73柱恶魔确实在此显现了。」", COL2);
 		}
 		case(14)
 		{
-SetTalkEx(cutinDescri, "時代と共に姿は変われども、誰かの記憶の中に残り続け、[r]語り継がれる限り、魂は不滅。", COL0);
+SetTalkEx(cutinDescri, "就算姿态随时代变迁而更改，只要仍旧留在别人的记忆中，[r]故事仍旧在流传，魂灵就是不灭的。", COL0);
 		}
 		case(15)
 		{
-SetTalkEx(cutinDescri, "かつて霊夢たちが用いた、怪異伝承を武器として身に付ける発想。[r]フーマはこれが、自分のような名も無き存在に光明をもたらす秘策であると確信した。", COL0);
+SetTalkEx(cutinDescri, "过去灵梦她们曾使用过的，以怪谈故事作为武器装备的这个点子。[r]芙玛确信，这是给像自己一样无名的存在带来光明的锦囊妙计。", COL0);
 		}
 		case(16)
 		{
-SetTalkEx(cutinDescri, "彼女は本ならではの豊富な知識と、風魔ならではの名付けの特技を活かし幻想郷各地の消え行く妖怪や神様を、新しい存在として昇華させて回る。", COL0);
+SetTalkEx(cutinDescri, "她凭借着自己身为书的丰富知识，以及身为风魔的命名特技，在幻想乡各地，将行将消失的妖怪、神明，升华为崭新的存在。", COL0);
 		}
 		case(17)
 		{
-SetTalkEx(cutinDescri, "かくして人里は新たな都市伝説で溢れ、以前の異変で見た事の無い新種のオカルトボールまで幻想郷中に出現。[r]またまた霊夢は解決に奔走する事になるのだが、それはまた別の話である。", COL0);
+SetTalkEx(cutinDescri, "于是，人类村落又充满了新的都市传说，连以前异变时候都没见过的新品种神秘珠出现在幻想乡里。[r]灵梦再次为解决而到处奔走，但那又是另一个故事了。", COL0);
 		}
 		case(18)
 		{

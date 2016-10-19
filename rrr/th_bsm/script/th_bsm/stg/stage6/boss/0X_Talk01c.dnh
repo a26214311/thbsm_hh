@@ -98,7 +98,7 @@ SetTalkEx(cutinDescri, "一曜[r]「就是现在！火遁！火球攻击！」",
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, "早苗[r]「风墙发动！[r]　炎を貫き防ぎ、そのまま攻撃！　勝負あり…」", COL1);
+SetTalkEx(cutinDescri, "早苗[r]「风墙发动！[r]贯通火焰，完全防御，接着直接攻击！胜负已分…」", COL1);
 		}
 		case(4)
 		{
@@ -138,7 +138,7 @@ SetTalkEx(cutinDescri, "諏訪子[r]「怎么感觉跟我知道的忍者不一�
 		}
 		case(13)
 		{
-SetTalkEx(cutinDescri, "神奈子[r]「不管是神明还是忍者都得紧跟时代步伐啊，[r]　私のように」", COL3);
+SetTalkEx(cutinDescri, "神奈子[r]「不管是神明还是忍者都得紧跟时代步伐啊，[r]就像我一样」", COL3);
 		}
 		case(14)
 		{
@@ -191,15 +191,15 @@ SetTalkEx(cutinDescri, "接着，她放弃了思考。[r]这是自己选择的�
 		}
 		case(26)
 		{
-SetTalkEx(cutinDescri, "早苗[r]「你的忍术，我永远不会忘记的…。[r]　さあ今年も異変です！霊夢さんに負けずに行きますよ！", COL1);
+SetTalkEx(cutinDescri, "早苗[r]「你的忍术，我永远不会忘记的…。[r]好了，今年也有异变！不会输给灵梦的，我这就出发！」", COL1);
 		}
 		case(27)
 		{
-SetTalkEx(cutinDescri, "与“忍”这个字截然相反，释放出强大存在感的守矢的年轻神明。[r]今年も派手な技で異変解決に挑む——。[r]早苗对一曜的生存方式充分认同，同时也对自己的生存方式怀抱骄傲。", COL0);
+SetTalkEx(cutinDescri, "与“忍”这个字截然相反，释放出强大存在感的守矢的年轻神明。[r]今年也要用华丽的技能尝试解决异变——[r]早苗对一曜的生存方式充分认同，同时也对自己的生存方式怀抱骄傲。", COL0);
 		}
 		case(28)
 		{
-SetTalkEx(cutinDescri, "　　　　Ending.03　ところでその時霊夢って何歳だろう", COL0);
+SetTalkEx(cutinDescri, "Ending.03　话说今年灵梦几岁了来着", COL0);
 		}
 		others
 		{

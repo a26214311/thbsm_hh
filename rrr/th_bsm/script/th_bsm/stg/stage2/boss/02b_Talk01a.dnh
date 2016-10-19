@@ -81,14 +81,14 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "それにしても見事な夕焼けね");
+SetTalkEx(cutinPlayer1, "话说回来，这夕阳还真漂亮。");
 		}
 		case(1)
 		{
 			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
 			
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "トンビが鳴くからかーえろ、[r]とは行かないようだけど");
+SetTalkEx(cutinPlayer1, "不过飞鸢啼鸣不如归[r]按这说法倒是不该走下去了");
 		}
 		case(2)
 		{
@@ -97,33 +97,33 @@ SetTalkEx(cutinPlayer1, "トンビが鳴くからかーえろ、[r]とは行か�
 			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
 
 			ChangeTalkTexture(cutinBoss1, I_NOTICE);
-SetTalkEx(cutinBoss1, "ほう！　ほう！");
+SetTalkEx(cutinBoss1, "嚯！嚯！");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "僕の尾行に気付いていたのかね？[r]いつから？");
+SetTalkEx(cutinBoss1, "注意到我的跟踪了吗？[r]什么时候开始的？");
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "いつから？　いつから人前に出て[r]盛大に弾を撃つのが尾行になったのよ");
+SetTalkEx(cutinPlayer1, "什么时候？那时候你在别人面前出现[r]射出一大堆弹幕，你管这个叫跟踪？");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "これは失敬！　[ruby rb=\"河童の光学迷彩マント\" rt=\"てんぐのかくれみの\"]は[r]壊れやすいのが珠に傷だ");
+SetTalkEx(cutinBoss1, "これは失敬！　[ruby rb=\"河童の光学迷彩マント\" rt=\"てんぐのかくれみの\"]は[r]容易损坏，乃是白璧微瑕");
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET);
-SetTalkEx(cutinPlayer1, "天狗のせこい隠し撮りに[r]付き合ってる暇は無い");
+SetTalkEx(cutinPlayer1, "天狗的小器偷拍，[r]我可没空搭理");
 		}
 		case(7)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NOTICE);
-SetTalkEx(cutinBoss1, "言うねえ！[r]では正面から撮らせて貰おう！");
+SetTalkEx(cutinBoss1, "才不小器！[r]那么我就堂堂正正地拍吧！");
 		}
 		case(8)
 		{
@@ -133,7 +133,7 @@ SetTalkEx(cutinBoss1, "僕を隠し撮りばかりの[r]卑怯者と思われて
 		case(9)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "なるほど、[r]外套の次は写真機を壊されたいか");
+SetTalkEx(cutinPlayer1, "原来如此，[r]继外套之后，又想要自己的相机也坏掉吗");
 		}
 		case(10)
 		{
@@ -141,16 +141,16 @@ SetTalkEx(cutinPlayer1, "なるほど、[r]外套の次は写真機を壊され�
 			PlayMusicWithName(5, 180, 30);
 
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "夕焼けトンビの伝承を知っているかね？[r]夜明けに出会ったら願いを叶えると言う。");
+SetTalkEx(cutinBoss1, "你知道夕阳飞鸢的民俗故事吗？[r]若在黎明时见到飞鸢，愿望便会实现。");
 		}
 		case(11)
 		{
-SetTalkEx(cutinBoss1, "今はまだ夕刻だが…");
+SetTalkEx(cutinBoss1, "虽然现在还是黄昏……");
 		}
 		case(12)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "鷹藤が術中に嵌まった君は、[r]すぐにやめろと懇願する事になろうよ！");
+SetTalkEx(cutinBoss1, "但堕入鹰藤术中的你，[r]很快就会恳求我手下留情了吧！");
 		}
 		others
 		{

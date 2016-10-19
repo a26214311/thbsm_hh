@@ -91,7 +91,7 @@ SetTalkEx(cutinPlayer1, "我知道啊，可这不是逃避现实吗？");
 		case(1)
 		{
 			ChangeTalkTexture(cutinBoss2, I_BORO1);
-SetTalkEx(cutinBoss2, "朝颜受欢迎的七夕，[r]たった一夜限りなんてね。");
+SetTalkEx(cutinBoss2, "朝颜受欢迎的七夕，[r]也只不过一个晚上而已。");
 		}
 		case(2)
 		{

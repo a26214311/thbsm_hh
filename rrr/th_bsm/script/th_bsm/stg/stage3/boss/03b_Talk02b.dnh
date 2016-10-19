@@ -86,12 +86,12 @@ SetTalkEx(cutinPlayer1, "许的最后一个愿生效了啊。[r]「弹幕躲避�
 		case(1)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO2);
-SetTalkEx(cutinBoss1, "あ〜ちなみに私に勝っても[r]雨也不会停的");
+SetTalkEx(cutinBoss1, "啊～顺便一提就算赢了我[r]雨也不会停的");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET);
-SetTalkEx(cutinPlayer1, "真是不死心啊。输了就停止异变[r]異変を止めるのがしきたりだろうが。");
+SetTalkEx(cutinPlayer1, "真是不死心啊。输了就停止异变[r]不是老规矩吗？");
 		}
 		case(3)
 		{
@@ -106,7 +106,7 @@ SetTalkEx(cutinBoss1, "而扭曲了事态的，[r]是藏在地上某处的黑幕
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "是操纵人类欲望，让大三角星闪耀，[r]その魔力を奪う者よ。");
+SetTalkEx(cutinBoss1, "是操纵人类欲望，让大三角星闪耀，[r]夺走其魔力的人啊");
 		}
 		case(6)
 		{
@@ -116,7 +116,7 @@ SetTalkEx(cutinPlayer1, "又是地上吗，路程真长啊");
 		case(7)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "牛郎星大人会借给你[r]貸して下さるってさ。");
+SetTalkEx(cutinBoss1, "牛郎星大人会借给你[r]牛车（比光速还快）啦");
 		}
 		others
 		{

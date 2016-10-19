@@ -105,12 +105,12 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "くそ、こんな強いとは予想外だぜ。");
+SetTalkEx(cutinBoss1, "可恶，没想到居然这么强。");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "何を狐につままれたような顔をしている？[r]本物の魔理沙の方が余程強いわよ");
+SetTalkEx(cutinPlayer1, "何必一脸狐狸狐涂的？[r]真正的魔理沙比你可强得多了。");
 		}
 		case(2)
 		{
@@ -119,7 +119,7 @@ SetTalkEx(cutinPlayer1, "何を狐につままれたような顔をしている�
 			SetImageVisible(cutinBoss2, false);
 
 			ChangeTalkTexture(cutinBoss1, I_ANGER);
-SetTalkEx(cutinBoss1, "そうまで言われちゃ黙ってられねえ。");
+SetTalkEx(cutinBoss1, "你都这么说了我可没法不开口。");
 		}
 		case(3)
 		{
@@ -137,71 +137,71 @@ SetTalkEx(cutinBoss1, "");
 
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, "やっぱりお主の事、もっと[r]ちゃんと警戒する必要があったのう。");
+SetTalkEx(cutinBoss2, "果然我该多警戒你一些的[r]char");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "異変は初めて？[r]博麗の巫女も舐められたもんね。");
+SetTalkEx(cutinPlayer1, "你是第一次搞异变吗？[r]不要小看博丽的巫女啊。");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx(cutinBoss2, "あぁー舐めておったわ。");
+SetTalkEx(cutinBoss2, "是啊是啊轻视了。");
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx(cutinBoss2, "今頃は守矢のヒヨッコと[r]仲良く潰し合ってるもんだとな。");
+SetTalkEx(cutinBoss2, "还想着这会儿你应该[r]和守矢的那个雏儿亲热地厮杀起来了呢");
 		}
 		case(7)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "残念ね、争いは同じ[ruby rb=\"力量\" rt=\"レベル\"]の者同士[r]でしか発生しないの。");
+SetTalkEx(cutinPlayer1, "残念ね、争いは同じ[ruby rb=\"力量\" rt=\"レベル\"]の者同士[r]{{ruby-cn|力量|级别}}同等的人之间");
 		}
 		case(8)
 		{
 			ChangeTalkTexture(cutinBoss2, I_UPSET);
-SetTalkEx(cutinBoss2, "ではこの禰津とお主が？　同じ？");
+SetTalkEx(cutinBoss2, "那么我祢津与你呢？同等吗？");
 		}
 		case(9)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx2(cutinBoss2, "喝！", -96, -128);
+SetTalkEx2(cutinBoss2, "呵！", -96, -128);
 			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// 吹き出しタイプ変更
 		}
 		case(10)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx(cutinBoss2, "先刻の台詞を返してやるわ。[r]この禰津も舐められた物よ。");
+SetTalkEx(cutinBoss2, "刚刚的台词原样奉还。[r]不要小看我祢津啊。");
 		}
 		case(11)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "さっきの忍者かぶれで思い出した。[r]確か戦国時代に、いい狐殺しの歌があったのよね。");
+SetTalkEx(cutinPlayer1, "刚刚那个忍者狂魔让我想起一件事。[r]似乎战国时代，有首杀狐狸的歌来着。");
 		}
 		case(12)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "夏はきつ　ねに鳴く蝉の　唐衣——");
+SetTalkEx(cutinPlayer1, "夏至蝉住口——<ref name=wuchilaozei></ref>");
 		}
 		case(13)
 		{
 			ChangeTalkTexture(cutinBoss2, I_UPSET);
-SetTalkEx(cutinBoss2, "…貴様！");
+SetTalkEx(cutinBoss2, "…你敢！");
 			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// 吹き出しタイプ変更
 		}
 		case(14)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx2(cutinPlayer1, "乗って来たわね。いいわ、[r]そのまま怒りに身を任せるのよ。[r]こういう小賢しい手合いは冷静さを失わせれば…", -32, 0);
+SetTalkEx2(cutinPlayer1, "中计了。很好，[r]就这么怒气冲天下去吧。[r]靠这种雕虫小技就能让她失去冷静…", -32, 0);
 			SetFukidashiType(cutinPlayer1, FUKIDASHI_THINK);	// 吹き出しタイプ変更
 		}
 		case(15)
 		{
 			ChangeTalkTexture(cutinBoss2, I_SMILE);
-SetTalkEx2(cutinBoss2, "ふん、お主の作戦など顔に書いてあるわ。[r]これくらい演技してやれば騙され油断するか？", 32, 0);
+SetTalkEx2(cutinBoss2, "哼，你的计谋都写在脸上了。[r]你以为这等演技能骗得过我？", 32, 0);
 			SetFukidashiType(cutinBoss2, FUKIDASHI_THINK);	// 吹き出しタイプ変更
 		}
 		case(16)
@@ -211,12 +211,12 @@ SetTalkEx2(cutinBoss2, "ふん、お主の作戦など顔に書いてあるわ�
 
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinPlayer1, "私は妖怪を御す幻想郷の巫女。[r]あんたは巫女に倒されるみじめな妖怪。");
+SetTalkEx(cutinPlayer1, "我是支配妖怪的幻想乡的巫女。[r]你是被巫女打倒的可悲的妖怪。");
 		}
 		case(17)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, "夏狐が鳴くを聞けば、[r]巫女の身にとて禍が起こる。");
+SetTalkEx(cutinBoss2, "听见夏狐的鸣叫，[r]巫女的身上会发生灾祸。");
 		}
 		case(18)
 		{

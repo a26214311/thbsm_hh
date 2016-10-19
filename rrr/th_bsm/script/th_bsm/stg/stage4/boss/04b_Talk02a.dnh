@@ -79,32 +79,32 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "さすがに紫がいないと[r]これ以上の維持は無理か。");
+SetTalkEx(cutinPlayer1, "果然紫不在的话[r]没法继续维持下去了啊。");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO2);
-SetTalkEx(cutinBoss1, "くっ…強い。[r]これ程の忍者がまだ存在していたなんて…");
+SetTalkEx(cutinBoss1, "咕…好强。[r]竟还有如此之强的忍者存在…");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET);
-SetTalkEx(cutinPlayer1, "欲霊の流れはまだ止まないのね。[r]黒幕じゃないならもうあんたはえーや");
+SetTalkEx(cutinPlayer1, "欲灵的涌流仍未停止。[r]既然不是黑幕，你随便了。");
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "もしや貴方も伝説の魔宝を狙って来ましたか。[r]欠けた月を埋めてくれるに違いないピースを");
+SetTalkEx(cutinBoss1, "莫非你也是为了传说中的魔宝而来的吗。[r]那块定能补满破缺之月的碎片");
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "また新しいアイテム出て来た。[r]何よ伝説の魔宝って");
+SetTalkEx(cutinPlayer1, "又有新道具？[r]传说中的魔宝是啥啊");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "良かった。[r]やはり空飛び巫女は歩き巫女より無知だ");
+SetTalkEx(cutinBoss1, "太好了。[r]果然会飞的巫女比步行巫女要无知啊。");
 		}
 		others
 		{

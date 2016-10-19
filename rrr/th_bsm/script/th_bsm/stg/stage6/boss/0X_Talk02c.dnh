@@ -88,7 +88,7 @@ function FuncTalk()
 		alternative(talkID)
 		case(0)
 		{
-SetTalkEx(cutinDescri, "早苗[r]「我明明这么努力了！神奈子大人、诹访子大人明鉴，[r]　照覧、私は精一杯に飛んで、動けなくなるまで戦っ[r]　たのに」", COL1);
+SetTalkEx(cutinDescri, "早苗[r]「我明明这么努力了！神奈子大人、诹访子大人明鉴，[r]我确实是拼命飞，一直战斗到动弹不得的地步」[r]　たのに」", COL1);
 		}
 		case(1)
 		{
@@ -100,7 +100,7 @@ SetTalkEx(cutinDescri, "早苗[r]「原谅我吧！我不是没有信用的人�
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, "早苗[r]「真想让您看看我那鲜红的心脏。真想让您亲眼看看[r]　動いているこの心臓を見せてやりたい！」", COL1);
+SetTalkEx(cutinDescri, "早苗[r]「真想让您看看我那鲜红的心脏。真想让您亲眼看看[r]我那颗只流淌着爱和诚信的血液的心脏啊！」", COL1);
 		}
 		case(4)
 		{
@@ -141,7 +141,7 @@ SetTalkEx(cutinDescri, "把因为祢津捣鬼而出现的邪恶朝颜替换成�
 		}
 		case(13)
 		{
-SetTalkEx(cutinDescri, "早苗[r]「好！太好了！[r]　さあ二人共、踏み込みましょう、品種改良を重ね[r]　優性遺伝結界（メンデルス・ゾーン）の深奥へ！」", COL1);
+SetTalkEx(cutinDescri, "早苗[r]「好！太好了！[r]来吧两位，一起前进吧，不断改良品种[r]向着显性遗传结界（Mendel's Zone）的最深处！」", COL1);
 		}
 		case(14)
 		{

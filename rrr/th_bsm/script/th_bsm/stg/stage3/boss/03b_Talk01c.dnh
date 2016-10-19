@@ -86,7 +86,7 @@ SetTalkEx(cutinPlayer1, "天河真的不合时令地开通了！");
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "神奈子大人和诹访子大人的力量[r]何と底知れぬ事でしょう。");
+SetTalkEx(cutinPlayer1, "神奈子大人和诹访子大人的力量[r]到底有多么深不可测啊");
 		}
 		case(2)
 		{
@@ -144,7 +144,7 @@ SetTalkEx(cutinPlayer1, "根据刚刚天狗说的话，[r]好好想想吧。");
 		case(11)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "ただの想定外の偶然による事故です。");
+SetTalkEx(cutinPlayer1, "这只是个预料之外的偶然造成的事故而已");
 		}
 		case(12)
 		{
@@ -154,12 +154,12 @@ SetTalkEx(cutinBoss1, "天狗是谁啊。");
 		case(13)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "总之，哪怕早一秒也好，[r]欲エネルギーの流れをそちらから遮断するのよ");
+SetTalkEx(cutinBoss1, "总之，哪怕早一秒也好，[r]去把地上流淌来的欲望能量从那边给我断掉啊！");
 		}
 		case(14)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "さもなければこの結界——[r]在七夕之夜降下的催泪雨，可不会停止的");
+SetTalkEx(cutinBoss1, "要不然的话这个结界——[r]在七夕之夜降下的催泪雨，可不会停止的");
 		}
 		case(15)
 		{

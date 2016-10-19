@@ -101,7 +101,7 @@ SetTalkEx(cutinBoss1, "欲望通过朝颜增幅，以致织女星[r]白天就开
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NOTICE);
-SetTalkEx(cutinBoss1, "残念だねえ、神社はもぬけの殻であったよ。");
+SetTalkEx(cutinBoss1, "很遗憾，不过贵神社现在已经人去楼空了。");
 		}
 		case(4)
 		{
@@ -126,7 +126,7 @@ SetTalkEx(cutinBoss1, "另外我还擅长物色[r]优秀武器和漂亮童女。
 		case(8)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "你家神社可没有我看得上眼的东西，[r]無かったので何も弄っておらんよ。");
+SetTalkEx(cutinBoss1, "你家神社可没有我看得上眼的东西，[r]所以我不会动一针一线的。");
 		}
 		case(9)
 		{
@@ -151,7 +151,7 @@ SetTalkEx(cutinPlayer1, "说了这种事情，该不会你们才是真凶，[r]�
 		case(13)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "还有可别误会了。[r]貴方の力を測るのは貴方ではないの。");
+SetTalkEx(cutinPlayer1, "还有可别误会了。[r]能测出你真本事的，肯定不会是你自己。");
 		}
 		case(14)
 		{
@@ -159,7 +159,7 @@ SetTalkEx(cutinPlayer1, "还有可别误会了。[r]貴方の力を測るのは�
 			PlayMusicWithName(5, 180, 30);
 
 			ChangeTalkTexture(cutinBoss1, I_NOTICE);
-SetTalkEx(cutinBoss1, "結構！　結構！　君がそうであるように[r]我也来探探雇主的器量吧！");
+SetTalkEx(cutinBoss1, "很好！很好！就像你一样，[r]我也来探探雇主的器量吧！");
 		}
 		case(15)
 		{

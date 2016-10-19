@@ -180,7 +180,7 @@ SetTalkEx(cutinBoss1, "那么以风魔的秘术命名吧。");
 		case(6)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, "继承风魔之术，[r]72の悪魔を統べる者——その名を！");
+SetTalkEx(cutinBoss1, "继承风魔之术，[r]统治72恶魔的人——其名为！");
 			SetFukidashiType(cutinBoss1, FUKIDASHI_ANGER);	// 吹き出しタイプ変更
 			wait(135);
 		}

@@ -79,7 +79,7 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "ちっ、そう言えば尻尾が見えていたぜ");
+SetTalkEx(cutinBoss1, "切，我露出狐狸尾巴了啊");
 			AwayBoss();
 			wait(75);
 		}
@@ -88,7 +88,7 @@ SetTalkEx(cutinBoss1, "ちっ、そう言えば尻尾が見えていたぜ");
 			SetImageVisible(cutinBoss1, false);
 			
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "さあ、地の果てまで追うわよ");
+SetTalkEx(cutinPlayer1, "我会追你到天涯海角的");
 			wait(75);
 		}
 		others

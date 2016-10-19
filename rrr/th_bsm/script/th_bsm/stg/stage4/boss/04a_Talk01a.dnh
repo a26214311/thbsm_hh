@@ -83,23 +83,23 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "やはりお前か、こんな夜にまた来た馬鹿者");
+SetTalkEx(cutinBoss1, "果然是你啊，这种夜里还会过来的傻瓜");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "なぜ竹が光っている？[r]なぜ竹林には雨が降っていない？[r]馬鹿に分かるように説明なさい");
+SetTalkEx(cutinPlayer1, "竹子为什么会发光？[r]竹林里为什么没有雨？[r]用傻瓜都听得懂的话解释一下。");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "占い師にでも尋ねるのだな。[r]「よく当たる占い　幻想郷の母」");
+SetTalkEx(cutinBoss1, "去找个占卜师问问如何。[r]「铁口直断 幻想乡之母」");
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "思いっきり殺らなきゃ。[r]あんたの人生ゲームオーバー");
+SetTalkEx(cutinPlayer1, "不用全力去打的话，[r]你的人生就要game over了。");
 		}
 		others
 		{

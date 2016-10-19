@@ -90,7 +90,7 @@ function FuncTalk()
 		alternative(talkID)
 		case(0)
 		{
-SetTalkEx(cutinPlayer1, "むしあつ〜、いい加減にして欲しいわ。[r]いつもなら昼寝する季節だって言うのに");
+SetTalkEx(cutinPlayer1, "热死啦～，真希望能适可而止一点。[r]要在平时，明明是白天睡觉的季节啊");
 		}
 		case(1)
 		{
@@ -99,35 +99,35 @@ SetTalkEx(cutinPlayer1, "むしあつ〜、いい加減にして欲しいわ。[
 			SetImageVisible(cutinBoss2, true);	// ボス画像出現フラグ
 
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx(cutinBoss2, "まだ寝る気かい？[r]いつも昼寝してる癖に");
+SetTalkEx(cutinBoss2, "又想睡吗？[r]明明平时都在白日睡觉呢");
 		}
 		case(2)
 		{
 			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
 			
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "巫女の生態は、神社裏の三人組から[r]情報収集済みなのです！");
+SetTalkEx(cutinBoss1, "巫女的生态情报，我们已经从神社里境的三人组那里[r]收集完毕了哦！");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "良かったね。[r]逆立ちしても勝てないって事前に分かって");
+SetTalkEx(cutinPlayer1, "太好了。[r]看来你们事先就知道了，就算拼尽全力也赢不过我。");
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinBoss2, I_DOYA);
-SetTalkEx(cutinBoss2, "何も分かってないなあ！");
+SetTalkEx(cutinBoss2, "才没有知道！");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE2);
-SetTalkEx(cutinBoss1, "なんだか朝顔が活性化しているけど、[r]おかげで私たちも恩恵を授かったのです！");
+SetTalkEx(cutinBoss1, "虽然不知道为什么朝颜活性化了，[r]但拜此所赐我们也得到了恩惠了哦！");
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "槿花一日の栄、ね");
+SetTalkEx(cutinPlayer1, "槿花一日之荣呢");
 		}
 		case(7)
 		{
@@ -135,7 +135,7 @@ SetTalkEx(cutinPlayer1, "槿花一日の栄、ね");
 			PlayMusicWithName(3, 180, 30);
 			
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, "私達は朝顔を超え、[r]かの遺伝子を駆逐する！");
+SetTalkEx(cutinBoss2, "我们会超越朝颜，[r]驱逐掉其他基因！");
 		}
 		case(8)
 		{

@@ -94,7 +94,7 @@ SetTalkEx(cutinDescri, "正在自己家里深感不甘的时候，有人在玄�
 		}
 		case(2)
 		{
-SetTalkEx(cutinDescri, "禰津[r]「空空，我是祢津。[r]　いやあ先の勝負は見事であった！」", COL2);
+SetTalkEx(cutinDescri, "禰津[r]「空空，我是祢津。[r]上次的战斗真是漂亮啊！」", COL2);
 		}
 		case(3)
 		{
@@ -102,11 +102,11 @@ SetTalkEx(cutinDescri, "魔理沙[r]「敲门就敲门，别用嘴模拟。就�
 		}
 		case(4)
 		{
-SetTalkEx(cutinDescri, "禰津[r]「我之前说过了。[r]　禰津はお主を認めた、故に挨拶代わりの冗句よ。[r]　さて、お主の機転と実力、人間にしては中々の物である[r]　ぞ」", COL2);
+SetTalkEx(cutinDescri, "禰津[r]「我之前说过了。[r]祢津认同了你，所以才用那句废话代替招呼声。[r]言归正传，你的机变与实力，在人类当中[r]　ぞ」", COL2);
 		}
 		case(5)
 		{
-SetTalkEx(cutinDescri, "禰津[r]「所以我们「让幻想乡陷入混乱协会」，[r]　名誉会員4号として迎え入れる！」", COL2);
+SetTalkEx(cutinDescri, "禰津[r]「所以我们「让幻想乡陷入混乱协会」，[r]决定让你成为名誉会员4号！」", COL2);
 		}
 		case(6)
 		{
@@ -135,7 +135,7 @@ SetTalkEx(cutinDescri, "弱肉强食。常在战场。[r]妖怪的世界无论�
 		case(12)
 		{
 			TEndingImage(imgEDMarisa[3], 30);
-SetTalkEx(cutinDescri, "魔理沙[r]「为了不被大家遗忘，我会将你们的英雄事迹[r]　本にして広めてやる。[r]　だからもう悪い事は改心しろ」", COL1);
+SetTalkEx(cutinDescri, "魔理沙[r]「为了不被大家遗忘，我会将你们的英雄事迹[r]写成书散播出去。[r]所以不要再干坏事了。」", COL1);
 		}
 		case(13)
 		{

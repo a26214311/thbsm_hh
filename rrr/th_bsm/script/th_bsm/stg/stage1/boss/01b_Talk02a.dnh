@@ -86,22 +86,22 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "うえぇん、種は取らないで欲しいのです");
+SetTalkEx(cutinBoss1, "呜诶，求求你不要拿走我们的种子");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "結界で私に勝負を挑むなんて莫迦か");
+SetTalkEx(cutinPlayer1, "想用结界挑战我还真是傻瓜呢");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss2, I_BORO1);
-SetTalkEx(cutinBoss2, "ちくしょう品種改良だ。さよなら巫女、[r]あなたの子孫には勝って見せるよ");
+SetTalkEx(cutinBoss2, "可恶，改良品种！再见巫女，[r]我们要赢过你的子孙给你看！");
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "次は博麗霊夢って奴がお相手するわ");
+SetTalkEx(cutinPlayer1, "下次还是那个叫博丽灵梦的家伙和你们打哦");
 		}
 		others
 		{

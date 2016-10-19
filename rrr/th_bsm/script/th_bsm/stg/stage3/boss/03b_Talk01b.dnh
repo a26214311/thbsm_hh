@@ -114,7 +114,7 @@ SetTalkEx(cutinPlayer1, "我只是个对天帝宫没兴趣的[r]普通天文爱�
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "あ〜面倒。あんた達が余計な知恵を[r]给我们这边添了大麻烦。");
+SetTalkEx(cutinBoss1, "啊～麻烦。都怪你们有了多余的智慧，[r]给我们这边添了大麻烦。");
 		}
 		case(6)
 		{
@@ -124,7 +124,7 @@ SetTalkEx(cutinBoss1, "赶紧回到地上，也告诉其他人类，[r]そうや
 		case(7)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "好奇怪啊，正因为是七夕，[r]奮発して願いを書いて来たのだが");
+SetTalkEx(cutinPlayer1, "好奇怪啊，正因为是七夕，[r]才应该发奋许愿吧。");
 		}
 		case(8)
 		{
@@ -133,17 +133,17 @@ SetTalkEx(cutinPlayer1, "健康长寿、及格祈愿、生意兴隆、[r]IT信�
 		case(9)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "天帝宮も太陽暦を採用したのよ。");
+SetTalkEx(cutinBoss1, "天帝宫也已经采用阳历了啊");
 		}
 		case(10)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "人是有欲望的生物。[r]今さら七夕中止なんて無しだぜ。");
+SetTalkEx(cutinPlayer1, "人是有欲望的生物。[r]现在中止七夕已经没用了");
 		}
 		case(11)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "那么乘着北斗七星，[r]恐怖の天帝が地上に降り立ちます。");
+SetTalkEx(cutinBoss1, "那么乘着北斗七星，[r]恐怖的天帝将会降临到地上");
 		}
 		case(12)
 		{

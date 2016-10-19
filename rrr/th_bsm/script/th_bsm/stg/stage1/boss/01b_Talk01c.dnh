@@ -105,14 +105,14 @@ SetTalkEx(cutinPlayer1, "而且幻想乡的人们的欲望居然有这么多也�
 			SetImageVisible(cutinBoss2, true);	// ボス画像出現フラグ
 
 			ChangeTalkTexture(cutinBoss2, I_SMILE);
-SetTalkEx(cutinBoss2, "説明してくれてありがとう。");
+SetTalkEx(cutinBoss2, "解说辛苦了");
 		}
 		case(3)
 		{
 			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
 			
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "あなたたちが朝顔を増やしてくれたおかげで[r]我们也能类似地增长了哦！");
+SetTalkEx(cutinBoss1, "多亏你们增多了朝颜，[r]我们也能类似地增长了哦！");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(4)
@@ -123,7 +123,7 @@ SetTalkEx(cutinPlayer1, "哎呀可爱的妖精小姐。朝颜增加的话…[r]�
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, "我们是长年被和朝颜[r]間違われてきた悲運の花。");
+SetTalkEx(cutinBoss2, "我们是长年被和朝颜[r]弄混的倒霉的花朵");
 		}
 		case(6)
 		{
@@ -133,7 +133,7 @@ SetTalkEx(cutinBoss1, "朝颜若是增加，我们也会变强！");
 		case(7)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE2);
-SetTalkEx(cutinBoss1, "尤其今夜，多亏了你们[r]朝顔が力を増した今宵は特にね。");
+SetTalkEx(cutinBoss1, "尤其今夜，多亏了你们[r]朝颜之力得到了增长！");
 		}
 		case(8)
 		{

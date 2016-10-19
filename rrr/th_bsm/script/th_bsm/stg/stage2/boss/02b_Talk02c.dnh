@@ -81,7 +81,7 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE2);
-SetTalkEx(cutinPlayer1, "猛犬？枪林？[r]そんなピンポイントな能力が役に立ちますか");
+SetTalkEx(cutinPlayer1, "猛犬？枪林？[r]这么局限的能力有用吗？");
 		}
 		case(1)
 		{
@@ -91,7 +91,7 @@ SetTalkEx(cutinPlayer1, "不会发生的才是奇迹，而我将引发这些奇�
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "良い口上だ。君には人を使う素質は無いが[r][ruby rb=\"大道芸人\" rt=\"　パフォーマー\"]の芽があるな");
+SetTalkEx(cutinBoss1, "口舌不错。你没有使唤人的素质，[r][ruby rb=\"大道芸人\" rt=\"　パフォーマー\"]の芽があるな");
 		}
 		case(3)
 		{

@@ -83,13 +83,13 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "動くと撃つ！");
+SetTalkEx(cutinBoss1, "敢动一动我就射击了！");
 			wait(75);
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "白々しいにも程があるわ");
+SetTalkEx(cutinPlayer1, "明显得也要有个限度吧");
 			wait(75);
 		}
 		others

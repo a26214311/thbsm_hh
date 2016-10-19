@@ -81,18 +81,18 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "とうとう犯人が見つからないまま[r]天の川の此岸。");
+SetTalkEx(cutinPlayer1, "到底是没找到犯人，[r]就这么到了天河此岸。");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "さては天狗に謀られたか");
+SetTalkEx(cutinPlayer1, "看来是被天狗算计了啊");
 		}
 		case(2)
 		{
 			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
 			
-SetTalkEx2(cutinBoss1, "犯人？[r]犯人はどちらだと思っていますか", -32, -280);
+SetTalkEx2(cutinBoss1, "犯人？[r]你以为犯人是谁？", -32, -280);
 		}
 		case(3)
 		{
@@ -103,58 +103,58 @@ SetTalkEx(cutinBoss1, "");
 			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
 
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "そう、これは[r]人の過ぎたる欲望が起こした異変");
+SetTalkEx(cutinBoss1, "没错，这是[r]由人们过多的欲望所引发的异变");
 			SetBossName(cutinBoss1);	// ボスネーム表示
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
-SetTalkEx(cutinPlayer1, "わ、私達人間が異変を起こせるわけ[r]ないでしょ、いい加減にしろ");
+SetTalkEx(cutinPlayer1, "我、我们人类没可能引发异变[r]的吧，给我适可而止一点");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "月の神々の次は、天の川と戦争を？[r]あ〜莫迦らし");
+SetTalkEx(cutinBoss1, "继月之众神之后，又想对天河发动战争吗？[r]啊～真蠢");
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "これはどういう事だ。まさか守矢と[r]天狗がグルになって私を嵌めようと？");
+SetTalkEx(cutinPlayer1, "这到底是怎么回事。莫非守矢和[r]天狗联合起来算计我吗？");
 		}
 		case(7)
 		{
 			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "あ〜無知。何の為の巫女ですか。");
+SetTalkEx(cutinBoss1, "啊～无知。你这巫女是干什么吃的。");
 		}
 		case(8)
 		{
 			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "真に無知なる民草を霊威を以て教え導く[r]それが地上の宗教指導者。");
+SetTalkEx(cutinBoss1, "凭借灵威来教导真正无知的庶民[r]这才是地上的宗教指导者。");
 		}
 		case(9)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "早く地上の民草に嘘でもいいから[r]吹き込みなさい。");
+SetTalkEx(cutinBoss1, "随便你骗他们也罢[r]赶紧劝劝地上的庶民吧。");
 		}
 		case(10)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "願い事をやめないと空から[r]恐怖の大王が来るってさぁ。");
+SetTalkEx(cutinBoss1, "要是愿望不停下的话[r]就会有恐怖大王从天而降了");
 		}
 		case(11)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET);
-SetTalkEx(cutinPlayer1, "ええい、交換条件よ。[r]せめて雨を止ませなさい");
+SetTalkEx(cutinPlayer1, "好啊，不过有个交换条件。[r]至少先把雨给停下");
 		}
 		case(12)
 		{
 			ChangeTalkTexture(cutinBoss1, I_ANGER);
-SetTalkEx(cutinBoss1, "分かったわ、[r]交換条件に願いを止めさせなさい");
+SetTalkEx(cutinBoss1, "行啊，[r]我的条件是你先把愿望给停下");
 		}
 		case(13)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "ああうん、[r]やっぱり私たち仲良くなれないのね");
+SetTalkEx(cutinPlayer1, "啊，嗯。[r]果然我们处不来呢。");
 		}
 		case(14)
 		{

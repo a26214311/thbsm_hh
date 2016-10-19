@@ -98,7 +98,7 @@ SetTalkEx(cutinBoss1, "那边路过的可怜的小姐。");
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "借给你我的竹筒吧。[r]両端とも穴が空いておるがね。");
+SetTalkEx(cutinBoss1, "借给你我的竹筒吧。[r]虽说两头都有洞。");
 		}
 		case(3)
 		{
@@ -108,7 +108,7 @@ SetTalkEx(cutinPlayer1, "那玩意是用来在水里呼吸的吗？[r]明明是�
 		case(4)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "生在黑暗中的忍者，[r]そのまま現代の闇に死んだのさ。");
+SetTalkEx(cutinBoss1, "生在黑暗中的忍者，[r]就这样死在了现代的黑暗中。");
 		}
 		case(5)
 		{

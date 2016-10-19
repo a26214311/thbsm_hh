@@ -81,17 +81,17 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO2);
-SetTalkEx(cutinBoss1, "そもそも夜明けに願いを叶えるのに、[r]夕刻に出て来るのは良くなかったな");
+SetTalkEx(cutinBoss1, "说到底只在黎明的时候才会实现愿望啦，[r]不该在黄昏时候出来的");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "ただの妖怪鳶なんて目じゃあない。[r]次は金鵄でも崇徳院でも連れて来なさい");
+SetTalkEx(cutinPlayer1, "区区妖怪鸢算不了什么。[r]下次让金鵄");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "それほど強い敵を所望なら、[r]このまま天の川に登るがいい。");
+SetTalkEx(cutinBoss1, "你想要那种强度的敌人的话，[r]就这么登上天河去吧。");
 		}
 		case(3)
 		{
@@ -101,12 +101,12 @@ SetTalkEx(cutinBoss1, "守矢神社？　無駄無駄！");
 		case(4)
 		{
 			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "今頃は連中も鳶に油揚げを[r]さらわれたようになっておるよ");
+SetTalkEx(cutinBoss1, "他们现在可是到嘴的鸭子[r]被飞鸢给叼走咯");
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
-SetTalkEx(cutinPlayer1, "鳶は鳶らしく死肉でも漁ってろ");
+SetTalkEx(cutinPlayer1, "鸢就给我像鸢一样老老实实吃腐肉去啊");
 		}
 		others
 		{

@@ -82,27 +82,27 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "私にゲームオーバーの概念は無いのでな");
+SetTalkEx(cutinBoss1, "我可没有game over这个概念");
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "ゲームオーバー直前からやり直しよ。[r]なぜ竹が光っている？[r]なぜ竹林には雨が降っていない？");
+SetTalkEx(cutinPlayer1, "那就从game over之前重来一次。[r]竹子为什么会发光？[r]竹林里为什么没有雨？");
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "一つは輝夜の結界のちょっとした応用。[r]永遠亭は屋根の補修工事中だそうだ。");
+SetTalkEx(cutinBoss1, "其一是辉夜的结界的一个小应用。[r]永远亭似乎正在修理她们家房顶。");
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "もう一つは、[r]竹林に隠れ住む厄介な奴らの仕業");
+SetTalkEx(cutinBoss1, "其二则是，[r]隐藏在竹林中的麻烦的家伙所做的好事");
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, "ここから先は私でも[r]一筋縄ではいかん迷い路だぞ");
+SetTalkEx(cutinBoss1, "从此往前，将是连我都[r]不好对付的迷宫");
 		}
 		case(5)
 		{
@@ -111,7 +111,7 @@ SetTalkEx(cutinBoss1, "ここから先は私でも[r]一筋縄ではいかん迷
 			SetImageVisible(cutinBoss1, false);
 			
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "迷ったら高く飛び上がればいいじゃん");
+SetTalkEx(cutinPlayer1, "要是迷了路高高飞起来不就行了。");
 		}
 		others
 		{
