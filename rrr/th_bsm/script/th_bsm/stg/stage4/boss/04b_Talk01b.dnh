@@ -1,0 +1,198 @@
+#東方弾幕風[Single]
+#ScriptVersion[3]
+#Title["4面　ボス会話前半"]
+#Text["4面　ボス会話前半"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// 関数取り込み
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+#include"./lib_Ichiyou.dnh"
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	// アニメリセット
+	Reset_aTime(BOSS_ID_ICHIYOU);
+	
+	Boss_Init();	//初期設定
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_ICHIYOU);
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// メインタスク
+task Task_Main()
+{
+	// 魔法陣リセット
+	BossEffect_ResetMagicCircle();
+
+	// 会話準備
+	StartTalk();
+
+	wait(120);
+
+	//会話処理
+	FuncTalk();
+	
+	//次のシーンへ
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// 会話処理
+function FuncTalk()
+{
+	// オブジェクト作成
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_ICHIYOU, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
+	
+	// 初期設定
+	SetImageFoward(cutinPlayer1, true);
+	SetImageVisible(cutinBoss1, false);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// 会話処理単発（巻き戻しも出来るように）
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
+SetTalkEx(cutinPlayer1, "喂喂，这边的竹子为什么会发光啊[r]又是那帮月人干的好事？");
+		}
+		case(1)
+		{
+			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
+			
+SetTalkEx2(cutinBoss1, "不，这是他们的忍法！", -32, -280);
+		}
+		case(2)
+		{
+SetTalkEx(cutinBoss1, "");
+			EnterBoss();
+			wait(45);
+			BossScene_SetNameVisible(objScene, true);	//ボスネーム表示状態
+			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
+
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, "他们用幻术张开了竹林的结界[r]可幻术必然会带来扭曲。");
+			SetBossName(cutinBoss1);	// ボスネーム表示
+		}
+		case(3)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, "忍者不是隐藏在影子中的吗？[r]这样还算什么忍者。");
+		}
+		case(4)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, "光与影都能自如操纵才是真正的忍者[r]当然，我们望月之忍正是如此！");
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, "忍者是创世神吗，好强。");
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, "不管那个，将魔力集中到竹林里去，[r]是用了怎样的忍法啊？");
+		}
+		case(7)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, "忍、忍法才不是魔法！[r]所以说现代人啊…");
+		}
+		case(8)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, "不过如你所见，以魔力[r]施术的忍者流派，现在依旧存在。[r]那个操纵传说中的魔宝的家族…");
+		}
+		case(9)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, "忽然充满了兴趣。[r]那么传说中的魔宝什么的，我要定了");
+		}
+		case(10)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, "很好。既然也是看上了魔宝，[r]你和我就是目的相同的好伙伴。");
+		}
+		case(11)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, "话说魔宝只有一个对吧？");
+		}
+		case(12)
+		{
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, "…前言撤回、[r]你和我是目的相同的好敌手。");
+		}
+		case(13)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_WORRY);
+SetTalkEx(cutinPlayer1, "魔宝不会使用分身之术吗。");
+		}
+		case(14)
+		{
+			//BGM
+			PlayMusicWithName(9, 180, 30);
+
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "分身也不过是后世人类所创作的幻想之术。[r]不过我就特别让你见识一下好了！");
+		}
+		case(15)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "将基于创作的幻想变为现实！[r]我们望月的不可思议的忍法！");
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+// 登場モーション
+task EnterBoss()
+{
+	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
+	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
+
+	// 登場モーション
+	SetIchiyouSmoke(CenX, 100, 1.5);
+	// 効果音
+	My_LoadPlaySE(pathSE_Smoke);
+	
+	let objImg = GetBossImageID(objEnemy);
+	ObjMove_SetPosition(objEnemy, CenX, 100);
+	ascent(i in 0 .. 45)
+	{
+		let alpha = (i+1)/45*255;
+		ObjRender_SetAlpha(objImg, alpha);
+		yield;
+	}
+}

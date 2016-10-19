@@ -1,0 +1,218 @@
+#東方弾幕風[Single]
+#ScriptVersion[3]
+#Title["4面　ボス会話前半"]
+#Text["4面　ボス会話前半"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// 関数取り込み
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+#include"./lib_Ichiyou.dnh"
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	// アニメリセット
+	Reset_aTime(BOSS_ID_ICHIYOU);
+	
+	Boss_Init();	//初期設定
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_ICHIYOU);
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// メインタスク
+task Task_Main()
+{
+	// 魔法陣リセット
+	BossEffect_ResetMagicCircle();
+
+	// 会話準備
+	StartTalk();
+
+	wait(120);
+
+	//会話処理
+	FuncTalk();
+	
+	//次のシーンへ
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// 会話処理
+function FuncTalk()
+{
+	// オブジェクト作成
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_ICHIYOU, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_SANAE, false);
+	
+	// 初期設定
+	SetImageFoward(cutinPlayer1, true);
+	SetImageVisible(cutinBoss1, false);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// 会話処理単発（巻き戻しも出来るように）
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE2);
+SetTalkEx(cutinPlayer1, "仿佛是迷路进了童话世界。[r]辉夜姬啦月之都啦什么的，明明应该是梦之世界的故事才对");
+		}
+		case(1)
+		{
+SetTalkEx2(cutinBoss1, "没错！快快醒来！", -32, -280);
+		}
+		case(2)
+		{
+SetTalkEx(cutinBoss1, "");
+			EnterBoss();
+			wait(45);
+			BossScene_SetNameVisible(objScene, true);	//ボスネーム表示状態
+			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
+
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, "这是幻觉！[r]只是遮蔽那恶之忍者的城堡的结界而已！");
+			SetBossName(cutinBoss1);	// ボスネーム表示
+		}
+		case(3)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
+SetTalkEx(cutinPlayer1, "忍者！？[r]好厉害，果然幻想入了吗");
+		}
+		case(4)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, "哼哼哼，即便是幻想乡也没有关系。");
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "我们望月的步行巫女[r]没有潜入不了的地方。");
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE3);
+SetTalkEx(cutinPlayer1, "所以要怎么回去…");
+			SetFukidashiType(cutinPlayer1, FUKIDASHI_THINK);
+		}
+		case(7)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
+SetTalkEx(cutinPlayer1, "话说回来，黑幕在哪里？[r]对我们的计划横插一刀，实在难受");
+		}
+		case(8)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "现在在结界里，正在准备使用[r]通过星星集中起的魔力吧。");
+		}
+		case(9)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, "被彻底掩藏起来的传说中的魔宝，[r]她们肯定是终于打算要将之解放了。");
+		}
+		case(10)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, "啊，战国时代结束之后，[r]忍者们就没有用武之地了呢。");
+		}
+		case(11)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, "于是一部分人就试图再度[r]让这世界陷入战乱，诸如此类？");
+		}
+		case(12)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, "操纵魔宝的人也是那些家族之一。");
+		}
+		case(13)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "我等望月之忍，最先得到这个情报，[r]于是采取了行动。");
+		}
+		case(14)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE2);
+SetTalkEx(cutinPlayer1, "太好了，知道的人果然是知道啊。[r]我们守矢蒙受了不白之冤。");
+		}
+		case(15)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, "因为根本没空管那种[r]只考虑眼前利益的小恶…");
+		}
+		case(16)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
+SetTalkEx(cutinPlayer1, "看来你们是想[r]引发与我们的战争呢");
+		}
+		case(17)
+		{
+			//BGM
+			PlayMusicWithName(9, 180, 30);
+
+			ChangeTalkTexture(cutinBoss1, I_SMILE3);
+SetTalkEx(cutinBoss1, "你的情况我也调查过了。[r]守矢的新人神明。");
+		}
+		case(18)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, "于是，主神不在，[r]你又能做什么！？");
+		}
+		case(19)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, "那你就亲眼看好了！");
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+// 登場モーション
+task EnterBoss()
+{
+	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
+	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
+
+	// 登場モーション
+	SetIchiyouSmoke(CenX, 100, 1.5);
+	// 効果音
+	My_LoadPlaySE(pathSE_Smoke);
+	
+	let objImg = GetBossImageID(objEnemy);
+	ObjMove_SetPosition(objEnemy, CenX, 100);
+	ascent(i in 0 .. 45)
+	{
+		let alpha = (i+1)/45*255;
+		ObjRender_SetAlpha(objImg, alpha);
+		yield;
+	}
+}

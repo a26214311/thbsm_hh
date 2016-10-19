@@ -1,0 +1,152 @@
+#東方弾幕風[Single]
+#ScriptVersion[3]
+#Title["魔理沙バッドエンディング"]
+#Text["魔理沙バッドエンディング"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+
+
+//---------------------------------------------------------------------
+
+// 関数取り込み
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk_ed.dnh"
+
+@Initialize {
+	init();
+	Task_Main();
+	
+	// バッドエンド
+	SetAreaCommonData(CAREA_TITLE, "FlgBadEnding", true);
+}
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// メインタスク
+task Task_Main()
+{
+	TBackground();
+	wait(180);
+	TEndingImage(imgEDMarisa[0], 120);
+	//  BGM
+	PlayMusic( 17, 120, 60 );
+	
+	// 会話準備
+	StartTalk();
+	wait(120);
+
+	FuncTalk();
+	wait(15);
+
+	//次のシーンへ
+	FinishTalk(true);
+	SetForbidPlayerShot(true);
+	SetForbidPlayerSpell(true);
+	
+	//  BGM
+	PlayMusic( -1, 0, 60 );
+	
+	wait(180);
+	CloseStgScene();
+}
+
+// 会話処理
+function FuncTalk()
+{
+	let COL0 = [160, 160, 160];
+	let COL1 = [108, 255, 255];
+	let COL2 = [255, 255, 108];
+	
+	// オブジェクト作成
+	let cutinDescri = CreateDescriptiveObject();
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// 会話処理単発（巻き戻しも出来るように）
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+SetTalkEx(cutinDescri, "魔理沙[r]「不妙，不愧是传说中的魔书，真是不妙」", COL1);
+		}
+		case(1)
+		{
+SetTalkEx(cutinDescri, "与芙玛·米珊朵拉之间的力量差距，同为西洋魔术的使用者，她最能明白。", COL0);
+		}
+		case(2)
+		{
+SetTalkEx(cutinDescri, "魔理沙靠着得意的逃跑技术逃离了魔宝城，冷静下来，开始考虑下一步的行动。", COL0);
+		}
+		case(3)
+		{
+SetTalkEx(cutinDescri, "疲劳浑浊了她的思考，无法随心所欲。[r]振り続ける催涙雨がとても冷たい。", COL0);
+		}
+		case(4)
+		{
+SetTalkEx(cutinDescri, "魔理沙[r]「这样下去天河就会一直开通。[r]　来年の七夕までこの雨で道を塞ぐ気か？[r]　涙が出るような推理だぜ。", COL1);
+		}
+		case(5)
+		{
+SetTalkEx(cutinDescri, "魔理沙[r]「…嗯？对了。那样不行就这样。[r]　フーマって奴は狐をどうにかしたいだけなんだ。[r]　偉い奴に雨さえ止めて貰えれば解決するぞ。", COL1);
+		}
+		case(6)
+		{
+SetTalkEx(cutinDescri, "魔理沙[r]「那个星灵基本上已经明白了事情真相。[r]　こうしちゃいられない、今すぐ天の川に戻る、あいつを[r]　通して説得するぜ」", COL1);
+		}
+		case(7)
+		{
+			TEndingImage(imgEDMarisa[1], 30);
+SetTalkEx(cutinDescri, "？？？[r]「谢莉亚？她到点下班了。[r]　私はこと座三番星のスラファ。[r]　彼女に話？　連絡するけど何年か時間かかるかもねー」", COL2);
+		}
+		case(8)
+		{
+SetTalkEx(cutinDescri, "魔理沙[r]「不行，照这帮家伙的调子根本没法活在现代社会。」[r]　ないぜ」", COL1);
+		}
+		case(9)
+		{
+SetTalkEx(cutinDescri, "魔理沙死了心，用她们准备的牛车（比光速还快）回到了魔宝城。", COL0);
+		}
+		case(10)
+		{
+SetTalkEx(cutinDescri, "下次加油！[r]只要撞上了那辆牛车，不管是狐狸还是恶魔都会化为飞灰！", COL0);
+		}
+		case(11)
+		{
+SetTalkEx(cutinDescri, "　　　　　　　　Ending.05　2000万キロで空を駆けろ", COL0);
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+
+
+
+
+
+
+
+
