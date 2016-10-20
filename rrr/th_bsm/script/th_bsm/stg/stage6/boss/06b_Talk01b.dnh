@@ -1,242 +1,242 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["6面　ボス会話"]
-#Text["6面　ボス会話"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk.dnh"
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@Initialize {
-	// アニメリセット
-	Reset_aTime(BOSS_ID_MISHANDRA);
-	
-	Boss_Init();	//初期設定
-	
-	objEnemy  = CreateBossTalk(BOSS_ID_MISHANDRA);
-	Task_Main();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	// 魔法陣リセット
-	BossEffect_ResetMagicCircle();
-
-	// 会話準備
-	StartTalk();
-
-	wait(120);
-
-	//会話処理
-	FuncTalk();
-	
-	//次のシーンへ
-	FinishTalk(true);
-	Boss_Finalize(objEnemy, false, false);
-	Obj_Delete(objScene);	// 会話シーン強制終了
-}
-
-// 会話処理
-function FuncTalk()
-{
-	// オブジェクト作成
-	let cutinBoss1   = CreateTalkObject(BOSS_ID_MISHANDRA, true);
-	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
-	
-	// 初期設定
-	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-	SetImageFoward(cutinPlayer1, true);
-	SetImageVisible(cutinBoss1, false);
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "从前有个时代，[r]人无法在天空中飞翔。");
-		}
-		case(1)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "人类仰望天空里的星星，[r]寄托了不可能实现的愿望。");
-		}
-		case(2)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "于是，你想独占它？");
-		}
-		case(3)
-		{
-			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
-			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-			
-SetTalkEx2(cutinBoss1, "有如梦呓，对吧。", -32, -280);
-		}
-		case(4)
-		{
-SetTalkEx(cutinBoss1, "");
-			EnterBoss();
-			wait(90);
-			BossScene_SetNameVisible(objScene, true);	//ボスネーム表示状態
-			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
-
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "强者起来，驱使弱者。[r]世界就是这样构成的。");
-			SetBossName(cutinBoss1);	// ボスネーム表示
-		}
-		case(5)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "然而幻想乡正是由梦呓所构成的。");
-		}
-		case(6)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-SetTalkEx(cutinBoss1, "我名芙玛。[r]还有一个名字是魔法书莱梅杰通。");
-		}
-		case(7)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, "魔法使，你会去和别人分享[r]这世上仅存孤本的莱梅杰通吗？");
-		}
-		case(8)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "好问题。[ruby rb=\"正题\" rt=\"Ars Goetia\"]以外的[r]部分，谁愿意拿走都可以。");
-		}
-		case(9)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, "不被使用的力量是没有意义的。[r]芙玛正是因此而诞生。");
-		}
-		case(10)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-SetTalkEx(cutinBoss1, "绝对无法实现的愿望也同样，[r]改变形式，就能实现其他愿望。");
-		}
-		case(11)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "原来如此，显眼的大三角星只是诱饵。");
-		}
-		case(12)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "周围的三个小星座，[r]可以连成一个反过来的三角形。");
-		}
-		case(13)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "将之组合在一起就是…所罗门之星。");
-		}
-		case(14)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "你到底想做什么？[r]真的只有封印那只狐狸而已吗？");
-		}
-		case(15)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NOTICE);
-SetTalkEx(cutinBoss1, "芙玛的愿望是成为乱世的霸主。");
-		}
-		case(16)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-SetTalkEx(cutinBoss1, "至少让芙玛诞生的那个人，[r]许的是这个愿望。");
-		}
-		case(17)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "但是收集人们的愿望之后，我明白了。");
-		}
-		case(18)
-		{
-			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "那个愿望，[r]已经不再适合这个世界了。");
-		}
-		case(19)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "乱世也罢下克上也罢灵梦和我都会镇压下去的。");
-		}
-		case(20)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, "好了，所以把莱梅杰通给我吧，[r]快快的干活。");
-		}
-		case(21)
-		{
-			//BGM
-			PlayMusicWithName(13, 180, 30);
-
-			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "钥匙之力是王者之力。[r]只有超越常人之人才能掌握。");
-		}
-		case(22)
-		{
-			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "雾雨的魔法使，[r]你想要成为芙玛的主人，成为王者吗？");
-		}
-		case(23)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "书怕水。[r]雾雨不可能输给一本书的。");
-		}
-		case(24)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinBoss1, "芙玛是编织神话的书。[r]传唱星之神话与英雄神话的魔书。");
-		}
-		case(25)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, "你是否值得崭新的一页，[r]要由芙玛自己来决定！");
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-// 登場モーション
-task EnterBoss()
-{
-	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
-	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
-
-	// 登場モーション
-	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 105]);
-}
+#����e����[Single]
+#ScriptVersion[3]
+#Title["6�ʁ@�{�X��b"]
+#Text["6�ʁ@�{�X��b"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	// �A�j�����Z�b�g
+	Reset_aTime(BOSS_ID_MISHANDRA);
+	
+	Boss_Init();	//����ݒ�
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_MISHANDRA);
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	// ���@�w���Z�b�g
+	BossEffect_ResetMagicCircle();
+
+	// ��b����
+	StartTalk();
+
+	wait(120);
+
+	//��b����
+	FuncTalk();
+	
+	//���̃V�[����
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+	Obj_Delete(objScene);	// ��b�V�[�������I��
+}
+
+// ��b����
+function FuncTalk()
+{
+	// �I�u�W�F�N�g�쐬
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_MISHANDRA, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
+	
+	// ����ݒ�
+	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+	SetImageFoward(cutinPlayer1, true);
+	SetImageVisible(cutinBoss1, false);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.1",1));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.2",1));
+		}
+		case(2)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.3",1));
+		}
+		case(3)
+		{
+			SetImageVisible(cutinBoss1, false);	// �{�X�摜�o���t���O
+			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
+			
+SetTalkEx2(cutinBoss1, gettxt("06b_Talk01b.dnh.4",1), -32, -280);
+		}
+		case(4)
+		{
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.5",1));
+			EnterBoss();
+			wait(90);
+			BossScene_SetNameVisible(objScene, true);	//�{�X�l�[���\�����
+			SetImageVisible(cutinBoss1, true);	// �{�X�摜�o���t���O
+
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.6",1));
+			SetBossName(cutinBoss1);	// �{�X�l�[���\��
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.7",1));
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.8",1));
+		}
+		case(7)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.9",1));
+		}
+		case(8)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.10",1));
+		}
+		case(9)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.11",1));
+		}
+		case(10)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.12",1));
+		}
+		case(11)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.13",1));
+		}
+		case(12)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.14",1));
+		}
+		case(13)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.15",1));
+		}
+		case(14)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.16",1));
+		}
+		case(15)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NOTICE);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.17",1));
+		}
+		case(16)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.18",1));
+		}
+		case(17)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.19",1));
+		}
+		case(18)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.20",1));
+		}
+		case(19)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.21",1));
+		}
+		case(20)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.22",1));
+		}
+		case(21)
+		{
+			//BGM
+			PlayMusicWithName(13, 180, 30);
+
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.23",1));
+		}
+		case(22)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.24",1));
+		}
+		case(23)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("06b_Talk01b.dnh.25",1));
+		}
+		case(24)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.26",1));
+		}
+		case(25)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
+SetTalkEx(cutinBoss1, gettxt("06b_Talk01b.dnh.27",1));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+// �o�ꃂ�[�V����
+task EnterBoss()
+{
+	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
+	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
+
+	// �o�ꃂ�[�V����
+	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 105]);
+}

@@ -1,112 +1,112 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["1面　会話後半"]
-#Text["1面　会話後半"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk.dnh"
-
-// 各ボスのオブジェクトID
-let objEnemy2;
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@Initialize {
-	Boss_Init();	//初期設定
-	
-	objEnemy2  = CreateBossTalkEx(BOSS_ID_IPHONEA);
-	objEnemy  = CreateBossTalk(BOSS_ID_FABRITIS);
-	Obj_SetVisible(GetBossImageID(objEnemy2), false);	//画像非表示
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	//画像非表示
-	Task_Main();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	// 魔法陣リセット
-	BossEffect_ResetMagicCircle();
-
-	// 会話準備
-	StartTalk();
-
-	wait(120);
-
-	//会話処理
-	FuncTalk();
-	
-	//次のシーンへ
-	FinishTalk(true);
-	Boss_Finalize(objEnemy2, false, false);
-	Boss_Finalize(objEnemy, false, false);
-}
-
-// 会話処理
-function FuncTalk()
-{
-	// オブジェクト作成
-	let cutinBoss1   = CreateTalkObjectEx(BOSS_ID_IPHONEA, true, 40, 0);
-	let cutinBoss2   = CreateTalkObjectEx(BOSS_ID_FABRITIS, true, -40, 0);
-	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
-	
-	// 初期設定
-	ChangeTalkTexture(cutinBoss1, I_BORO2);
-	ChangeTalkTexture(cutinBoss2, I_BORO2);
-	SetImageFoward(cutinBoss1, true);
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "呜诶，求求你不要拿走我们的种子");
-		}
-		case(1)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "想用结界挑战我还真是傻瓜呢");
-		}
-		case(2)
-		{
-			ChangeTalkTexture(cutinBoss2, I_BORO1);
-SetTalkEx(cutinBoss2, "可恶，改良品种！再见巫女，[r]我们要赢过你的子孙给你看！");
-		}
-		case(3)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "下次还是那个叫博丽灵梦的家伙和你们打哦");
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
+#����e����[Single]
+#ScriptVersion[3]
+#Title["1�ʁ@��b�㔼"]
+#Text["1�ʁ@��b�㔼"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+// �e�{�X�̃I�u�W�F�N�gID
+let objEnemy2;
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	Boss_Init();	//����ݒ�
+	
+	objEnemy2  = CreateBossTalkEx(BOSS_ID_IPHONEA);
+	objEnemy  = CreateBossTalk(BOSS_ID_FABRITIS);
+	Obj_SetVisible(GetBossImageID(objEnemy2), false);	//�摜��\��
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	//�摜��\��
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	// ���@�w���Z�b�g
+	BossEffect_ResetMagicCircle();
+
+	// ��b����
+	StartTalk();
+
+	wait(120);
+
+	//��b����
+	FuncTalk();
+	
+	//���̃V�[����
+	FinishTalk(true);
+	Boss_Finalize(objEnemy2, false, false);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// ��b����
+function FuncTalk()
+{
+	// �I�u�W�F�N�g�쐬
+	let cutinBoss1   = CreateTalkObjectEx(BOSS_ID_IPHONEA, true, 40, 0);
+	let cutinBoss2   = CreateTalkObjectEx(BOSS_ID_FABRITIS, true, -40, 0);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
+	
+	// ����ݒ�
+	ChangeTalkTexture(cutinBoss1, I_BORO2);
+	ChangeTalkTexture(cutinBoss2, I_BORO2);
+	SetImageFoward(cutinBoss1, true);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO1);
+SetTalkEx(cutinBoss1, gettxt("01b_Talk02a.dnh.1",1));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("01b_Talk02a.dnh.2",1));
+		}
+		case(2)
+		{
+			ChangeTalkTexture(cutinBoss2, I_BORO1);
+SetTalkEx(cutinBoss2, gettxt("01b_Talk02a.dnh.3",1));
+		}
+		case(3)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("01b_Talk02a.dnh.4",1));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}

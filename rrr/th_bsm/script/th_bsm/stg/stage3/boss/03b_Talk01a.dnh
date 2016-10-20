@@ -1,193 +1,193 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["3面　会話前半"]
-#Text["3面　会話前半"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk.dnh"
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@Initialize {
-	// アニメリセット
-	Reset_aTime(BOSS_ID_TOBIKO);
-	
-	Boss_Init();	//初期設定
-	
-	objEnemy  = CreateBossTalk(BOSS_ID_SHELIA);
-	Task_Main();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	// 魔法陣リセット
-	BossEffect_ResetMagicCircle();
-
-	// 会話準備
-	StartTalk();
-
-	wait(120);
-
-	//会話処理
-	FuncTalk();
-	
-	//次のシーンへ
-	FinishTalk(true);
-	Boss_Finalize(objEnemy, false, false);
-}
-
-// 会話処理
-function FuncTalk()
-{
-	// オブジェクト作成
-	let cutinBoss1   = CreateTalkObject(BOSS_ID_SHELIA, true);
-	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
-	
-	// 初期設定
-	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-	SetImageFoward(cutinPlayer1, true);
-	SetImageVisible(cutinBoss1, false);
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "到底是没找到犯人，[r]就这么到了天河此岸。");
-		}
-		case(1)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "看来是被天狗算计了啊");
-		}
-		case(2)
-		{
-			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
-			
-SetTalkEx2(cutinBoss1, "犯人？[r]你以为犯人是谁？", -32, -280);
-		}
-		case(3)
-		{
-SetTalkEx(cutinBoss1, "");
-			EnterBoss();
-			wait(90);
-			BossScene_SetNameVisible(objScene, true);	//ボスネーム表示状態
-			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
-
-			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "没错，这是[r]由人们过多的欲望所引发的异变");
-			SetBossName(cutinBoss1);	// ボスネーム表示
-		}
-		case(4)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
-SetTalkEx(cutinPlayer1, "我、我们人类没可能引发异变[r]的吧，给我适可而止一点");
-		}
-		case(5)
-		{
-			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "继月之众神之后，又想对天河发动战争吗？[r]啊～真蠢");
-		}
-		case(6)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "这到底是怎么回事。莫非守矢和[r]天狗联合起来算计我吗？");
-		}
-		case(7)
-		{
-			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "啊～无知。你这巫女是干什么吃的。");
-		}
-		case(8)
-		{
-			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "凭借灵威来教导真正无知的庶民[r]这才是地上的宗教指导者。");
-		}
-		case(9)
-		{
-			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "随便你骗他们也罢[r]赶紧劝劝地上的庶民吧。");
-		}
-		case(10)
-		{
-			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, "要是愿望不停下的话[r]就会有恐怖大王从天而降了。");
-		}
-		case(11)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_UPSET);
-SetTalkEx(cutinPlayer1, "好啊，不过有个交换条件。[r]至少先把雨给停下");
-		}
-		case(12)
-		{
-			ChangeTalkTexture(cutinBoss1, I_ANGER);
-SetTalkEx(cutinBoss1, "行啊，[r]我的条件是你先把愿望给停下");
-		}
-		case(13)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
-SetTalkEx(cutinPlayer1, "啊，嗯。[r]果然我们处不来呢。");
-		}
-		case(14)
-		{
-			//BGM
-			PlayMusicWithName(7, 180, 30);
-
-			ChangeTalkTexture(cutinBoss1, I_WORRY);
-SetTalkEx(cutinBoss1, "天河之桥正在开通的现在，[r]覆盖地面的催泪雨之牢是最后的凭仗。");
-		}
-		case(15)
-		{
-			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, "若是一年出现了两次七夕，[r]让众神愤怒的话……");
-		}
-		case(16)
-		{
-			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, "就不止这种程度的惩罚了！");
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-// 登場モーション
-task EnterBoss()
-{
-	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
-	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
-
-	// 登場モーション
-	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 140]);
-}
+#����e����[Single]
+#ScriptVersion[3]
+#Title["3�ʁ@��b�O��"]
+#Text["3�ʁ@��b�O��"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	// �A�j�����Z�b�g
+	Reset_aTime(BOSS_ID_TOBIKO);
+	
+	Boss_Init();	//����ݒ�
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_SHELIA);
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	// ���@�w���Z�b�g
+	BossEffect_ResetMagicCircle();
+
+	// ��b����
+	StartTalk();
+
+	wait(120);
+
+	//��b����
+	FuncTalk();
+	
+	//���̃V�[����
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// ��b����
+function FuncTalk()
+{
+	// �I�u�W�F�N�g�쐬
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_SHELIA, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
+	
+	// ����ݒ�
+	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+	SetImageFoward(cutinPlayer1, true);
+	SetImageVisible(cutinBoss1, false);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.1",1));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_WORRY);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.2",1));
+		}
+		case(2)
+		{
+			SetImageVisible(cutinBoss1, false);	// �{�X�摜�o���t���O
+			
+SetTalkEx2(cutinBoss1, gettxt("03b_Talk01a.dnh.3",1), -32, -280);
+		}
+		case(3)
+		{
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.4",1));
+			EnterBoss();
+			wait(90);
+			BossScene_SetNameVisible(objScene, true);	//�{�X�l�[���\�����
+			SetImageVisible(cutinBoss1, true);	// �{�X�摜�o���t���O
+
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.5",1));
+			SetBossName(cutinBoss1);	// �{�X�l�[���\��
+		}
+		case(4)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.6",1));
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.7",1));
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.8",1));
+		}
+		case(7)
+		{
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.9",1));
+		}
+		case(8)
+		{
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.10",1));
+		}
+		case(9)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.11",1));
+		}
+		case(10)
+		{
+			ChangeTalkTexture(cutinBoss1, I_UPSET);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.12",1));
+		}
+		case(11)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_UPSET);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.13",1));
+		}
+		case(12)
+		{
+			ChangeTalkTexture(cutinBoss1, I_ANGER);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.14",1));
+		}
+		case(13)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_UPSET_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk01a.dnh.15",1));
+		}
+		case(14)
+		{
+			//BGM
+			PlayMusicWithName(7, 180, 30);
+
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.16",1));
+		}
+		case(15)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.17",1));
+		}
+		case(16)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk01a.dnh.18",1));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+// �o�ꃂ�[�V����
+task EnterBoss()
+{
+	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
+	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
+
+	// �o�ꃂ�[�V����
+	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 140]);
+}

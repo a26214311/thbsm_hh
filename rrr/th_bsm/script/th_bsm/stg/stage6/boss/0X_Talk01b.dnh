@@ -1,183 +1,183 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["魔理沙エンディング"]
-#Text["魔理沙エンディング"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk_ed.dnh"
-
-@Initialize {
-	init();
-	Task_Main();
-}
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	TBackground();
-	wait(180);
-	TEndingImage(imgEDMarisa[2], 120);
-	//  BGM
-	PlayMusic( 17, 120, 60 );
-	
-	// 会話準備
-	StartTalk();
-	wait(120);
-
-	FuncTalk();
-	wait(15);
-
-	//次のシーンへ
-	FinishTalk(true);
-	SetForbidPlayerShot(true);
-	SetForbidPlayerSpell(true);
-	
-	//  BGM
-	PlayMusic( -1, 0, 60 );
-	
-	wait(180);
-	CloseStgScene();
-}
-
-// 会話処理
-function FuncTalk()
-{
-	let COL0 = [160, 160, 160];
-	let COL1 = [108, 255, 255];
-	let COL2 = [108, 108, 255];
-	let COL3 = [255, 255, 108];
-	let COL4 = [255, 108, 255];
-	
-	// オブジェクト作成
-	let cutinDescri = CreateDescriptiveObject();
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-SetTalkEx(cutinDescri, "几乎得手，却最终还是没能拿到传说中的魔法书[r]莱梅杰通的魔理沙。", COL0);
-		}
-		case(1)
-		{
-SetTalkEx(cutinDescri, "正在自己家里深感不甘的时候，有人在玄关门口[r]“空空”地敲门。", COL0);
-		}
-		case(2)
-		{
-SetTalkEx(cutinDescri, "禰津[r]「空空，我是祢津。[r]上次的战斗真是漂亮啊！」", COL2);
-		}
-		case(3)
-		{
-SetTalkEx(cutinDescri, "魔理沙[r]「敲门就敲门，别用嘴模拟。就算你是狐狸也不行。」", COL1);
-		}
-		case(4)
-		{
-SetTalkEx(cutinDescri, "禰津[r]「我之前说过了。[r]祢津认同了你，所以才用那句废话代替招呼声。[r]言归正传，你的机变与实力，在人类当中[r]　ぞ」", COL2);
-		}
-		case(5)
-		{
-SetTalkEx(cutinDescri, "禰津[r]「所以我们「让幻想乡陷入混乱协会」，[r]决定让你成为名誉会员4号！」", COL2);
-		}
-		case(6)
-		{
-SetTalkEx(cutinDescri, "正邪[r]「下次一起来大闹一番吧！」", COL3);
-		}
-		case(7)
-		{
-SetTalkEx(cutinDescri, "菫子[r]「来了（大心）」", COL4);
-		}
-		case(8)
-		{
-SetTalkEx(cutinDescri, "魔理沙[r]「你们是闲的吧，绝对是闲的吧？」", COL1);
-		}
-		case(9)
-		{
-SetTalkEx(cutinDescri, "当然，由妖怪贤者和博丽巫女所守护的幻想乡，不是这么简单就能动摇的。", COL0);
-		}
-		case(10)
-		{
-SetTalkEx(cutinDescri, "…但是，真相是，本来就是恶之妖狐的祢津，[r]不这样收集人们的恐怖的话，就无法维持力量，恢复成平凡无奇的普通狐狸。", COL0);
-		}
-		case(11)
-		{
-SetTalkEx(cutinDescri, "弱肉强食。常在战场。[r]妖怪的世界无论古今，都是赌上生死的炽烈的战国时代。", COL0);
-		}
-		case(12)
-		{
-			TEndingImage(imgEDMarisa[3], 30);
-SetTalkEx(cutinDescri, "魔理沙[r]「为了不被大家遗忘，我会将你们的英雄事迹[r]写成书散播出去。[r]所以不要再干坏事了。」", COL1);
-		}
-		case(13)
-		{
-SetTalkEx(cutinDescri, "禰津[r]「喔喔！心之友！」", COL2);
-		}
-		case(14)
-		{
-SetTalkEx(cutinDescri, "随后写成的「Book of Star Mythology」，被魔理沙擅自放进了书店、借书屋、红魔馆地下书库等地。", COL0);
-		}
-		case(15)
-		{
-SetTalkEx(cutinDescri, "然而其内容，并非英雄（Star）的神话（Mythology）。[r]只是她将查阅大量专业书籍获得的天体知识，写成了简明易懂的星星（字面意义）的书。", COL0);
-		}
-		case(16)
-		{
-SetTalkEx(cutinDescri, "在夏季大三角中央不起眼儿地安坐着的狐狸座。[r]在它的词条下，魔理沙添了一笔「一个叫做祢津的小坏蛋狐狸，被人类惩治之后，化作了这个小小的星座」的解说词。", COL0);
-		}
-		case(17)
-		{
-SetTalkEx(cutinDescri, "后来，因为不好的谣言而妖力急剧下降的祢津发觉了这点，很是追杀了魔理沙一段时间。不过我们的故事就姑且告一段落了。", COL0);
-		}
-		case(18)
-		{
-SetTalkEx(cutinDescri, "魔理沙，要活下去啊。", COL0);
-		}
-		case(19)
-		{
-SetTalkEx(cutinDescri, "　　　　　　　Ending.02　なぜ魔理沙は調子に乗るのか", COL0);
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-
-
-
-
-
-
-
-
+#����e����[Single]
+#ScriptVersion[3]
+#Title["�������G���f�B���O"]
+#Text["�������G���f�B���O"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk_ed.dnh"
+
+@Initialize {
+	init();
+	Task_Main();
+}
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	TBackground();
+	wait(180);
+	TEndingImage(imgEDMarisa[2], 120);
+	//  BGM
+	PlayMusic( 17, 120, 60 );
+	
+	// ��b����
+	StartTalk();
+	wait(120);
+
+	FuncTalk();
+	wait(15);
+
+	//���̃V�[����
+	FinishTalk(true);
+	SetForbidPlayerShot(true);
+	SetForbidPlayerSpell(true);
+	
+	//  BGM
+	PlayMusic( -1, 0, 60 );
+	
+	wait(180);
+	CloseStgScene();
+}
+
+// ��b����
+function FuncTalk()
+{
+	let COL0 = [160, 160, 160];
+	let COL1 = [108, 255, 255];
+	let COL2 = [108, 108, 255];
+	let COL3 = [255, 255, 108];
+	let COL4 = [255, 108, 255];
+	
+	// �I�u�W�F�N�g�쐬
+	let cutinDescri = CreateDescriptiveObject();
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.1",1), COL0);
+		}
+		case(1)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.2",1), COL0);
+		}
+		case(2)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.3",1), COL2);
+		}
+		case(3)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.4",1), COL1);
+		}
+		case(4)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.5",1), COL2);
+		}
+		case(5)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.6",1), COL2);
+		}
+		case(6)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.7",1), COL3);
+		}
+		case(7)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.8",1), COL4);
+		}
+		case(8)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.9",1), COL1);
+		}
+		case(9)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.10",1), COL0);
+		}
+		case(10)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.11",1), COL0);
+		}
+		case(11)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.12",1), COL0);
+		}
+		case(12)
+		{
+			TEndingImage(imgEDMarisa[3], 30);
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.13",1), COL1);
+		}
+		case(13)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.14",1), COL2);
+		}
+		case(14)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.15",1), COL0);
+		}
+		case(15)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.16",1), COL0);
+		}
+		case(16)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.17",1), COL0);
+		}
+		case(17)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.18",1), COL0);
+		}
+		case(18)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.19",1), COL0);
+		}
+		case(19)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01b.dnh.20",1), COL0);
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+
+
+
+
+
+
+
+

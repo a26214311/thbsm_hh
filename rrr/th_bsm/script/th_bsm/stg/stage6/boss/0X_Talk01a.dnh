@@ -1,176 +1,176 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["霊夢エンディング"]
-#Text["霊夢エンディング"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk_ed.dnh"
-
-@Initialize {
-	init();
-	Task_Main();
-}
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	TBackground();
-	wait(180);
-	TEndingImage(imgEDReimu[2], 120);
-	//  BGM
-	PlayMusic( 17, 120, 60 );
-	
-	// 会話準備
-	StartTalk();
-	wait(120);
-
-	FuncTalk();
-	wait(15);
-
-	//次のシーンへ
-	FinishTalk(true);
-	SetForbidPlayerShot(true);
-	SetForbidPlayerSpell(true);
-	
-	//  BGM
-	PlayMusic( -1, 0, 60 );
-	wait(180);
-	CloseStgScene();
-}
-
-// 会話処理
-function FuncTalk()
-{
-	let COL0 = [160, 160, 160];
-	let COL1 = [255, 108, 108];
-	let COL2 = [108, 108, 255];
-	
-	// オブジェクト作成
-	let cutinDescri = CreateDescriptiveObject();
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-SetTalkEx(cutinDescri, "博丽神社", COL0);
-		}
-		case(1)
-		{
-SetTalkEx(cutinDescri, "异变虽然解决了，但不用说，参拜客并没有增加。", COL0);
-		}
-		case(2)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「我说！为啥啊！[r]为什么每次都是这样！」", COL1);
-		}
-		case(3)
-		{
-SetTalkEx(cutinDescri, "フーマ[r]「当然如此。你那妖怪时常出入的神社，[r]在山麓的人类村落也是很有名的灵异场所啊。」", COL2);
-		}
-		case(4)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「话说你又是为何会擅自过来啊！？」", COL1);
-		}
-		case(5)
-		{
-SetTalkEx(cutinDescri, "フーマ[r]「书是魔力之源，也是知识之泉。[r]我调查了一下现代幻想乡的惯例。[r]异变之后，一定会去巫女的神社喝酒。」", COL2);
-		}
-		case(6)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「没有没有！才没有这种惯例！」", COL1);
-		}
-		case(7)
-		{
-			TEndingImage(imgEDReimu[3], 30);
-SetTalkEx(cutinDescri, "フーマ[r]「以及，芙玛的灵异是米山多拉。[r]我拿到了象征新时代的网络都市传说的[r]　頂くよ」", COL2);
-		}
-		case(8)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「那个已经结束了！」", COL1);
-		}
-		case(9)
-		{
-SetTalkEx(cutinDescri, "芙玛所顶替的米珊朵拉之名。[r]那是所罗门72柱恶魔中，不为人知的第73柱。", COL0);
-		}
-		case(10)
-		{
-SetTalkEx(cutinDescri, "任何记录与文献都没有记载，[r]是因为它施加了召唤者无法记录、记忆自己的诅咒。", COL0);
-		}
-		case(11)
-		{
-SetTalkEx(cutinDescri, "…设定如上，其实只是介由网络成了都市传说的架空的恶魔。[r]换句话说，就是某人的原创角色而已。", COL0);
-		}
-		case(12)
-		{
-SetTalkEx(cutinDescri, "フーマ[r]「但是没关系。追本溯源，撒旦也好彼列也好[r]也都是类似的东西。[r]失去主人与目的的芙玛，已经不记得自己是谁了」", COL2);
-		}
-		case(13)
-		{
-SetTalkEx(cutinDescri, "フーマ[r]「但因为芙玛使用了这个名字，[r]第73柱恶魔确实在此显现了。」", COL2);
-		}
-		case(14)
-		{
-SetTalkEx(cutinDescri, "就算姿态随时代变迁而更改，只要仍旧留在别人的记忆中，[r]故事仍旧在流传，魂灵就是不灭的。", COL0);
-		}
-		case(15)
-		{
-SetTalkEx(cutinDescri, "过去灵梦她们曾使用过的，以怪谈故事作为武器装备的这个点子。[r]芙玛确信，这是给像自己一样无名的存在带来光明的锦囊妙计。", COL0);
-		}
-		case(16)
-		{
-SetTalkEx(cutinDescri, "她凭借着自己身为书的丰富知识，以及身为风魔的命名特技，在幻想乡各地，将行将消失的妖怪、神明，升华为崭新的存在。", COL0);
-		}
-		case(17)
-		{
-SetTalkEx(cutinDescri, "于是，人类村落又充满了新的都市传说，连以前异变时候都没见过的新品种神秘珠出现在幻想乡里。[r]灵梦再次为解决而到处奔走，但那又是另一个故事了。", COL0);
-		}
-		case(18)
-		{
-SetTalkEx(cutinDescri, "　　　　　　　　　Ending.01　深秘は続くよどこまでも", COL0);
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-
-
-
-
-
-
-
-
+#����e����[Single]
+#ScriptVersion[3]
+#Title["�얲�G���f�B���O"]
+#Text["�얲�G���f�B���O"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk_ed.dnh"
+
+@Initialize {
+	init();
+	Task_Main();
+}
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	TBackground();
+	wait(180);
+	TEndingImage(imgEDReimu[2], 120);
+	//  BGM
+	PlayMusic( 17, 120, 60 );
+	
+	// ��b����
+	StartTalk();
+	wait(120);
+
+	FuncTalk();
+	wait(15);
+
+	//���̃V�[����
+	FinishTalk(true);
+	SetForbidPlayerShot(true);
+	SetForbidPlayerSpell(true);
+	
+	//  BGM
+	PlayMusic( -1, 0, 60 );
+	wait(180);
+	CloseStgScene();
+}
+
+// ��b����
+function FuncTalk()
+{
+	let COL0 = [160, 160, 160];
+	let COL1 = [255, 108, 108];
+	let COL2 = [108, 108, 255];
+	
+	// �I�u�W�F�N�g�쐬
+	let cutinDescri = CreateDescriptiveObject();
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.1",1), COL0);
+		}
+		case(1)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.2",1), COL0);
+		}
+		case(2)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.3",1), COL1);
+		}
+		case(3)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.4",1), COL2);
+		}
+		case(4)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.5",1), COL1);
+		}
+		case(5)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.6",1), COL2);
+		}
+		case(6)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.7",1), COL1);
+		}
+		case(7)
+		{
+			TEndingImage(imgEDReimu[3], 30);
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.8",1), COL2);
+		}
+		case(8)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.9",1), COL1);
+		}
+		case(9)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.10",1), COL0);
+		}
+		case(10)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.11",1), COL0);
+		}
+		case(11)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.12",1), COL0);
+		}
+		case(12)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.13",1), COL2);
+		}
+		case(13)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.14",1), COL2);
+		}
+		case(14)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.15",1), COL0);
+		}
+		case(15)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.16",1), COL0);
+		}
+		case(16)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.17",1), COL0);
+		}
+		case(17)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.18",1), COL0);
+		}
+		case(18)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk01a.dnh.19",1), COL0);
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+
+
+
+
+
+
+
+

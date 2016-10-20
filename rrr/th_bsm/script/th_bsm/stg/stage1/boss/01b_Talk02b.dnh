@@ -1,112 +1,112 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["1面　会話後半"]
-#Text["1面　会話後半"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk.dnh"
-
-// 各ボスのオブジェクトID
-let objEnemy2;
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@Initialize {
-	Boss_Init();	//初期設定
-	
-	objEnemy2  = CreateBossTalkEx(BOSS_ID_IPHONEA);
-	objEnemy  = CreateBossTalk(BOSS_ID_FABRITIS);
-	Obj_SetVisible(GetBossImageID(objEnemy2), false);	//画像非表示
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	//画像非表示
-	Task_Main();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	// 魔法陣リセット
-	BossEffect_ResetMagicCircle();
-
-	// 会話準備
-	StartTalk();
-
-	wait(120);
-
-	//会話処理
-	FuncTalk();
-	
-	//次のシーンへ
-	FinishTalk(true);
-	Boss_Finalize(objEnemy2, false, false);
-	Boss_Finalize(objEnemy, false, false);
-}
-
-// 会話処理
-function FuncTalk()
-{
-	// オブジェクト作成
-	let cutinBoss1   = CreateTalkObjectEx(BOSS_ID_IPHONEA, true, 40, 0);
-	let cutinBoss2   = CreateTalkObjectEx(BOSS_ID_FABRITIS, true, -40, 0);
-	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
-	
-	// 初期設定
-	ChangeTalkTexture(cutinBoss1, I_BORO2);
-	ChangeTalkTexture(cutinBoss2, I_BORO2);
-	SetImageFoward(cutinPlayer1, true);
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, "我知道啊，可这不是逃避现实吗？");
-		}
-		case(1)
-		{
-			ChangeTalkTexture(cutinBoss2, I_BORO1);
-SetTalkEx(cutinBoss2, "朝颜受欢迎的七夕，[r]也只不过一个晚上而已。");
-		}
-		case(2)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "Q.E.D. 证明完毕哦");
-		}
-		case(3)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "答案一开始就清楚的命题吗。[r]从今天开始就叫做[ruby rb=\"妖精的证明\" rt=\"Fairy's Proof\"]好了。");
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
+#����e����[Single]
+#ScriptVersion[3]
+#Title["1�ʁ@��b�㔼"]
+#Text["1�ʁ@��b�㔼"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+// �e�{�X�̃I�u�W�F�N�gID
+let objEnemy2;
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	Boss_Init();	//����ݒ�
+	
+	objEnemy2  = CreateBossTalkEx(BOSS_ID_IPHONEA);
+	objEnemy  = CreateBossTalk(BOSS_ID_FABRITIS);
+	Obj_SetVisible(GetBossImageID(objEnemy2), false);	//�摜��\��
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	//�摜��\��
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	// ���@�w���Z�b�g
+	BossEffect_ResetMagicCircle();
+
+	// ��b����
+	StartTalk();
+
+	wait(120);
+
+	//��b����
+	FuncTalk();
+	
+	//���̃V�[����
+	FinishTalk(true);
+	Boss_Finalize(objEnemy2, false, false);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// ��b����
+function FuncTalk()
+{
+	// �I�u�W�F�N�g�쐬
+	let cutinBoss1   = CreateTalkObjectEx(BOSS_ID_IPHONEA, true, 40, 0);
+	let cutinBoss2   = CreateTalkObjectEx(BOSS_ID_FABRITIS, true, -40, 0);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
+	
+	// ����ݒ�
+	ChangeTalkTexture(cutinBoss1, I_BORO2);
+	ChangeTalkTexture(cutinBoss2, I_BORO2);
+	SetImageFoward(cutinPlayer1, true);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("01b_Talk02b.dnh.1",1));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinBoss2, I_BORO1);
+SetTalkEx(cutinBoss2, gettxt("01b_Talk02b.dnh.2",1));
+		}
+		case(2)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO1);
+SetTalkEx(cutinBoss1, gettxt("01b_Talk02b.dnh.3",1));
+		}
+		case(3)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("01b_Talk02b.dnh.4",1));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}

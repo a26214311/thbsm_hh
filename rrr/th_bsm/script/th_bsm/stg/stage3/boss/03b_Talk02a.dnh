@@ -1,122 +1,122 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["3面　会話後半"]
-#Text["3面　会話後半"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk.dnh"
-
-// 各ボスのオブジェクトID
-let objEnemy2;
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@Initialize {
-	Boss_Init();	//初期設定
-	
-	objEnemy  = CreateBossTalk(BOSS_ID_SHELIA);
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	//画像非表示
-	Task_Main();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	// 魔法陣リセット
-	BossEffect_ResetMagicCircle();
-
-	// 会話準備
-	StartTalk();
-
-	wait(120);
-
-	//会話処理
-	FuncTalk();
-	
-	//次のシーンへ
-	FinishTalk(true);
-	Boss_Finalize(objEnemy, false, false);
-}
-
-// 会話処理
-function FuncTalk()
-{
-	// オブジェクト作成
-	let cutinBoss1   = CreateTalkObject(BOSS_ID_SHELIA, true);
-	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
-	
-	// 初期設定
-	ChangeTalkTexture(cutinBoss1, I_BORO2);
-	SetImageFoward(cutinBoss1, true);
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO2);
-SetTalkEx(cutinBoss1, "啊～，就说了打倒我也[r]没意义啊");
-		}
-		case(1)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, "别故弄玄虚，赶紧把黑幕告诉我啊。[r]这不是玩推理游戏的时候了吧");
-		}
-		case(2)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "将愿望诱导向空中的是山上的神社。[r]可是有人横刀夺取了这力量，图谋着什么。");
-		}
-		case(3)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "解开催泪雨之牢的条件，[r]是停下人们的愿望，或是打倒那个人");
-		}
-		case(4)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
-SetTalkEx(cutinPlayer1, "黑幕？在哪儿？");
-		}
-		case(5)
-		{
-			ChangeTalkTexture(cutinBoss1, I_BORO1);
-SetTalkEx(cutinBoss1, "制造出小小的地上密室，挡住了雨水[r]的地方。用你们的话说，叫做迷途竹林？");
-		}
-		case(6)
-		{
-			ChangeTalkTexture(cutinPlayer1, I_WORRY);
-SetTalkEx(cutinPlayer1, "现在幻想乡到底被几重结界覆盖住了啊");
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
+#����e����[Single]
+#ScriptVersion[3]
+#Title["3�ʁ@��b�㔼"]
+#Text["3�ʁ@��b�㔼"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+// �e�{�X�̃I�u�W�F�N�gID
+let objEnemy2;
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	Boss_Init();	//����ݒ�
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_SHELIA);
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	//�摜��\��
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	// ���@�w���Z�b�g
+	BossEffect_ResetMagicCircle();
+
+	// ��b����
+	StartTalk();
+
+	wait(120);
+
+	//��b����
+	FuncTalk();
+	
+	//���̃V�[����
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+}
+
+// ��b����
+function FuncTalk()
+{
+	// �I�u�W�F�N�g�쐬
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_SHELIA, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
+	
+	// ����ݒ�
+	ChangeTalkTexture(cutinBoss1, I_BORO2);
+	SetImageFoward(cutinBoss1, true);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO2);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk02a.dnh.1",1));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk02a.dnh.2",1));
+		}
+		case(2)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO1);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk02a.dnh.3",1));
+		}
+		case(3)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO1);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk02a.dnh.4",1));
+		}
+		case(4)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk02a.dnh.5",1));
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinBoss1, I_BORO1);
+SetTalkEx(cutinBoss1, gettxt("03b_Talk02a.dnh.6",1));
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_WORRY);
+SetTalkEx(cutinPlayer1, gettxt("03b_Talk02a.dnh.7",1));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}

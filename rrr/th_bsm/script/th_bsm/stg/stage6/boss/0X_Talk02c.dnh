@@ -1,181 +1,181 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["早苗バッドエンディング"]
-#Text["早苗バッドエンディング"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk_ed.dnh"
-
-@Initialize {
-	init();
-	Task_Main();
-	
-	// バッドエンド
-	SetAreaCommonData(CAREA_TITLE, "FlgBadEnding", true);
-}
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	TBackground();
-	wait(180);
-	TEndingImage(imgEDSanae[0], 120);
-	//  BGM
-	PlayMusic( 17, 120, 60 );
-	
-	// 会話準備
-	StartTalk();
-	wait(120);
-
-	FuncTalk();
-	wait(15);
-
-	//次のシーンへ
-	FinishTalk(true);
-	SetForbidPlayerShot(true);
-	SetForbidPlayerSpell(true);
-	
-	//  BGM
-	PlayMusic( -1, 0, 60 );
-	
-	wait(180);
-	CloseStgScene();
-}
-
-// 会話処理
-function FuncTalk()
-{
-	let COL0 = [160, 160, 160];
-	let COL1 = [108, 255, 108];
-	let COL2 = [140, 108, 255];
-	let COL3 = [255, 108, 140];
-	
-	// オブジェクト作成
-	let cutinDescri = CreateDescriptiveObject();
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-SetTalkEx(cutinDescri, "早苗[r]「我明明这么努力了！神奈子大人、诹访子大人明鉴，[r]我确实是拼命飞，一直战斗到动弹不得的地步」[r]　たのに」", COL1);
-		}
-		case(1)
-		{
-SetTalkEx(cutinDescri, "满身疮痍的早苗。虽然不假思索地从魔宝城一直转进到了竹林里，但此刻却仰面恸哭。", COL0);
-		}
-		case(2)
-		{
-SetTalkEx(cutinDescri, "早苗[r]「原谅我吧！我不是没有信用的人。", COL1);
-		}
-		case(3)
-		{
-SetTalkEx(cutinDescri, "早苗[r]「真想让您看看我那鲜红的心脏。真想让您亲眼看看[r]我那颗只流淌着爱和诚信的血液的心脏啊！」", COL1);
-		}
-		case(4)
-		{
-SetTalkEx(cutinDescri, "已矣哉。早苗舒展四肢，总算可以闭上眼睛休息一下了。[r]就在那个时候。", COL0);
-		}
-		case(5)
-		{
-SetTalkEx(cutinDescri, "イフォーニア[r]「啊！在那儿啊！」", COL2);
-		}
-		case(6)
-		{
-SetTalkEx(cutinDescri, "ファブリティス[r]「小学生前辈！」", COL3);
-		}
-		case(7)
-		{
-			TEndingImage(imgEDSanae[1], 30);
-SetTalkEx(cutinDescri, "这真是太神奇了。[r]出现的，竟然是身着崭新制服与小学生书包的双胞胎妖精！", COL0);
-		}
-		case(8)
-		{
-SetTalkEx(cutinDescri, "ファブリティス[r]「我们为了更了解朝颜，决定去做小学生了！」", COL2);
-		}
-		case(9)
-		{
-SetTalkEx(cutinDescri, "イフォーニア[r]「想要学到好多好多朝颜的知识！」", COL3);
-		}
-		case(10)
-		{
-SetTalkEx(cutinDescri, "早苗起初当然困惑了一下，但她很快浮现出将这个偶然变为机会的点子来。", COL0);
-		}
-		case(11)
-		{
-SetTalkEx(cutinDescri, "只要七夕异变还在继续，朝颜就会收集人们的愿望，产生力量。", COL0);
-		}
-		case(12)
-		{
-SetTalkEx(cutinDescri, "把因为祢津捣鬼而出现的邪恶朝颜替换成新东西，将流往魔宝城的力量变成自己的武装，不就好了！", COL0);
-		}
-		case(13)
-		{
-SetTalkEx(cutinDescri, "早苗[r]「好！太好了！[r]来吧两位，一起前进吧，不断改良品种[r]向着显性遗传结界（Mendel's Zone）的最深处！」", COL1);
-		}
-		case(14)
-		{
-SetTalkEx(cutinDescri, "就这样，她开始开发新品种，优化欲灵的收集效率。但理所当然地，就在她还在慢慢着手的时候，异变已经被灵梦、魔理沙给解决掉了。", COL0);
-		}
-		case(15)
-		{
-SetTalkEx(cutinDescri, "可爱的双胞胎徒弟，说到底也就是很容易厌倦的妖精。[r]七夕模式一结束，很快她们就不见踪影了。", COL0);
-		}
-		case(16)
-		{
-SetTalkEx(cutinDescri, "为什么会这样呢！[r]早苗悲痛的叫喊声，化为欲灵，让时光倒流了！", COL0);
-		}
-		case(17)
-		{
-SetTalkEx(cutinDescri, "加油啊早苗！不要认输啊早苗！[r]下次注意点！", COL0);
-		}
-		case(18)
-		{
-SetTalkEx(cutinDescri, "　　　　　　　　　Ending.06　無限ループって怖いよね", COL0);
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-
-
-
-
-
-
-
-
+#����e����[Single]
+#ScriptVersion[3]
+#Title["���c�o�b�h�G���f�B���O"]
+#Text["���c�o�b�h�G���f�B���O"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk_ed.dnh"
+
+@Initialize {
+	init();
+	Task_Main();
+	
+	// �o�b�h�G���h
+	SetAreaCommonData(CAREA_TITLE, "FlgBadEnding", true);
+}
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	TBackground();
+	wait(180);
+	TEndingImage(imgEDSanae[0], 120);
+	//  BGM
+	PlayMusic( 17, 120, 60 );
+	
+	// ��b����
+	StartTalk();
+	wait(120);
+
+	FuncTalk();
+	wait(15);
+
+	//���̃V�[����
+	FinishTalk(true);
+	SetForbidPlayerShot(true);
+	SetForbidPlayerSpell(true);
+	
+	//  BGM
+	PlayMusic( -1, 0, 60 );
+	
+	wait(180);
+	CloseStgScene();
+}
+
+// ��b����
+function FuncTalk()
+{
+	let COL0 = [160, 160, 160];
+	let COL1 = [108, 255, 108];
+	let COL2 = [140, 108, 255];
+	let COL3 = [255, 108, 140];
+	
+	// �I�u�W�F�N�g�쐬
+	let cutinDescri = CreateDescriptiveObject();
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.1",1), COL1);
+		}
+		case(1)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.2",1), COL0);
+		}
+		case(2)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.3",1), COL1);
+		}
+		case(3)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.4",1), COL1);
+		}
+		case(4)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.5",1), COL0);
+		}
+		case(5)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.6",1), COL2);
+		}
+		case(6)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.7",1), COL3);
+		}
+		case(7)
+		{
+			TEndingImage(imgEDSanae[1], 30);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.8",1), COL0);
+		}
+		case(8)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.9",1), COL2);
+		}
+		case(9)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.10",1), COL3);
+		}
+		case(10)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.11",1), COL0);
+		}
+		case(11)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.12",1), COL0);
+		}
+		case(12)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.13",1), COL0);
+		}
+		case(13)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.14",1), COL1);
+		}
+		case(14)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.15",1), COL0);
+		}
+		case(15)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.16",1), COL0);
+		}
+		case(16)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.17",1), COL0);
+		}
+		case(17)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.18",1), COL0);
+		}
+		case(18)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02c.dnh.19",1), COL0);
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+
+
+
+
+
+
+
+

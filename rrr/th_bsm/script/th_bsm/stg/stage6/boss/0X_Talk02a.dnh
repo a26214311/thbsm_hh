@@ -1,144 +1,144 @@
-#東方弾幕風[Single]
-#ScriptVersion[3]
-#Title["霊夢バッドエンディング"]
-#Text["霊夢バッドエンディング"]
-#Background[""]
-#System["./../../../system/System.dnh"]
-
-
-
-//---------------------------------------------------------------------
-
-// 関数取り込み
-#include"./../../../lib/lib_boss.dnh"
-#include"./../../../lib/lib_talk_ed.dnh"
-
-@Initialize {
-	init();
-	Task_Main();
-	
-	// バッドエンド
-	SetAreaCommonData(CAREA_TITLE, "FlgBadEnding", true);
-}
-
-@Event {
-	alternative(GetEventType())
-	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
-	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
-	BossEvent();
-}
-
-@MainLoop {
-	yield;
-
-}
-
-// メインタスク
-task Task_Main()
-{
-	TBackground();
-	wait(180);
-	TEndingImage(imgEDReimu[0], 120);
-	//  BGM
-	PlayMusic( 17, 120, 60 );
-	
-	// 会話準備
-	StartTalk();
-	wait(120);
-
-	FuncTalk();
-	wait(15);
-
-	//次のシーンへ
-	FinishTalk(true);
-	SetForbidPlayerShot(true);
-	SetForbidPlayerSpell(true);
-	
-	//  BGM
-	PlayMusic( -1, 0, 60 );
-	
-	wait(180);
-	CloseStgScene();
-}
-
-// 会話処理
-function FuncTalk()
-{
-	let COL0 = [160, 160, 160];
-	let COL1 = [255, 108, 108];
-	let COL2 = [255, 108, 255];
-	
-	// オブジェクト作成
-	let cutinDescri = CreateDescriptiveObject();
-	wait(15);
-	
-	let talkID = 0;
-	loop
-	{
-		let talkType = FuncTalkSingle(talkID);
-		if (talkType == 0) { break; }
-		talkID = max(0, talkID+WaitNext());
-	}
-
-	// 会話処理単発（巻き戻しも出来るように）
-	function FuncTalkSingle(talkID)
-	{
-		let talk_type = 1;
-		alternative(talkID)
-		case(0)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「那个忍者搞什么，没听说还有72恶魔什么的啊。[r]之后到底还有多少个啊。」", COL1);
-		}
-		case(1)
-		{
-SetTalkEx(cutinDescri, "恶魔从魔宝（莱梅杰通）中一个接一个地被召唤出来。就算是身经百战的巫女，也只好退避一时。[r]灵梦走投无路，在迷途竹林中彷徨着。", COL0);
-		}
-		case(2)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「仔细想想，那家伙说自己的目的是[r]封印狐狸。[r]说到底我根本没必要插手嘛」", COL1);
-		}
-		case(3)
-		{
-SetTalkEx(cutinDescri, "话音刚落，她的脑海中瞬间不自然地掠过几幅画面。", COL0);
-		}
-		case(4)
-		{
-SetTalkEx(cutinDescri, "在人类村落中蔓延的巫女败北的谣言。[r]充满雨水与尘埃的赛钱箱。[r]失去信仰的博丽巫女。[r]幻想乡毁灭。", COL0);
-		}
-		case(5)
-		{
-SetTalkEx(cutinDescri, "霊夢[r]「好像做了个噩梦啊。[r]我是博丽的巫女，真正的巫女。[r]自己的工作还是会干的啦。」", COL1);
-		}
-		case(6)
-		{
-SetTalkEx(cutinDescri, "斗志复活。准备好新的御札与针，灵梦再次飞向死地。[r]而她的身后，竹林中，有个奇怪的影子。", COL0);
-		}
-		case(7)
-		{
-			TEndingImage(imgEDReimu[1], 30);
-SetTalkEx(cutinDescri, "ドレミー[r]「那个噩梦，由我处理掉了。[r]博丽的巫女，你要是受了挫，现世就会毁灭了」", COL2);
-		}
-		case(8)
-		{
-SetTalkEx(cutinDescri, "灵梦的意思是不可思议的梦。她的名字和噩梦可不相配！[r]飞翔吧灵梦！射击吧灵梦！[r]你的勇气也会越过画面，变成Power送给她！", COL0);
-		}
-		case(9)
-		{
-SetTalkEx(cutinDescri, "　　　　　　　　　　Ending.04　夢を見る不思議な巫女", COL0);
-		}
-		others
-		{
-			return(0);
-		}
-		return(talk_type);
-	}
-}
-
-
-
-
-
-
-
-
-
+#����e����[Single]
+#ScriptVersion[3]
+#Title["�얲�o�b�h�G���f�B���O"]
+#Text["�얲�o�b�h�G���f�B���O"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+
+
+//---------------------------------------------------------------------
+
+// �֐���荞��
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk_ed.dnh"
+
+@Initialize {
+	init();
+	Task_Main();
+	
+	// �o�b�h�G���h
+	SetAreaCommonData(CAREA_TITLE, "FlgBadEnding", true);
+}
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// ���C���^�X�N
+task Task_Main()
+{
+	TBackground();
+	wait(180);
+	TEndingImage(imgEDReimu[0], 120);
+	//  BGM
+	PlayMusic( 17, 120, 60 );
+	
+	// ��b����
+	StartTalk();
+	wait(120);
+
+	FuncTalk();
+	wait(15);
+
+	//���̃V�[����
+	FinishTalk(true);
+	SetForbidPlayerShot(true);
+	SetForbidPlayerSpell(true);
+	
+	//  BGM
+	PlayMusic( -1, 0, 60 );
+	
+	wait(180);
+	CloseStgScene();
+}
+
+// ��b����
+function FuncTalk()
+{
+	let COL0 = [160, 160, 160];
+	let COL1 = [255, 108, 108];
+	let COL2 = [255, 108, 255];
+	
+	// �I�u�W�F�N�g�쐬
+	let cutinDescri = CreateDescriptiveObject();
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// ��b�����P���i�����߂����o����悤�Ɂj
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.1",1), COL1);
+		}
+		case(1)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.2",1), COL0);
+		}
+		case(2)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.3",1), COL1);
+		}
+		case(3)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.4",1), COL0);
+		}
+		case(4)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.5",1), COL0);
+		}
+		case(5)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.6",1), COL1);
+		}
+		case(6)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.7",1), COL0);
+		}
+		case(7)
+		{
+			TEndingImage(imgEDReimu[1], 30);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.8",1), COL2);
+		}
+		case(8)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.9",1), COL0);
+		}
+		case(9)
+		{
+SetTalkEx(cutinDescri, gettxt("0X_Talk02a.dnh.10",1), COL0);
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+
+
+
+
+
+
+
+
