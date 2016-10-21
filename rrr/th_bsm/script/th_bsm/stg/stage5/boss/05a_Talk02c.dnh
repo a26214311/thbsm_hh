@@ -79,7 +79,7 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, gettxt("05a_Talk02c.dnh.1",1));
+SetTalkEx(cutinBoss1, gettxt("05a_Talk02c.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
 			AwayBoss();
 			wait(60);
 		}
@@ -88,7 +88,7 @@ SetTalkEx(cutinBoss1, gettxt("05a_Talk02c.dnh.1",1));
 			SetImageVisible(cutinBoss1, false);
 			
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, gettxt("05a_Talk02c.dnh.2",1));
+SetTalkEx(cutinPlayer1, gettxt("05a_Talk02c.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(90);
 		}
 		others

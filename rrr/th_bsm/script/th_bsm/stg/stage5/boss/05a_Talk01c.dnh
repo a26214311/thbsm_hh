@@ -83,13 +83,13 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, gettxt("05a_Talk01c.dnh.1",1));
+SetTalkEx(cutinBoss1, gettxt("05a_Talk01c.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(90);
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-SetTalkEx(cutinPlayer1, gettxt("05a_Talk01c.dnh.2",1));
+SetTalkEx(cutinPlayer1, gettxt("05a_Talk01c.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(60);
 		}
 		others

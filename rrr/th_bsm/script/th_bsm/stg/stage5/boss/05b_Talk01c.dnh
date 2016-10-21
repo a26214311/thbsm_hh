@@ -105,12 +105,12 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
-SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.1",1));
+SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.2",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(2)
 		{
@@ -119,14 +119,14 @@ SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.2",1));
 			SetImageVisible(cutinBoss2, false);
 
 			ChangeTalkTexture(cutinBoss1, I_UPSET);
-SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.3",1));
+SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.3",GetAreaCommonData("Config", "AccKey", 0)));
 			SetFukidashiType(cutinBoss1, FUKIDASHI_ANGER);	// �����o���^�C�v�ύX
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
 			SetImageVisible(cutinBoss1, false);
-SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.4",1));
+SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
 			// �{�X�ϐg���ւ���
 			ChangeBoss();
 			wait(180);
@@ -138,75 +138,75 @@ SetTalkEx(cutinBoss1, gettxt("05b_Talk01c.dnh.4",1));
 
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
 			ChangeTalkTexture(cutinBoss2, I_WORRY);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.5",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
 			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// �����o���^�C�v�ύX
 			SetBossName(cutinBoss1);	// �{�X�l�[���\��
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.6",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.6",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.7",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.8",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.8",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(7)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.9",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.9",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(8)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.10",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.10",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(9)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.11",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.11",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(10)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.12",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.12",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(11)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.13",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.13",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(12)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.14",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.14",GetAreaCommonData("Config", "AccKey", 0)));
 			SetFukidashiType(cutinPlayer1, FUKIDASHI_ANGER);	// �����o���^�C�v�ύX
 		}
 		case(13)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
-SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.15",1), 16, 0);
+SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.15",GetAreaCommonData("Config", "AccKey", 0)), 16, 0);
 		}
 		case(14)
 		{
 			ChangeTalkTexture(cutinBoss2, I_SMILE);
-SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.16",1), 16, 0);
+SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.16",GetAreaCommonData("Config", "AccKey", 0)), 16, 0);
 		}
 		case(15)
 		{
 			ChangeTalkTexture(cutinBoss2, I_SMILE);
-SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.17",1), 16, 0);
+SetTalkEx2(cutinBoss2, gettxt("05b_Talk01c.dnh.17",GetAreaCommonData("Config", "AccKey", 0)), 16, 0);
 		}
 		case(16)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_ANGER);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.18",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.18",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(17)
 		{
@@ -215,22 +215,22 @@ SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.18",1));
 
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 			ChangeTalkTexture(cutinBoss2, I_SMILE2);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.19",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.19",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(18)
 		{
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.20",1));
+SetTalkEx(cutinBoss2, gettxt("05b_Talk01c.dnh.20",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(19)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE2);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.21",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.21",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(20)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_SMILE);
-SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.22",1));
+SetTalkEx(cutinPlayer1, gettxt("05b_Talk01c.dnh.22",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		others
 		{

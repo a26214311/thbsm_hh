@@ -87,52 +87,52 @@ function FuncTalk()
 		alternative(talkID)
 		case(0)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.1",1), COL1);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.1",GetAreaCommonData("Config", "AccKey", 0)), COL1);
 		}
 		case(1)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.2",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.2",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		case(2)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.3",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.3",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		case(3)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.4",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.4",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		case(4)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.5",1), COL1);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.5",GetAreaCommonData("Config", "AccKey", 0)), COL1);
 		}
 		case(5)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.6",1), COL1);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.6",GetAreaCommonData("Config", "AccKey", 0)), COL1);
 		}
 		case(6)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.7",1), COL1);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.7",GetAreaCommonData("Config", "AccKey", 0)), COL1);
 		}
 		case(7)
 		{
 			TEndingImage(imgEDMarisa[1], 30);
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.8",1), COL2);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.8",GetAreaCommonData("Config", "AccKey", 0)), COL2);
 		}
 		case(8)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.9",1), COL1);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.9",GetAreaCommonData("Config", "AccKey", 0)), COL1);
 		}
 		case(9)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.10",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.10",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		case(10)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.11",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.11",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		case(11)
 		{
-SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.12",1), COL0);
+SetTalkEx(cutinDescri, gettxt("0X_Talk02b.dnh.12",GetAreaCommonData("Config", "AccKey", 0)), COL0);
 		}
 		others
 		{

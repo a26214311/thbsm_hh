@@ -1,0 +1,349 @@
+#include "../../lib/txt.dnh"
+// �X�y�J�̃f�[�^
+
+let STAGE_NAME = ["Stage1", "Stage2", "Stage3", "Stage4", "Stage5", "Stage6"];
+//let STAGE_NAME = ["Stage1", "Stage2", "Stage3", "Stage4", "Stage5", "Stage6", "Extra"];
+let STAGE_MAX = 6;
+let FLAG_EXTRA = 6;
+
+
+// �X�y�J�̃��X�g��Ԃ�
+function GetSpellCardList(idStage, idDifficult)
+{
+	alternative(idStage)
+	case(0)
+	{
+		// �X�e�[�W1
+		if (idDifficult <= D_NORM) { return([ 1, 2, 101 ]); }
+		else { return([ 1, 2, 3, 101 ]); }
+	}
+	case(1)
+	{
+		// �X�e�[�W2
+		return([ 11, 12, 13, 14, 102 ]);
+	}
+	case(2)
+	{
+		// �X�e�[�W3
+		if (idDifficult <= D_EASY) { return([ 21, 22, 23, 24, 103 ]); }
+		else { return([ 21, 22, 23, 24, 25, 103 ]); }
+	}
+	case(3)
+	{
+		// �X�e�[�W4
+//		return([ 31, 32, 33, 34, 35, 105 ]);
+		return([ 31, 104, 32, 33, 34, 35, 105 ]);
+	}
+	case(4)
+	{
+		// �X�e�[�W5
+		return([ 41, 42, 43, 44, 45, 46, 47, 106 ]);
+	}
+	case(5)
+	{
+		// �X�e�[�W6
+		return([ 51, 52, 53, 54, 55, 56, 57, 58 ]);
+	}
+	case(6)
+	{
+		// Ex
+		return([ 61, 62, 63, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ]);
+	}
+	return([]);
+}
+
+// �v���C�ł���X�y�J�����邩�̃`�F�b�N
+function CheckPlayableSpell(spellList, idDifficult)
+{
+	let flg = 0;
+	ascent(i in 0 .. length(spellList))
+	{
+		let sID = GetSpellCardIDEx( spellList[i], idDifficult );
+		flg = LoadResult( GetSpellCardIndex(sID) ) [4];
+		if (flg) { break; }
+	}
+	return(flg);
+}
+
+// �X�y�J�̖��O��Ԃ�
+function GetSpellCardName(idSpell, idDifficult)
+{
+	alternative(idSpell)
+	/* 1�� */
+	case(1)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.1",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.2",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.3",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(2)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.4",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.5",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.6",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(3)
+	{
+return(gettxt("SpellData.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	/* 2�� */
+	case(11)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.8",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.9",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.10",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(12)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.11",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.12",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.13",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(13)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.14",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.15",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.16",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(14)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.17",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.18",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.19",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	/* 3�� */
+	case(21)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.20",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.21",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.22",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(22)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.23",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.24",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.25",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(23)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.26",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.27",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.28",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(24)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.29",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.30",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.31",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(25)
+	{
+if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.32",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.33",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	/* 4�� */
+	case(31)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.34",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.35",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.36",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(32)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.37",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.38",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.39",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(33)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.40",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.41",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.42",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(34)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.43",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.44",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.45",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(35)
+	{
+if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.46",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.47",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.48",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	/* 5�� */
+	case(41)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.49",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.50",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(42)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.51",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.52",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(43)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.53",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.54",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(44)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.55",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.56",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.57",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(45)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.58",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.59",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(46)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.60",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.61",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.62",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(47)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.63",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.64",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.65",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	/* 6�� */
+	case(51)
+	{
+return(gettxt("SpellData.dnh.66",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(52)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.67",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.68",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.69",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(53)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.70",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.71",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.72",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(54)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.73",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.74",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.75",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(55)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.76",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.77",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.78",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(56)
+	{
+if (idDifficult <= D_EASY) { return(gettxt("SpellData.dnh.79",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.80",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.81",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(57)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.82",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.83",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.84",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(58)
+	{
+return(gettxt("SpellData.dnh.85",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	/* Ex */
+	case(61)
+	{
+return(gettxt("SpellData.dnh.86",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(62)
+	{
+return(gettxt("SpellData.dnh.87",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(63)
+	{
+return(gettxt("SpellData.dnh.88",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(71)
+	{
+return(gettxt("SpellData.dnh.89",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(72)
+	{
+return(gettxt("SpellData.dnh.90",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(73)
+	{
+return(gettxt("SpellData.dnh.91",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(74)
+	{
+return(gettxt("SpellData.dnh.92",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(75)
+	{
+return(gettxt("SpellData.dnh.93",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(76)
+	{
+return(gettxt("SpellData.dnh.94",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(77)
+	{
+return(gettxt("SpellData.dnh.95",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(78)
+	{
+return(gettxt("SpellData.dnh.96",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(79)
+	{
+return(gettxt("SpellData.dnh.97",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(80)
+	{
+return(gettxt("SpellData.dnh.98",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	/* LW */
+	case(101)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.99",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.100",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(102)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.101",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.102",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(103)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.103",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.104",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(104)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.105",GetAreaCommonData("Config", "AccKey", 0))); }
+else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.106",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.107",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(105)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.108",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.109",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(106)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.110",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.111",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+	case(107)
+	{
+if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.112",GetAreaCommonData("Config", "AccKey", 0))); }
+else { return(gettxt("SpellData.dnh.113",GetAreaCommonData("Config", "AccKey", 0))); }
+	}
+}

@@ -83,23 +83,23 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_DOYA);
-SetTalkEx(cutinBoss1, gettxt("04a_Talk01a.dnh.1",1));
+SetTalkEx(cutinBoss1, gettxt("04a_Talk01a.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
 			SetBossName(cutinBoss1);	// �{�X�l�[���\��
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
-SetTalkEx(cutinPlayer1, gettxt("04a_Talk01a.dnh.2",1));
+SetTalkEx(cutinPlayer1, gettxt("04a_Talk01a.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, gettxt("04a_Talk01a.dnh.3",1));
+SetTalkEx(cutinBoss1, gettxt("04a_Talk01a.dnh.3",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinPlayer1, gettxt("04a_Talk01a.dnh.4",1));
+SetTalkEx(cutinPlayer1, gettxt("04a_Talk01a.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
 		}
 		others
 		{

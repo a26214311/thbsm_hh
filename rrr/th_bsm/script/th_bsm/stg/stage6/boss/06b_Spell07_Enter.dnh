@@ -144,43 +144,43 @@ function FuncTalk()
 		case(0)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.1",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(1)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.2",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(2)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL3);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.3",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.3",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(3)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.4",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(4)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.5",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(5)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.6",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.6",GetAreaCommonData("Config", "AccKey", 0)));
 			wait(105);
 		}
 		case(6)
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.7",1));
+SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
 			SetFukidashiType(cutinBoss1, FUKIDASHI_ANGER);	// �����o���^�C�v�ύX
 			wait(135);
 		}
