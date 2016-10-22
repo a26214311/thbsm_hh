@@ -1,0 +1,183 @@
+
+
+//�@��ɋ��ʃf�[�^�̏���
+//--------------------------------------------------------------------------------------------
+
+//�R�����f�[�^�̃G���A��
+let CAREA_TITLE = "Title";	//���v���C�t�@�C���ɕۑ����Ȃ��G���A
+let CAREA_CONFIG = "Config";	//�R���t�B�O�֘A�i�ۑ����Ȃ��j
+let CAREA_SAVE = "SaveData";	//�Q�[���S�̂̃N���A��
+let CAREA_SYSTEM = "System";	//�ۑ�����G���A�i��ɃV�X�e���X�N���v�g�Ŏg�p�j
+let CAREA_STAGE = "Stg";	//�ۑ�����G���A�i�X�e�[�W�����j
+let CAREA_REPLAY = "Replay";	//���v���C�Đ����ׂ̈ɒl��ۑ�����G���A
+let CAREA_SPELL = "Spell";	//�X�y�J�p
+
+let CAREA_HIGHSCORE = "HighScore";	//�n�C�X�R�A
+let CAREA_RESULT = "Result";	//�X�y�J�擾��
+
+let saveCommonSAVE	= GetCurrentScriptDirectory() ~ "./../data/Package_common_SaveData.dat";
+let saveCommonCONFIG	= GetCurrentScriptDirectory() ~ "./../data/Package_common_Config.dat";
+let saveCommonSCORE	= GetCurrentScriptDirectory() ~ "./../data/Package_common_HighScore.dat";
+let saveCommonRESULT	= GetCurrentScriptDirectory() ~ "./../data/Package_common_Result.dat";
+
+// ����
+task InitializeCommonData()
+{
+	//�G���A�����
+	CreateCommonDataArea(CAREA_SAVE);
+	CreateCommonDataArea(CAREA_CONFIG);
+	CreateCommonDataArea(CAREA_TITLE);
+	CreateCommonDataArea(CAREA_RESULT);
+	CreateCommonDataArea(CAREA_HIGHSCORE);
+	CreateCommonDataArea(CAREA_SYSTEM);
+	
+	//�@�Q�[���̃Z�[�u�f�[�^
+	LoadCommonDataAreaA2(CAREA_SAVE, saveCommonSAVE);
+	//�@�I�v�V�������[�h
+	LoadConfig(0);
+	//�@�X�y�J
+	LoadCommonDataAreaA2(CAREA_RESULT, saveCommonRESULT);
+	//�@�n�C�X�R�A
+	LoadCommonDataAreaA2(CAREA_HIGHSCORE, saveCommonSCORE);
+	
+	CheckVersion();
+}
+
+// �o�[�W�����`�F�b�N
+function CheckVersion()
+{
+
+}
+
+function LoadConfig(isReset)
+{
+	let success_flag = LoadCommonDataAreaA2("SAVED_CONFIG", saveCommonCONFIG);
+	if (isReset != 0 && IsCommonDataAreaExists(CAREA_CONFIG)) { ClearAreaCommonData(CAREA_CONFIG); }
+	if (isReset < 0) { success_flag = false; }	//����l�Ƀ��Z�b�g
+	if (success_flag)
+	{
+		CreateCommonDataArea(CAREA_CONFIG);
+		CopyCommonDataArea(CAREA_CONFIG, "SAVED_CONFIG");
+		//�o�[�W�������̂ݍX�V
+		SetAreaCommonData(CAREA_CONFIG, "VERSION", GAME_VERSION);
+	} else {
+		//�f�[�^���Ȃ��ꍇ�͏���l���Z�b�g
+		CreateCommonDataArea(CAREA_CONFIG);
+		SetAreaCommonData(CAREA_CONFIG, "BGM_Volume", 100);
+		SetAreaCommonData(CAREA_CONFIG, "SE_Volume", 100);
+		SetAreaCommonData(CAREA_CONFIG, "Player_Volume", 100);
+		SetAreaCommonData(CAREA_CONFIG, "Effect", 4);
+		SetAreaCommonData(CAREA_CONFIG, "Background", 2);
+		SetAreaCommonData(CAREA_CONFIG, "Rebirth", 0);
+		SetAreaCommonData(CAREA_CONFIG, "AccKey", 0);
+//		SetAreaCommonData(CAREA_CONFIG, "RoadSpeed", 0);	// �ʂɐݒ肷��̂ŗ�O�I�ɃZ�b�g���Ȃ�
+		SetAreaCommonData(CAREA_CONFIG, "VERSION", GAME_VERSION);
+		CopyCommonDataArea("SAVED_CONFIG", CAREA_CONFIG);
+		SaveCommonDataAreaA2("SAVED_CONFIG", saveCommonCONFIG);
+	}
+	// �L�[�ݒ�
+	ConfigSkipKey();
+}
+
+// �v���N�e�B�X���փt���O
+function CDM_SetPracticeStageFlag(tmpPlayer, tmpStage, tmpDifficult)
+{
+	// �v���C��Փx�ȉ��̃t���O��S��ON�ɂ���
+	ascent(tmpD in 0 .. tmpDifficult+1)
+	{
+		SetAreaCommonData(CAREA_SAVE,
+			"Practice" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpStage) ~ "_" ~ IntToString(tmpD),
+			true );
+		// ��Փx���֗p
+		SetAreaCommonData(CAREA_SAVE, "PracticeRank" ~ IntToString(tmpD), true );
+		// �X�e�[�W���֗p
+		SetAreaCommonData(CAREA_SAVE, "PracticeStage" ~ IntToString(tmpStage) ~ IntToString(tmpD), true );
+	}
+//	if (tmpStage > 0)
+//	{
+		// ���ւ��ꂽ��PracticeStandby��ON��
+		SetAreaCommonData(CAREA_SAVE, "PracticeStandby", true );
+//	}
+}
+function CDM_GetPracticeStageFlag(tmpPlayer, tmpStage, tmpDifficult)
+{
+	return(GetAreaCommonData(CAREA_SAVE,
+		"Practice" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpStage) ~ "_" ~ IntToString(tmpDifficult),
+		false ));
+}
+function CDM_GetPracticeStageFlag_Stage(tmpStage, tmpDifficult)
+{
+	return( GetAreaCommonData(CAREA_SAVE, "PracticeStage" ~ IntToString(tmpStage) ~ IntToString(tmpDifficult), false ) );
+}
+function CDM_GetPracticeStageFlag_Rank(tmpDifficult)
+{
+	return( GetAreaCommonData(CAREA_SAVE, "PracticeRank" ~ IntToString(tmpDifficult), false ) );
+}
+// Extra���փt���O
+function CDM_SetExtraStageFlag(tmpPlayer)
+{
+	SetAreaCommonData(CAREA_SAVE,
+		"EXTRA_" ~ IntToString(tmpPlayer), true );
+	// 1�L�����ł����ւ��ꂽ��ExtraStandby��ON��
+	SetAreaCommonData(CAREA_SAVE, "ExtraStandby", true );
+}
+function CDM_GetExtraStageFlag(tmpPlayer)
+{
+	return(GetAreaCommonData(CAREA_SAVE,
+		"EXTRA_" ~ IntToString(tmpPlayer), false ));
+}
+// �X�y�v�����փt���O�i���j���[�̃t���O�̂݁j
+function CDM_SetSpellPracticeFlag()
+{
+	SetAreaCommonData(CAREA_SAVE, "SpellPracStandby", true );
+}
+// �~���[�W�b�N���[���p�t���O
+function CDM_SetMusicFlag(tmpMusic)
+{
+	SetAreaCommonData(CAREA_SAVE,
+		"MUSIC_" ~ IntToString(tmpMusic), true );
+}
+function CDM_GetMusicFlag(tmpMusic)
+{
+	return(GetAreaCommonData(CAREA_SAVE,
+		"MUSIC_" ~ IntToString(tmpMusic), false ));
+}
+// �I�[���N���A�t���O
+function CDM_SetAllClearFlag(tmpPlayer, tmpDifficult)
+{
+	SetAreaCommonData(CAREA_SAVE,
+		"ALL_" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpDifficult),
+		true );
+}
+function CDM_GetAllClearFlag(tmpPlayer, tmpDifficult)
+{
+	return(GetAreaCommonData(CAREA_SAVE,
+		"ALL_" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpDifficult),
+		false ));
+}
+// Ex�N���A�t���O
+function CDM_SetExtraClearFlag(tmpPlayer)
+{
+	CDM_SetPracticeStageFlag(tmpPlayer, 7, 0);
+}
+function CDM_GetExtraClearFlag(tmpPlayer)
+{
+	CDM_GetPracticeStageFlag(tmpPlayer, 7, 0);
+}
+// �L�����ݒ���փt���O
+function CDM_SetCharacterDataFlag(tmpCharacter)
+{
+	SetAreaCommonData(CAREA_SAVE,
+		"HELP_CHARA_" ~ tmpCharacter, true );
+}
+function CDM_GetCharacterDataFlag(tmpCharacter)
+{
+	return(GetAreaCommonData(CAREA_SAVE,
+		"HELP_CHARA_" ~ tmpCharacter, false ));
+}
+
+// �L�[�ݒ�
+function ConfigSkipKey()
+{
+	let tmp_key = GetAreaCommonData(CAREA_CONFIG, "AccKey", 0);
+}
