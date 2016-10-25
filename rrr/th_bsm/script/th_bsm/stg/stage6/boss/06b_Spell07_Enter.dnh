@@ -1,13 +1,13 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["ï¿½ï¿½ï¿½Xï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½"]
-#Text["ï¿½ï¿½ï¿½Xï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½"]
+#Title["ƒ‰ƒXƒy€”õ‚¦‚Ö‚­‚Æ"]
+#Text["ƒ‰ƒXƒy€”õ‚¦‚Ö‚­‚Æ"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
 #include"./lib_Mishandra.dnh"
@@ -21,10 +21,10 @@
 }
 
 @Initialize {
-	bossDropItem = 0;	//ï¿½Aï¿½Cï¿½eï¿½ï¿½ï¿½ï¿½
+	bossDropItem = 0;	//ƒAƒCƒeƒ€”
 	
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
-	objEnemy = CreateBossTalk(BOSS_ID_MISHANDRA);	//ï¿½{ï¿½Xï¿½Zï¿½bï¿½g
+	Boss_Init();	//‰Šúİ’è
+	objEnemy = CreateBossTalk(BOSS_ID_MISHANDRA);	//ƒ{ƒXƒZƒbƒg
 
 	Task_Main();
 }
@@ -33,33 +33,33 @@
 	yield;
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main
 {
 	let to_x = CenX;
 	let to_y = 140;
 
-	// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// ˆÚ“®æÀ•W‚ğƒZƒbƒg
 	ObjMove_SetPosition(objEnemy, to_x, to_y);
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 	
 	ENTER_EFFECT();
 	wait(420);
 	
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 	
 	wait(60);
 	
-	// ï¿½ï¿½b
+	// ‰ï˜b
 	FuncTalk();
 	FinishTalk(true);
 
-	// ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½
+	// ƒIƒvƒVƒ‡ƒ“
 	FumaCharismaOption_LS(objEnemy, true);
 	wait(240);
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½İ’u
+	// –‚–@wİ’u
 	DisplayShake(150, 4);
 	FumaCharismaOption_MC_LS(objEnemy, [GetStgFrameWidth/2, 400], true, true);
 	wait(120);
@@ -98,13 +98,13 @@ task Task_Main
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½Jï¿½nï¿½ï¿½ï¿½o
+// ŠJn‰‰o
 task ENTER_EFFECT()
 {
-	// ï¿½{ï¿½Xï¿½oï¿½ï¿½p
+	// ƒ{ƒX“oê—p
 	EnterBoss();
 
-	// ï¿½wï¿½iï¿½zï¿½u
+	// ”wŒi”z’u
 	let idBG = LoadScript(GetCurrentScriptDirectory()~"06c_Background.dnh");
 	StartScript(idBG);
 	
@@ -112,20 +112,20 @@ task ENTER_EFFECT()
 	PlayMusicWithName(14, 240, 30);
 	wait(240);
 
-	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½wï¿½iï¿½íœ
+	// ƒXƒe[ƒW”wŒiíœ
 	NotifyEvent(GetStageBG_ID(), ev_CloseScript, 2);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_MISHANDRA, true);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	SetImageFoward(cutinBoss1, true);
 	ChangeTalkTexture(cutinBoss1, I_NORMAL2);
-	BossScene_SetNameVisible(objScene, false);	//ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½
+	BossScene_SetNameVisible(objScene, false);	//ƒ{ƒXƒl[ƒ€•\¦ó‘Ô
 	wait(15);
 	
 	let talkID = 0;
@@ -136,7 +136,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNextTimer(60));
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -181,7 +181,7 @@ SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.6",GetAreaCommonData("Config
 		{
 			ChangeTalkTexture(cutinBoss1, I_NORMAL2);
 SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
-			SetFukidashiType(cutinBoss1, FUKIDASHI_ANGER);	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÏX
+			SetFukidashiType(cutinBoss1, FUKIDASHI_ANGER);	// ‚«o‚µƒ^ƒCƒv•ÏX
 			wait(135);
 		}
 		others
@@ -192,7 +192,7 @@ SetTalkEx(cutinBoss1, gettxt("06b_Spell07_Enter.dnh.7",GetAreaCommonData("Config
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task EnterBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
@@ -209,7 +209,7 @@ task EnterBoss()
 	}
 }
 
-// ï¿½tï¿½[ï¿½}ï¿½Xï¿½Sï¿½Cï¿½nï¿½ï¿½ï¿½h
+// ƒt[ƒ}ƒXƒSƒCƒnƒ“ƒh
 task SetFamilier01(iniX, iniY, iniAngle, iniMuki, iniValue, iniTimer)
 {
 	let eSize = ENEMY_M;

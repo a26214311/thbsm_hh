@@ -1,16 +1,16 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["5ï¿½Ê@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½b"]
-#Text["5ï¿½Ê@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½b"]
+#Title["5–Ê@“¹’†‰ï˜b"]
+#Text["5–Ê@“¹’†‰ï˜b"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Nezu.dnh"
+#include"script/th_bsm/stg/stage5/boss/lib_Nezu.dnh"
 
 @Event {
 	alternative(GetEventType())
@@ -20,7 +20,7 @@
 }
 
 @Initialize {
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 	
 	objEnemy  = CreateBossTalk(BOSS_ID_NEZU_R);
 	Task_Main();
@@ -31,36 +31,36 @@
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 
 	wait(60);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_NEZU_R, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_SANAE, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	ChangeTalkTexture(cutinBoss1, I_UPSET);
 	ChangeTalkTexture(cutinPlayer1, I_DOYA);
 	SetImageFoward(cutinBoss1, true);
-	BossScene_SetNameVisible(objScene, true);	//ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½
+	BossScene_SetNameVisible(objScene, true);	//ƒ{ƒXƒl[ƒ€•\¦ó‘Ô
 	wait(15);
 	
 	let talkID = 0;
@@ -71,7 +71,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNextTimer(60));
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -99,13 +99,13 @@ SetTalkEx(cutinPlayer1, gettxt("05a_Talk02c.dnh.2",GetAreaCommonData("Config", "
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task AwayBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
 	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
 	
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½gï¿½Uï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiŠgUj
 	wait(90);
 	SetNezuSmoke(ObjMove_GetX(objEnemy), ObjMove_GetY(objEnemy), 2, false);
 	wait(30);

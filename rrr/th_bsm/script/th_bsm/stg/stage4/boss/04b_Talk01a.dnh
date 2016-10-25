@@ -1,16 +1,16 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["4ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½bï¿½Oï¿½ï¿½"]
-#Text["4ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½bï¿½Oï¿½ï¿½"]
+#Title["4–Ê@ƒ{ƒX‰ï˜b‘O”¼"]
+#Text["4–Ê@ƒ{ƒX‰ï˜b‘O”¼"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Ichiyou.dnh"
+#include"script/th_bsm/stg/stage4/boss/lib_Ichiyou.dnh"
 
 @Event {
 	alternative(GetEventType())
@@ -20,10 +20,10 @@
 }
 
 @Initialize {
-	// ï¿½Aï¿½jï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// ƒAƒjƒƒŠƒZƒbƒg
 	Reset_aTime(BOSS_ID_ICHIYOU);
 	
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 	
 	objEnemy  = CreateBossTalk(BOSS_ID_ICHIYOU);
 	Task_Main();
@@ -34,33 +34,33 @@
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 
 	wait(120);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_ICHIYOU, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	SetImageFoward(cutinPlayer1, true);
 	SetImageVisible(cutinBoss1, false);
 	wait(15);
@@ -73,7 +73,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -95,7 +95,7 @@ SetTalkEx(cutinPlayer1, gettxt("04b_Talk01a.dnh.3",GetAreaCommonData("Config", "
 		}
 		case(3)
 		{
-			SetImageVisible(cutinBoss1, false);	// ï¿½{ï¿½Xï¿½æ‘œï¿½oï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+			SetImageVisible(cutinBoss1, false);	// ƒ{ƒX‰æ‘œoŒ»ƒtƒ‰ƒO
 			
 SetTalkEx2(cutinBoss1, gettxt("04b_Talk01a.dnh.4",GetAreaCommonData("Config", "AccKey", 0)), -32, -280);
 		}
@@ -104,12 +104,12 @@ SetTalkEx2(cutinBoss1, gettxt("04b_Talk01a.dnh.4",GetAreaCommonData("Config", "A
 SetTalkEx(cutinBoss1, gettxt("04b_Talk01a.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
 			EnterBoss();
 			wait(45);
-			BossScene_SetNameVisible(objScene, true);	//ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½
-			SetImageVisible(cutinBoss1, true);	// ï¿½{ï¿½Xï¿½æ‘œï¿½oï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+			BossScene_SetNameVisible(objScene, true);	//ƒ{ƒXƒl[ƒ€•\¦ó‘Ô
+			SetImageVisible(cutinBoss1, true);	// ƒ{ƒX‰æ‘œoŒ»ƒtƒ‰ƒO
 
 			ChangeTalkTexture(cutinBoss1, I_SMILE);
 SetTalkEx(cutinBoss1, gettxt("04b_Talk01a.dnh.6",GetAreaCommonData("Config", "AccKey", 0)));
-			SetBossName(cutinBoss1);	// ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½
+			SetBossName(cutinBoss1);	// ƒ{ƒXƒl[ƒ€•\¦
 		}
 		case(5)
 		{
@@ -197,15 +197,15 @@ SetTalkEx(cutinPlayer1, gettxt("04b_Talk01a.dnh.21",GetAreaCommonData("Config", 
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task EnterBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
 	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
 
-	// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+	// “oêƒ‚[ƒVƒ‡ƒ“
 	SetIchiyouSmoke(CenX, 100, 1.5);
-	// ï¿½ï¿½Ê‰ï¿½
+	// Œø‰Ê‰¹
 	My_LoadPlaySE(pathSE_Smoke);
 	
 	let objImg = GetBossImageID(objEnemy);

@@ -8,31 +8,31 @@ let SKIP_FLAG = 0;
 let priorityTalk = 90;
 let objTalkObject = [];
 
-// ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½İ’ï¿½
+// ƒtƒHƒ“ƒgİ’è
 let baseFont = "Meiryo";
 let baseFontSize = 26;
 let baseFontBold = true;
 let baseFontLinePitch = -1;
 
-//  ï¿½ï¿½bï¿½Jï¿½n
+//  ‰ï˜bŠJn
 sub StartTalk
 {
 	SetForbidPlayerShot(true);
 	SetForbidPlayerSpell(true);
 }
 
-//  ï¿½ï¿½bï¿½Iï¿½ï¿½
+//  ‰ï˜bI—¹
 function FinishTalk(fadeOut)
 {
 	if (fadeOut) { FINISH_TALK = true; }
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+	// ‚«o‚µíœ
 	DeleteAllFukidashi();
 	wait(45);
 	SetForbidPlayerShot(false);
 	SetForbidPlayerSpell(false);
 }
 
-//  ï¿½{ï¿½^ï¿½ï¿½ï¿½Ò‹@
+//  ƒ{ƒ^ƒ“‘Ò‹@
 function WaitNext()
 {
 	let t = 0;
@@ -47,24 +47,24 @@ function WaitNext()
 		yield;
 	}
 }
-//  ï¿½^ï¿½Cï¿½}ï¿½[ï¿½ï¿½ï¿½ï¿½
+//  ƒ^ƒCƒ}[‘—‚è
 function WaitNextTimer(timer)
 {
 	wait(timer);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½iï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Â‚ï¿½ï¿½j
+// ‰ï˜bƒƒbƒZ[ƒWi‚«o‚µÁ‹‹@”\‚Â‚«j
 function SetTalkEx(obj, text, color)
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+	// ‚«o‚µíœ
 	DeleteAllFukidashi();
-	// ï¿½ï¿½b
+	// ‰ï˜b
 	SetTalk(obj, text, color);
-	// ï¿½Jï¿½bï¿½gï¿½Cï¿½ï¿½ï¿½ï¿½Oï¿½Ê‚Éoï¿½ï¿½
+	// ƒJƒbƒgƒCƒ“‚ğ‘O–Ê‚Éo‚·
 	ChangeImageFoward(obj);
 }
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+// ‚«o‚µíœ
 sub DeleteAllFukidashi()
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -74,7 +74,7 @@ sub DeleteAllFukidashi()
 }
 
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
+// ‰ï˜bƒƒbƒZ[ƒW
 function SetTalk(obj, text, color)
 {
 	Obj_SetValue(obj, "NEXT", true);
@@ -90,7 +90,7 @@ function SetImageVisible(obj, tmp_value)
 {
 	Obj_SetValue(obj, "VIS", tmp_value);
 }
-// ï¿½æ‘œï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½
+// ‰æ‘œ‚ğè‘O‚É
 function ChangeImageFoward(obj)
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -99,7 +99,7 @@ function ChangeImageFoward(obj)
 		else { Obj_SetValue(objTalkObject[i], "FW", false); }
 	}
 }
-// ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½Í”zï¿½ï¿½
+// ã‚Ì•¡”ƒo[ƒWƒ‡ƒ“Aˆø”‚Í”z—ñ
 function ChangeImageFowardEx(objs)
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -147,7 +147,7 @@ task FadeTalkImage(obj, timer)
 	}
 }
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ÏXï¿½Äï¿½ï¿½iï¿½nï¿½Ì•ï¿½ï¿½pï¿½j
+// ‚«o‚µ•ÏXŠÄ‹i’n‚Ì•¶—pj
 task ChangeDescriptive(parent)
 {
 	let objFukidashi = -1;
@@ -171,21 +171,21 @@ task ChangeDescriptive(parent)
 	if (objFukidashi != -1) { DeleteFukidashi(objFukidashi); }
 }
 
-// ï¿½nï¿½Ì•ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‚ï¿½ï¿½ï¿½ï¿½ï¿½I
+// ’n‚Ì•¶‚ğo‚µ‚½‚¢ê‡‚Í‚±‚¿‚çI
 function CreateDescriptiveObject()
 {
 	let obj = ObjPrim_Create(OBJ_PRIMITIVE_2D);
-	Obj_SetValue(obj, "DES", true);		// ï¿½nï¿½Ì•ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+	Obj_SetValue(obj, "DES", true);		// ’n‚Ì•¶ƒtƒ‰ƒO—§‚Ä
 	Obj_SetValue(obj, "FW", false);
 	ChangeDescriptive(obj);
-	objTalkObject = objTalkObject ~ [obj];	//ï¿½zï¿½ï¿½É“oï¿½^
+	objTalkObject = objTalkObject ~ [obj];	//”z—ñ‚É“o˜^
 	return(obj);
 }
 
 
-// --- ï¿½È‰ï¿½ï¿½Í’nï¿½Ì•ï¿½ï¿½pï¿½Ì‰ï¿½bï¿½gï¿½@ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½Oï¿½p
+// --- ˆÈ‰º‚Í’n‚Ì•¶—p‚Ì‰ï˜b˜g@ƒGƒ“ƒfƒBƒ“ƒO—p
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½İ’uï¿½ï¿½ï¿½ï¿½
+// ‚«o‚µ‚ğİ’u‚·‚é
 function _MakeDescriptive(text, t_priority, color)
 {
 	let baseWidth = GetScreenWidth-128;
@@ -195,7 +195,7 @@ function _MakeDescriptive(text, t_priority, color)
 	let baseTextX = baseX+16;
 	let baseTextY = baseY+10;
 	
-	// ï¿½eï¿½Lï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½I
+	// ƒeƒLƒXƒgì‚é‚æI
 	let objText = ObjText_Create();
 	DescriptText(objText);
 	let objText2 = ObjText_Create();
@@ -252,7 +252,7 @@ function _MakeDescriptive(text, t_priority, color)
 	}
 }
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+//‚«o‚µíœ
 function DeleteFukidashi(obj)
 {
 	Obj_SetValue(obj, "DELETED", true);

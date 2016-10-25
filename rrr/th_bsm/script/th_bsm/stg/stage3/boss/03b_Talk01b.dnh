@@ -1,13 +1,13 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["3ï¿½Ê@ï¿½ï¿½bï¿½Oï¿½ï¿½"]
-#Text["3ï¿½Ê@ï¿½ï¿½bï¿½Oï¿½ï¿½"]
+#Title["3–Ê@‰ï˜b‘O”¼"]
+#Text["3–Ê@‰ï˜b‘O”¼"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
 
@@ -19,10 +19,10 @@
 }
 
 @Initialize {
-	// ï¿½Aï¿½jï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// ƒAƒjƒƒŠƒZƒbƒg
 	Reset_aTime(BOSS_ID_TOBIKO);
 	
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 	
 	objEnemy  = CreateBossTalk(BOSS_ID_SHELIA);
 	Task_Main();
@@ -33,33 +33,33 @@
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 
 	wait(120);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_SHELIA, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 	SetImageFoward(cutinPlayer1, true);
 	SetImageVisible(cutinBoss1, false);
@@ -73,7 +73,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -85,7 +85,7 @@ SetTalkEx(cutinPlayer1, gettxt("03b_Talk01b.dnh.1",GetAreaCommonData("Config", "
 		}
 		case(1)
 		{
-			SetImageVisible(cutinBoss1, false);	// ï¿½{ï¿½Xï¿½æ‘œï¿½oï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+			SetImageVisible(cutinBoss1, false);	// ƒ{ƒX‰æ‘œoŒ»ƒtƒ‰ƒO
 			
 SetTalkEx2(cutinBoss1, gettxt("03b_Talk01b.dnh.2",GetAreaCommonData("Config", "AccKey", 0)), -32, -280);
 		}
@@ -94,12 +94,12 @@ SetTalkEx2(cutinBoss1, gettxt("03b_Talk01b.dnh.2",GetAreaCommonData("Config", "A
 SetTalkEx(cutinBoss1, gettxt("03b_Talk01b.dnh.3",GetAreaCommonData("Config", "AccKey", 0)));
 			EnterBoss();
 			wait(90);
-			BossScene_SetNameVisible(objScene, true);	//ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½
-			SetImageVisible(cutinBoss1, true);	// ï¿½{ï¿½Xï¿½æ‘œï¿½oï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
+			BossScene_SetNameVisible(objScene, true);	//ƒ{ƒXƒl[ƒ€•\¦ó‘Ô
+			SetImageVisible(cutinBoss1, true);	// ƒ{ƒX‰æ‘œoŒ»ƒtƒ‰ƒO
 
 			ChangeTalkTexture(cutinBoss1, I_NORMAL);
 SetTalkEx(cutinBoss1, gettxt("03b_Talk01b.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
-			SetBossName(cutinBoss1);	// ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½
+			SetBossName(cutinBoss1);	// ƒ{ƒXƒl[ƒ€•\¦
 		}
 		case(3)
 		{
@@ -176,12 +176,12 @@ SetTalkEx(cutinBoss1, gettxt("03b_Talk01b.dnh.17",GetAreaCommonData("Config", "A
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task EnterBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
 	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
 
-	// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+	// “oêƒ‚[ƒVƒ‡ƒ“
 	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 140]);
 }

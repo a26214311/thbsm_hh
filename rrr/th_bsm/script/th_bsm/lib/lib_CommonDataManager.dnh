@@ -1,29 +1,29 @@
 
 
-//ï¿½@ï¿½ï¿½É‹ï¿½ï¿½Êƒfï¿½[ï¿½^ï¿½Ìï¿½ï¿½ï¿½
+//@å‚É‹¤’Êƒf[ƒ^‚Ìˆ—
 //--------------------------------------------------------------------------------------------
 
-//ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ÌƒGï¿½ï¿½ï¿½Aï¿½ï¿½
-let CAREA_TITLE = "Title";	//ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½tï¿½@ï¿½Cï¿½ï¿½ï¿½É•Û‘ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½Gï¿½ï¿½ï¿½A
-let CAREA_CONFIG = "Config";	//ï¿½Rï¿½ï¿½ï¿½tï¿½Bï¿½Oï¿½Ö˜Aï¿½iï¿½Û‘ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½j
-let CAREA_SAVE = "SaveData";	//ï¿½Qï¿½[ï¿½ï¿½ï¿½Sï¿½Ì‚ÌƒNï¿½ï¿½ï¿½Aï¿½ï¿½
-let CAREA_SYSTEM = "System";	//ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Aï¿½iï¿½ï¿½ÉƒVï¿½Xï¿½eï¿½ï¿½ï¿½Xï¿½Nï¿½ï¿½ï¿½vï¿½gï¿½Ågï¿½pï¿½j
-let CAREA_STAGE = "Stg";	//ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½Aï¿½iï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½j
-let CAREA_REPLAY = "Replay";	//ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Cï¿½Äï¿½ï¿½ï¿½ï¿½Ìˆ×‚É’lï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ï¿½A
-let CAREA_SPELL = "Spell";	//ï¿½Xï¿½yï¿½Jï¿½p
+//ƒRƒ‚ƒ“ƒf[ƒ^‚ÌƒGƒŠƒA–¼
+let CAREA_TITLE = "Title";	//ƒŠƒvƒŒƒCƒtƒ@ƒCƒ‹‚É•Û‘¶‚µ‚È‚¢ƒGƒŠƒA
+let CAREA_CONFIG = "Config";	//ƒRƒ“ƒtƒBƒOŠÖ˜Ai•Û‘¶‚µ‚È‚¢j
+let CAREA_SAVE = "SaveData";	//ƒQ[ƒ€‘S‘Ì‚ÌƒNƒŠƒAó‹µ
+let CAREA_SYSTEM = "System";	//•Û‘¶‚·‚éƒGƒŠƒAiå‚ÉƒVƒXƒeƒ€ƒXƒNƒŠƒvƒg‚Åg—pj
+let CAREA_STAGE = "Stg";	//•Û‘¶‚·‚éƒGƒŠƒAiƒXƒe[ƒWˆ—j
+let CAREA_REPLAY = "Replay";	//ƒŠƒvƒŒƒCÄ¶‚Ìˆ×‚É’l‚ğ•Û‘¶‚·‚éƒGƒŠƒA
+let CAREA_SPELL = "Spell";	//ƒXƒyƒJ—p
 
-let CAREA_HIGHSCORE = "HighScore";	//ï¿½nï¿½Cï¿½Xï¿½Rï¿½A
-let CAREA_RESULT = "Result";	//ï¿½Xï¿½yï¿½Jï¿½æ“¾ï¿½ï¿½
+let CAREA_HIGHSCORE = "HighScore";	//ƒnƒCƒXƒRƒA
+let CAREA_RESULT = "Result";	//ƒXƒyƒJæ“¾ó‹µ
 
 let saveCommonSAVE	= GetCurrentScriptDirectory() ~ "./../data/Package_common_SaveData.dat";
 let saveCommonCONFIG	= GetCurrentScriptDirectory() ~ "./../data/Package_common_Config.dat";
 let saveCommonSCORE	= GetCurrentScriptDirectory() ~ "./../data/Package_common_HighScore.dat";
 let saveCommonRESULT	= GetCurrentScriptDirectory() ~ "./../data/Package_common_Result.dat";
 
-// ï¿½ï¿½ï¿½ï¿½
+// ‰Šú‰»
 task InitializeCommonData()
 {
-	//ï¿½Gï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½
+	//ƒGƒŠƒA‚ğì‚é
 	CreateCommonDataArea(CAREA_SAVE);
 	CreateCommonDataArea(CAREA_CONFIG);
 	CreateCommonDataArea(CAREA_TITLE);
@@ -31,19 +31,19 @@ task InitializeCommonData()
 	CreateCommonDataArea(CAREA_HIGHSCORE);
 	CreateCommonDataArea(CAREA_SYSTEM);
 	
-	//ï¿½@ï¿½Qï¿½[ï¿½ï¿½ï¿½ÌƒZï¿½[ï¿½uï¿½fï¿½[ï¿½^
+	//@ƒQ[ƒ€‚ÌƒZ[ƒuƒf[ƒ^
 	LoadCommonDataAreaA2(CAREA_SAVE, saveCommonSAVE);
-	//ï¿½@ï¿½Iï¿½vï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
+	//@ƒIƒvƒVƒ‡ƒ“ƒ[ƒh
 	LoadConfig(0);
-	//ï¿½@ï¿½Xï¿½yï¿½J
+	//@ƒXƒyƒJ
 	LoadCommonDataAreaA2(CAREA_RESULT, saveCommonRESULT);
-	//ï¿½@ï¿½nï¿½Cï¿½Xï¿½Rï¿½A
+	//@ƒnƒCƒXƒRƒA
 	LoadCommonDataAreaA2(CAREA_HIGHSCORE, saveCommonSCORE);
 	
 	CheckVersion();
 }
 
-// ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
+// ƒo[ƒWƒ‡ƒ“ƒ`ƒFƒbƒN
 function CheckVersion()
 {
 
@@ -53,15 +53,15 @@ function LoadConfig(isReset)
 {
 	let success_flag = LoadCommonDataAreaA2("SAVED_CONFIG", saveCommonCONFIG);
 	if (isReset != 0 && IsCommonDataAreaExists(CAREA_CONFIG)) { ClearAreaCommonData(CAREA_CONFIG); }
-	if (isReset < 0) { success_flag = false; }	//ï¿½ï¿½ï¿½ï¿½lï¿½Éƒï¿½ï¿½Zï¿½bï¿½g
+	if (isReset < 0) { success_flag = false; }	//‰Šú’l‚ÉƒŠƒZƒbƒg
 	if (success_flag)
 	{
 		CreateCommonDataArea(CAREA_CONFIG);
 		CopyCommonDataArea(CAREA_CONFIG, "SAVED_CONFIG");
-		//ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚İXï¿½V
+		//ƒo[ƒWƒ‡ƒ“î•ñ‚Ì‚İXV
 		SetAreaCommonData(CAREA_CONFIG, "VERSION", GAME_VERSION);
 	} else {
-		//ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½È‚ï¿½ï¿½ê‡ï¿½Íï¿½ï¿½ï¿½lï¿½ï¿½ï¿½Zï¿½bï¿½g
+		//ƒf[ƒ^‚ª‚È‚¢ê‡‚Í‰Šú’l‚ğƒZƒbƒg
 		CreateCommonDataArea(CAREA_CONFIG);
 		SetAreaCommonData(CAREA_CONFIG, "BGM_Volume", 100);
 		SetAreaCommonData(CAREA_CONFIG, "SE_Volume", 100);
@@ -70,32 +70,32 @@ function LoadConfig(isReset)
 		SetAreaCommonData(CAREA_CONFIG, "Background", 2);
 		SetAreaCommonData(CAREA_CONFIG, "Rebirth", 0);
 		SetAreaCommonData(CAREA_CONFIG, "AccKey", 0);
-//		SetAreaCommonData(CAREA_CONFIG, "RoadSpeed", 0);	// ï¿½Ê‚Éİ’è‚·ï¿½ï¿½Ì‚Å—ï¿½Oï¿½Iï¿½ÉƒZï¿½bï¿½gï¿½ï¿½ï¿½È‚ï¿½
+//		SetAreaCommonData(CAREA_CONFIG, "RoadSpeed", 0);	// •Ê‚Éİ’è‚·‚é‚Ì‚Å—áŠO“I‚ÉƒZƒbƒg‚µ‚È‚¢
 		SetAreaCommonData(CAREA_CONFIG, "VERSION", GAME_VERSION);
 		CopyCommonDataArea("SAVED_CONFIG", CAREA_CONFIG);
 		SaveCommonDataAreaA2("SAVED_CONFIG", saveCommonCONFIG);
 	}
-	// ï¿½Lï¿½[ï¿½İ’ï¿½
+	// ƒL[İ’è
 	ConfigSkipKey();
 }
 
-// ï¿½vï¿½ï¿½ï¿½Nï¿½eï¿½Bï¿½Xï¿½ï¿½ï¿½Öƒtï¿½ï¿½ï¿½O
+// ƒvƒ‰ƒNƒeƒBƒX‰ğ‹Öƒtƒ‰ƒO
 function CDM_SetPracticeStageFlag(tmpPlayer, tmpStage, tmpDifficult)
 {
-	// ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½Õ“xï¿½È‰ï¿½ï¿½Ìƒtï¿½ï¿½ï¿½Oï¿½ï¿½Sï¿½ï¿½ONï¿½É‚ï¿½ï¿½ï¿½
+	// ƒvƒŒƒC“ïˆÕ“xˆÈ‰º‚Ìƒtƒ‰ƒO‚ğ‘S‚ÄON‚É‚·‚é
 	ascent(tmpD in 0 .. tmpDifficult+1)
 	{
 		SetAreaCommonData(CAREA_SAVE,
 			"Practice" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpStage) ~ "_" ~ IntToString(tmpD),
 			true );
-		// ï¿½ï¿½Õ“xï¿½ï¿½ï¿½Ö—p
+		// “ïˆÕ“x‰ğ‹Ö—p
 		SetAreaCommonData(CAREA_SAVE, "PracticeRank" ~ IntToString(tmpD), true );
-		// ï¿½Xï¿½eï¿½[ï¿½Wï¿½ï¿½ï¿½Ö—p
+		// ƒXƒe[ƒW‰ğ‹Ö—p
 		SetAreaCommonData(CAREA_SAVE, "PracticeStage" ~ IntToString(tmpStage) ~ IntToString(tmpD), true );
 	}
 //	if (tmpStage > 0)
 //	{
-		// ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ê‚½ï¿½ï¿½PracticeStandbyï¿½ï¿½ONï¿½ï¿½
+		// ‰ğ‹Ö‚³‚ê‚½‚çPracticeStandby‚ğON‚É
 		SetAreaCommonData(CAREA_SAVE, "PracticeStandby", true );
 //	}
 }
@@ -113,12 +113,12 @@ function CDM_GetPracticeStageFlag_Rank(tmpDifficult)
 {
 	return( GetAreaCommonData(CAREA_SAVE, "PracticeRank" ~ IntToString(tmpDifficult), false ) );
 }
-// Extraï¿½ï¿½ï¿½Öƒtï¿½ï¿½ï¿½O
+// Extra‰ğ‹Öƒtƒ‰ƒO
 function CDM_SetExtraStageFlag(tmpPlayer)
 {
 	SetAreaCommonData(CAREA_SAVE,
 		"EXTRA_" ~ IntToString(tmpPlayer), true );
-	// 1ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ê‚½ï¿½ï¿½ExtraStandbyï¿½ï¿½ONï¿½ï¿½
+	// 1ƒLƒƒƒ‰‚Å‚à‰ğ‹Ö‚³‚ê‚½‚çExtraStandby‚ğON‚É
 	SetAreaCommonData(CAREA_SAVE, "ExtraStandby", true );
 }
 function CDM_GetExtraStageFlag(tmpPlayer)
@@ -126,12 +126,12 @@ function CDM_GetExtraStageFlag(tmpPlayer)
 	return(GetAreaCommonData(CAREA_SAVE,
 		"EXTRA_" ~ IntToString(tmpPlayer), false ));
 }
-// ï¿½Xï¿½yï¿½vï¿½ï¿½ï¿½ï¿½ï¿½Öƒtï¿½ï¿½ï¿½Oï¿½iï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Ìƒtï¿½ï¿½ï¿½Oï¿½Ì‚İj
+// ƒXƒyƒvƒ‰‰ğ‹Öƒtƒ‰ƒOiƒƒjƒ…[‚Ìƒtƒ‰ƒO‚Ì‚İj
 function CDM_SetSpellPracticeFlag()
 {
 	SetAreaCommonData(CAREA_SAVE, "SpellPracStandby", true );
 }
-// ï¿½~ï¿½ï¿½ï¿½[ï¿½Wï¿½bï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½pï¿½tï¿½ï¿½ï¿½O
+// ƒ~ƒ…[ƒWƒbƒNƒ‹[ƒ€—pƒtƒ‰ƒO
 function CDM_SetMusicFlag(tmpMusic)
 {
 	SetAreaCommonData(CAREA_SAVE,
@@ -142,7 +142,7 @@ function CDM_GetMusicFlag(tmpMusic)
 	return(GetAreaCommonData(CAREA_SAVE,
 		"MUSIC_" ~ IntToString(tmpMusic), false ));
 }
-// ï¿½Iï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½tï¿½ï¿½ï¿½O
+// ƒI[ƒ‹ƒNƒŠƒAƒtƒ‰ƒO
 function CDM_SetAllClearFlag(tmpPlayer, tmpDifficult)
 {
 	SetAreaCommonData(CAREA_SAVE,
@@ -155,7 +155,7 @@ function CDM_GetAllClearFlag(tmpPlayer, tmpDifficult)
 		"ALL_" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpDifficult),
 		false ));
 }
-// Exï¿½Nï¿½ï¿½ï¿½Aï¿½tï¿½ï¿½ï¿½O
+// ExƒNƒŠƒAƒtƒ‰ƒO
 function CDM_SetExtraClearFlag(tmpPlayer)
 {
 	CDM_SetPracticeStageFlag(tmpPlayer, 7, 0);
@@ -164,7 +164,7 @@ function CDM_GetExtraClearFlag(tmpPlayer)
 {
 	CDM_GetPracticeStageFlag(tmpPlayer, 7, 0);
 }
-// ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½İ’ï¿½ï¿½ï¿½Öƒtï¿½ï¿½ï¿½O
+// ƒLƒƒƒ‰İ’è‰ğ‹Öƒtƒ‰ƒO
 function CDM_SetCharacterDataFlag(tmpCharacter)
 {
 	SetAreaCommonData(CAREA_SAVE,
@@ -176,8 +176,9 @@ function CDM_GetCharacterDataFlag(tmpCharacter)
 		"HELP_CHARA_" ~ tmpCharacter, false ));
 }
 
-// ï¿½Lï¿½[ï¿½İ’ï¿½
+// ƒL[İ’è
 function ConfigSkipKey()
 {
 	let tmp_key = GetAreaCommonData(CAREA_CONFIG, "AccKey", 0);
+SetSkipModeKey(KEY_LCONTROL);
 }

@@ -1,7 +1,7 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["ï¿½ì–²ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½O"]
-#Text["ï¿½ì–²ï¿½Gï¿½ï¿½ï¿½fï¿½Bï¿½ï¿½ï¿½O"]
+#Title["—ì–²ƒGƒ“ƒfƒBƒ“ƒO"]
+#Text["—ì–²ƒGƒ“ƒfƒBƒ“ƒO"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
@@ -9,7 +9,7 @@
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk_ed.dnh"
 
@@ -30,7 +30,7 @@
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
 	TBackground();
@@ -39,14 +39,14 @@ task Task_Main()
 	//  BGM
 	PlayMusic( 17, 120, 60 );
 	
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 	wait(120);
 
 	FuncTalk();
 	wait(15);
 
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	SetForbidPlayerShot(true);
 	SetForbidPlayerSpell(true);
@@ -57,14 +57,14 @@ task Task_Main()
 	CloseStgScene();
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
 	let COL0 = [160, 160, 160];
 	let COL1 = [255, 108, 108];
 	let COL2 = [108, 108, 255];
 	
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinDescri = CreateDescriptiveObject();
 	wait(15);
 	
@@ -76,7 +76,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;

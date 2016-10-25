@@ -1,16 +1,16 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["5ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½b"]
-#Text["5ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½b"]
+#Title["5–Ê@ƒ{ƒX‰ï˜b"]
+#Text["5–Ê@ƒ{ƒX‰ï˜b"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Nezu.dnh"
+#include"script/th_bsm/stg/stage5/boss/lib_Nezu.dnh"
 
 let objEnemy2;
 
@@ -22,10 +22,10 @@ let objEnemy2;
 }
 
 @Initialize {
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 
 	objEnemy  = CreateBossTalk(BOSS_ID_NEZU);
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	// ï¿½{ï¿½Xï¿½ï¿½\ï¿½ï¿½
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	// ƒ{ƒX”ñ•\¦
 
 	Task_Main();
 }
@@ -35,32 +35,32 @@ let objEnemy2;
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
 	StartTalk();
 
 	wait(120);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_NEZU, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	ChangeTalkTexture(cutinPlayer1, I_SMILE);
 	ChangeTalkTexture(cutinBoss1, I_BORO1);
 	SetImageFoward(cutinBoss1, true);
@@ -74,7 +74,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -122,34 +122,34 @@ SetTalkEx(cutinPlayer1, gettxt("05b_Talk02b.dnh.7",GetAreaCommonData("Config", "
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task EnterBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
 	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½Wï¿½ï¿½ï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiW’†j
 	SetNezuSmoke(ObjMove_GetX(objEnemy2), ObjMove_GetY(objEnemy2), 2, true);
 	CallSound(sndPower3);
 	wait(60);
-	RaiseBoss(objEnemy2, 30);	// ï¿½Ïgï¿½{ï¿½Xï¿½oï¿½ï¿½
+	RaiseBoss(objEnemy2, 30);	// •Ïgƒ{ƒX“oê
 	CallSound(sndBoon);
 }
 
-// ï¿½Ïgï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// •Ïgƒ‚[ƒVƒ‡ƒ“
 task ChangeBoss()
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½gï¿½Uï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiŠgUj
 	SetNezuSmoke(ObjMove_GetX(objEnemy2), ObjMove_GetY(objEnemy2), 2, false);
 	CallSound(sndPower2);
 	wait(60);
-	HideBoss(objEnemy2, 30);	// ï¿½{ï¿½Xï¿½Bï¿½ï¿½ï¿½
+	HideBoss(objEnemy2, 30);	// ƒ{ƒX‰B‚ê‚é
 	wait(30);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½Wï¿½ï¿½ï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiW’†j
 	SetNezuSmoke(ObjMove_GetX(objEnemy), ObjMove_GetY(objEnemy), 2, true);
 	CallSound(sndPower3);
 	wait(60);
-	RaiseBoss(objEnemy, 30);	// ï¿½^ï¿½{ï¿½Xï¿½oï¿½ï¿½
+	RaiseBoss(objEnemy, 30);	// ^ƒ{ƒX“oê
 	CallSound(sndBoon);
 }
 

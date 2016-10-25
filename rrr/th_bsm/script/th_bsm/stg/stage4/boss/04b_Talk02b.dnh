@@ -1,16 +1,16 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["4ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½bï¿½ã”¼"]
-#Text["4ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½bï¿½ã”¼"]
+#Title["4–Ê@ƒ{ƒX‰ï˜bŒã”¼"]
+#Text["4–Ê@ƒ{ƒX‰ï˜bŒã”¼"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Ichiyou.dnh"
+#include"script/th_bsm/stg/stage4/boss/lib_Ichiyou.dnh"
 
 @Event {
 	alternative(GetEventType())
@@ -20,10 +20,10 @@
 }
 
 @Initialize {
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 	
 	objEnemy  = CreateBossTalk(BOSS_ID_ICHIYOU);
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	//ï¿½æ‘œï¿½ï¿½\ï¿½ï¿½
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	//‰æ‘œ”ñ•\¦
 	Task_Main();
 }
 
@@ -32,33 +32,33 @@
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	StartTalk();
 
 	wait(120);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(BOSS_ID_ICHIYOU, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_MARISA, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	ChangeTalkTexture(cutinBoss1, I_BORO2);
 	SetImageFoward(cutinBoss1, true);
 	wait(15);
@@ -71,7 +71,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;

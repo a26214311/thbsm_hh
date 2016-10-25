@@ -1,16 +1,16 @@
-#ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½ï¿½ï¿½[Single]
+#“Œ•û’e–‹•—[Single]
 #ScriptVersion[3]
-#Title["5ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½b"]
-#Text["5ï¿½Ê@ï¿½{ï¿½Xï¿½ï¿½b"]
+#Title["5–Ê@ƒ{ƒX‰ï˜b"]
+#Text["5–Ê@ƒ{ƒX‰ï˜b"]
 #Background[""]
 #System["./../../../system/System.dnh"]
 
 //---------------------------------------------------------------------
 
-// ï¿½Öï¿½ï¿½ï¿½èï¿½ï¿½
+// ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Nezu.dnh"
+#include"script/th_bsm/stg/stage5/boss/lib_Nezu.dnh"
 
 let objEnemy2;
 let CHANGED_BOSS_ID = BOSS_ID_NEZU_M;
@@ -24,23 +24,23 @@ let CHANGED_BOSS_ID = BOSS_ID_NEZU_M;
 
 @Initialize {
 	
-	// ï¿½Aï¿½jï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// ƒAƒjƒƒŠƒZƒbƒg
 	Reset_aTime(CHANGED_BOSS_ID);
 	Reset_aTime(BOSS_ID_NEZU);
 	
-	Boss_Init();	//ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	Boss_Init();	//‰Šúİ’è
 	
-	// ï¿½Ïgï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// •Ïg‚µ‚½ó‘Ô
 	objEnemy2  = CreateBossTalkEx(CHANGED_BOSS_ID);
 	ObjMove_SetPosition(objEnemy2, CenX, 105);
-	Obj_SetVisible(GetBossImageID(objEnemy2), false);	// ï¿½{ï¿½Xï¿½ï¿½\ï¿½ï¿½
+	Obj_SetVisible(GetBossImageID(objEnemy2), false);	// ƒ{ƒX”ñ•\¦
 
 	objEnemy  = CreateBossTalk(BOSS_ID_NEZU);
 	ObjMove_SetPosition(objEnemy, CenX, 105);
-	Obj_SetVisible(GetBossImageID(objEnemy), false);	// ï¿½{ï¿½Xï¿½ï¿½\ï¿½ï¿½
-	NezuCharismaAura(objEnemy);	// ï¿½Iï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½
+	Obj_SetVisible(GetBossImageID(objEnemy), false);	// ƒ{ƒX”ñ•\¦
+	NezuCharismaAura(objEnemy);	// ƒI[ƒ‰‚¦‚Ö‚­‚Æ
 	
-	// ï¿½{ï¿½XIDï¿½êï¿½ã‘ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Oï¿½\ï¿½ï¿½ï¿½pï¿½j
+	// ƒ{ƒXIDˆêã‘‚«i–¼‘O•\¦—pj
 	Boss_SetIDtoObj(objScene, CHANGED_BOSS_ID);
 
 	Task_Main();
@@ -51,13 +51,13 @@ let CHANGED_BOSS_ID = BOSS_ID_NEZU_M;
 
 }
 
-// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½^ï¿½Xï¿½N
+// ƒƒCƒ“ƒ^ƒXƒN
 task Task_Main()
 {
-	// ï¿½ï¿½ï¿½@ï¿½wï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// –‚–@wƒŠƒZƒbƒg
 	BossEffect_ResetMagicCircle();
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	// ‰ï˜b€”õ
 	EnterBoss();
 	wait(60);
 
@@ -65,28 +65,28 @@ task Task_Main()
 
 	wait(60);
 
-	//ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+	//‰ï˜bˆ—
 	FuncTalk();
 	
-	//ï¿½ï¿½ï¿½ÌƒVï¿½[ï¿½ï¿½ï¿½ï¿½
+	//Ÿ‚ÌƒV[ƒ“‚Ö
 	FinishTalk(true);
 	Boss_Finalize(objEnemy, false, false);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 function FuncTalk()
 {
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	let cutinBoss1   = CreateTalkObject(CHANGED_BOSS_ID, true);
 	let cutinBoss2   = CreateTalkObject(BOSS_ID_NEZU, true);
 	let cutinPlayer1 = CreateTalkObject(BOSS_ID_REIMU, false);
 	
-	// ï¿½ï¿½ï¿½ï¿½İ’ï¿½
+	// ‰Šúİ’è
 	ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 	ChangeTalkTexture(cutinBoss1, I_UPSET);
 	SetImageFoward(cutinBoss1, true);
 	SetImageVisible(cutinBoss2, false);
-	BossScene_SetNameVisible(objScene, true);	//ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½ï¿½ï¿½
+	BossScene_SetNameVisible(objScene, true);	//ƒ{ƒXƒl[ƒ€•\¦ó‘Ô
 	wait(15);
 	
 	let talkID = 0;
@@ -97,7 +97,7 @@ function FuncTalk()
 		talkID = max(0, talkID+WaitNext());
 	}
 
-	// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½iï¿½ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½æ‚¤ï¿½Éj
+	// ‰ï˜bˆ—’P”­iŠª‚«–ß‚µ‚ào—ˆ‚é‚æ‚¤‚Éj
 	function FuncTalkSingle(talkID)
 	{
 		let talk_type = 1;
@@ -114,7 +114,7 @@ SetTalkEx(cutinPlayer1, gettxt("05b_Talk01a.dnh.2",GetAreaCommonData("Config", "
 		}
 		case(2)
 		{
-			// ï¿½\ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
+			// •\¦ƒLƒƒƒ‰“ü‚ê‘Ö‚¦
 			SetImageVisible(cutinBoss1, true);
 			SetImageVisible(cutinBoss2, false);
 
@@ -126,19 +126,19 @@ SetTalkEx(cutinBoss1, gettxt("05b_Talk01a.dnh.3",GetAreaCommonData("Config", "Ac
 			ChangeTalkTexture(cutinPlayer1, I_NOTICE);
 			SetImageVisible(cutinBoss1, false);
 SetTalkEx(cutinBoss1, gettxt("05b_Talk01a.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
-			// ï¿½{ï¿½Xï¿½Ïgï¿½ï¿½ï¿½Ö‚ï¿½ï¿½ï¿½
+			// ƒ{ƒX•Ïg‚¦‚Ö‚­‚Æ
 			ChangeBoss();
 			wait(180);
-			// ï¿½{ï¿½XIDï¿½êï¿½ã‘ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Oï¿½\ï¿½ï¿½ï¿½pï¿½j
+			// ƒ{ƒXIDˆêã‘‚«i–¼‘O•\¦—pj
 			Boss_SetIDtoObj(objScene, BOSS_ID_NEZU);
 
-			// ï¿½\ï¿½ï¿½ï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½
+			// •\¦ƒLƒƒƒ‰“ü‚ê‘Ö‚¦
 			SetImageVisible(cutinBoss2, true);
 
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
 SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
-			SetBossName(cutinBoss1);	// ï¿½{ï¿½Xï¿½lï¿½[ï¿½ï¿½ï¿½\ï¿½ï¿½
+			SetBossName(cutinBoss1);	// ƒ{ƒXƒl[ƒ€•\¦
 		}
 		case(4)
 		{
@@ -169,7 +169,7 @@ SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.10",GetAreaCommonData("Config", "A
 		{
 			ChangeTalkTexture(cutinBoss2, I_NOTICE);
 SetTalkEx2(cutinBoss2, gettxt("05b_Talk01a.dnh.11",GetAreaCommonData("Config", "AccKey", 0)), -96, -128);
-			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÏX
+			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// ‚«o‚µƒ^ƒCƒv•ÏX
 		}
 		case(10)
 		{
@@ -190,19 +190,19 @@ SetTalkEx(cutinPlayer1, gettxt("05b_Talk01a.dnh.14",GetAreaCommonData("Config", 
 		{
 			ChangeTalkTexture(cutinBoss2, I_UPSET);
 SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.15",GetAreaCommonData("Config", "AccKey", 0)));
-			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÏX
+			SetFukidashiType(cutinBoss2, FUKIDASHI_ANGER);	// ‚«o‚µƒ^ƒCƒv•ÏX
 		}
 		case(14)
 		{
 			ChangeTalkTexture(cutinPlayer1, I_DOYA);
 SetTalkEx2(cutinPlayer1, gettxt("05b_Talk01a.dnh.16",GetAreaCommonData("Config", "AccKey", 0)), -32, 0);
-			SetFukidashiType(cutinPlayer1, FUKIDASHI_THINK);	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÏX
+			SetFukidashiType(cutinPlayer1, FUKIDASHI_THINK);	// ‚«o‚µƒ^ƒCƒv•ÏX
 		}
 		case(15)
 		{
 			ChangeTalkTexture(cutinBoss2, I_SMILE);
 SetTalkEx2(cutinBoss2, gettxt("05b_Talk01a.dnh.17",GetAreaCommonData("Config", "AccKey", 0)), 32, 0);
-			SetFukidashiType(cutinBoss2, FUKIDASHI_THINK);	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½^ï¿½Cï¿½vï¿½ÏX
+			SetFukidashiType(cutinBoss2, FUKIDASHI_THINK);	// ‚«o‚µƒ^ƒCƒv•ÏX
 		}
 		case(16)
 		{
@@ -222,15 +222,15 @@ SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.19",GetAreaCommonData("Config", "A
 		{
 			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
 			ChangeTalkTexture(cutinBoss2, I_NORMAL);
-			// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+			// ‚«o‚µƒŠƒZƒbƒg
 			SetFukidashiType(cutinPlayer1, FUKIDASHI_NORMAL);
 			SetFukidashiType(cutinBoss2, FUKIDASHI_NORMAL);
-			// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+			// ‚«o‚µíœ
 			DeleteAllFukidashi();
-			// ï¿½ï¿½b
-			_SetTalk(cutinPlayer1, "ï¿½ï¿½ï¿½Ü‚êï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì–ï¿½ï¿½ï¿½ï¿½A[r]ï¿½ï¿½ï¿½Ì‚ê‚¨ï¿½Ì‚ê‚ªï¿½gï¿½Ìï¿½Éï¿½ï¿½ßI", -16, -48);
-			_SetTalk(cutinBoss2, "ï¿½Hï¿½Ã‚ï¿½ï¿½aï¿½ï¿½ï¿½Ä‚Ìï¿½ï¿½fï¿½A[r]ï¿½eï¿½ï¿½ï¿½Æ‹ï¿½ï¿½É‚ï¿½ï¿½Ìgï¿½Éï¿½ï¿½ßI", 16, 32);
-			// ï¿½Jï¿½bï¿½gï¿½Cï¿½ï¿½ï¿½ï¿½Oï¿½Ê‚Éoï¿½ï¿½
+			// ‰ï˜b
+			_SetTalk(cutinPlayer1, "¶‚Ü‚ê‚Á‚½‚»‚Ì–ğŠ„A[r]‚¨‚Ì‚ê‚¨‚Ì‚ê‚ªg‚Ìã‚É‚ßI", -16, -48);
+			_SetTalk(cutinBoss2, "”H’Ã‚ª–a‚®‰Ä‚ÌôæfA[r]’e–‹‚Æ‹¤‚É‚»‚Ìg‚É‚ßI", 16, 32);
+			// ƒJƒbƒgƒCƒ“‚ğ‘O–Ê‚Éo‚·
 			ChangeImageFowardEx([cutinPlayer1, cutinBoss2]);
 		}
 		others
@@ -241,34 +241,34 @@ SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.19",GetAreaCommonData("Config", "A
 	}
 }
 
-// ï¿½oï¿½êƒ‚ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// “oêƒ‚[ƒVƒ‡ƒ“
 task EnterBoss()
 {
 	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
 	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
 
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½Wï¿½ï¿½ï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiW’†j
 	SetNezuSmoke(ObjMove_GetX(objEnemy2), ObjMove_GetY(objEnemy2), 2, true);
 	CallSound(sndPower3);
 	wait(60);
-	RaiseBoss(objEnemy2, 30);	// ï¿½Ïgï¿½{ï¿½Xï¿½oï¿½ï¿½
+	RaiseBoss(objEnemy2, 30);	// •Ïgƒ{ƒX“oê
 	CallSound(sndBoon);
 }
 
-// ï¿½Ïgï¿½ï¿½ï¿½[ï¿½Vï¿½ï¿½ï¿½ï¿½
+// •Ïgƒ‚[ƒVƒ‡ƒ“
 task ChangeBoss()
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½gï¿½Uï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiŠgUj
 	SetNezuSmoke(ObjMove_GetX(objEnemy2), ObjMove_GetY(objEnemy2), 2, false);
 	CallSound(sndPower2);
 	wait(60);
-	HideBoss(objEnemy2, 30);	// ï¿½{ï¿½Xï¿½Bï¿½ï¿½ï¿½
+	HideBoss(objEnemy2, 30);	// ƒ{ƒX‰B‚ê‚é
 	wait(30);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö‚ï¿½ï¿½Æiï¿½Wï¿½ï¿½ï¿½j
+	// ‰Œ‚¦‚Ö‚­‚ÆiW’†j
 	SetNezuSmoke(ObjMove_GetX(objEnemy), ObjMove_GetY(objEnemy), 2, true);
 	CallSound(sndPower3);
 	wait(60);
-	RaiseBoss(objEnemy, 30);	// ï¿½^ï¿½{ï¿½Xï¿½oï¿½ï¿½
+	RaiseBoss(objEnemy, 30);	// ^ƒ{ƒX“oê
 	CallSound(sndBoon);
 }
 

@@ -9,7 +9,7 @@ let priorityTalk = 90;
 let objTalkObject = [];
 
 
-//  ï¿½ï¿½bï¿½Jï¿½n
+//  ‰ï˜bŠJn
 sub StartTalk
 {
 	SetForbidPlayerShot(true);
@@ -17,11 +17,11 @@ sub StartTalk
 	FINISH_TALK = false;
 }
 
-//  ï¿½ï¿½bï¿½Iï¿½ï¿½
+//  ‰ï˜bI—¹
 function FinishTalk(fadeOut)
 {
 	if (fadeOut) { FINISH_TALK = true; }
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+	// ‚«o‚µíœ
 	DeleteAllFukidashi();
 	wait(45);
 	SetForbidPlayerShot(false);
@@ -29,9 +29,9 @@ function FinishTalk(fadeOut)
 }
 
 // -------------------------------------------------
-// ï¿½ï¿½Ì“Iï¿½ÈƒAï¿½ï¿½
+// •ê‘Ì“I‚ÈƒAƒŒ
 // -------------------------------------------------
-// ï¿½æ‘œï¿½Ì”ÍˆÍ‚ï¿½ï¿½wï¿½ï¿½Aï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚Éï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ‰æ‘œ‚Ì”ÍˆÍ‚ğw’èAƒLƒƒƒ‰‚²‚Æ‚É©“®”»•Ê
 function CreateTalkObject(characterID, isBoss)
 {
 	return(_CreateTalkObject(characterID, isBoss, 0, 0));
@@ -40,36 +40,36 @@ function CreateTalkObjectEx(characterID, isBoss, offset_x, offset_y)
 {
 	return(_CreateTalkObject(characterID, isBoss, offset_x, offset_y));
 }
-// ï¿½nï¿½Ì•ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡ï¿½Í‚ï¿½ï¿½ï¿½ï¿½ï¿½I
+// ’n‚Ì•¶‚ğo‚µ‚½‚¢ê‡‚Í‚±‚¿‚çI
 function CreateDescriptiveObject()
 {
 	let obj = ObjPrim_Create(OBJ_PRIMITIVE_2D);
-	Obj_SetValue(obj, "DES", true);		// ï¿½nï¿½Ì•ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½
+	Obj_SetValue(obj, "DES", true);		// ’n‚Ì•¶ƒtƒ‰ƒO—§‚Ä
 	Obj_SetValue(obj, "FW", false);
 	ChangeDescriptive(obj);
-	objTalkObject = objTalkObject ~ [obj];	//ï¿½zï¿½ï¿½É“oï¿½^
+	objTalkObject = objTalkObject ~ [obj];	//”z—ñ‚É“o˜^
 	return(obj);
 }
 
 function _CreateTalkObject(characterID, isBoss, offset_x, offset_y)
 {
-	// ï¿½zï¿½uï¿½Ê’u
+	// ”z’uˆÊ’u
 	let imgX = 0;
 	let imgY = 0;
-	// ï¿½æ‘œï¿½Tï¿½Cï¿½Y
+	// ‰æ‘œƒTƒCƒY
 	let cutinSizeX = 256;
 	let cutinSizeY = 256;
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ê’uï¿½Iï¿½tï¿½Zï¿½bï¿½g
+	// ‚«o‚µˆÊ’uƒIƒtƒZƒbƒg
 	let fukiX = 0;
 	let fukiY = 0;
-	// ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ÌˆÚ“ï¿½ï¿½ï¿½ï¿½
+	// —§‚¿ŠG‚ÌˆÚ“®•ûŒü
 	let move_position = [-1, 1][isBoss];
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ìã‰ºï¿½ï¿½ï¿½
+	// ‚«o‚µ‚Ìã‰º•ûŒü
 	let fukidashi_top = true;
 	
 	if (isBoss)
 	{
-		// ï¿½{ï¿½X
+		// ƒ{ƒX
 		alternative(characterID)
 		case(BOSS_ID_IPHONEA)
 		{
@@ -191,7 +191,7 @@ function _CreateTalkObject(characterID, isBoss, offset_x, offset_y)
 	}
 	else
 	{
-		// ï¿½ï¿½ï¿½@
+		// ©‹@
 		alternative(characterID)
 		case(BOSS_ID_REIMU)
 		{
@@ -230,19 +230,19 @@ function _CreateTalkObject(characterID, isBoss, offset_x, offset_y)
 			fukiY = 0;
 		}
 	}
-	// ï¿½Iï¿½tï¿½Zï¿½bï¿½g
+	// ƒIƒtƒZƒbƒg
 	imgX += offset_x;
 	imgY += offset_y;
-	// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ì¬
+	// ƒIƒuƒWƒFƒNƒgì¬
 	return( SetTalkImage(characterID, imgX, imgY, cutinSizeX, cutinSizeY, fukiX, fukiY, move_position, fukidashi_top) );
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½Ìeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—‚Ìe•ª‚³‚ñ
 function SetTalkImage(characterID, x, y, iw, ih, fuki_x, fuki_y, move_position, fukidashi_top)
 {
 	let obj = ObjPrim_Create(OBJ_PRIMITIVE_2D);
 	Obj_SetValue(obj, "POSITION", move_position);
-	Obj_SetValue(obj, "BOSS_ID", characterID);	// IDï¿½Zï¿½bï¿½g
+	Obj_SetValue(obj, "BOSS_ID", characterID);	// IDƒZƒbƒg
 	ObjPrim_SetPrimitiveType(obj, PRIMITIVE_TRIANGLEFAN);
 	Obj_SetRenderPriorityI(obj, priorityTalk);
 	ObjPrim_SetVertexCount(obj, 4);
@@ -256,9 +256,9 @@ function SetTalkImage(characterID, x, y, iw, ih, fuki_x, fuki_y, move_position, 
 	ObjPrim_SetVertexPosition(obj, 2, iw/2, ih/2, 0);
 	ObjPrim_SetVertexPosition(obj, 3, iw/2, -ih/2, 0);
 	ObjRender_SetPosition(obj, x, y, 0);
-	// ï¿½æ‘œï¿½Zï¿½bï¿½g
+	// ‰æ‘œƒZƒbƒg
 	ChangeTalkTexture(obj, I_NORMAL);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ÌŒï¿½
+	// ‚«o‚µ‚ÌŒü‚«
 	if (fukidashi_top)
 		{ Obj_SetValue(obj, "F_POSITION", [FUKIDASHI_TOP_LEFT, FUKIDASHI_TOP_RIGHT][move_position > 0]) }
 	else
@@ -268,37 +268,37 @@ function SetTalkImage(characterID, x, y, iw, ih, fuki_x, fuki_y, move_position, 
 	Obj_SetValue(obj, "VIS", true);
 	TTalkImage(obj, x, y);
 	ChangeFukidashi(obj, x+fuki_x, y+fuki_y);
-	objTalkObject = objTalkObject ~ [obj];	//ï¿½zï¿½ï¿½É“oï¿½^
+	objTalkObject = objTalkObject ~ [obj];	//”z—ñ‚É“o˜^
 	return(obj);
 }
 
 // -------------------------------------------------
-// ï¿½ï¿½bï¿½\ï¿½ï¿½
+// ‰ï˜b\¬
 // -------------------------------------------------
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½iï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½@ï¿½\ï¿½Â‚ï¿½ï¿½j
+// ‰ï˜bƒƒbƒZ[ƒWi‚«o‚µÁ‹‹@”\‚Â‚«j
 function SetTalkEx(obj, text)
 {
 	_SetTalkEx(obj, text, 0, 0);
 }
-// ï¿½ï¿½ï¿½Wï¿½Iï¿½tï¿½Zï¿½bï¿½g
+// À•WƒIƒtƒZƒbƒg
 function SetTalkEx2(obj, text, offset_x, offset_y)
 {
 	_SetTalkEx(obj, text, offset_x, offset_y);
 }
 function _SetTalkEx(obj, text, offset_x, offset_y)
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½bï¿½g
+	// ‚«o‚µƒŠƒZƒbƒg
 	SetFukidashiType(obj, FUKIDASHI_NORMAL);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+	// ‚«o‚µíœ
 	DeleteAllFukidashi();
-	// ï¿½ï¿½b
+	// ‰ï˜b
 	_SetTalk(obj, text, offset_x, offset_y);
-	// ï¿½Jï¿½bï¿½gï¿½Cï¿½ï¿½ï¿½ï¿½Oï¿½Ê‚Éoï¿½ï¿½
+	// ƒJƒbƒgƒCƒ“‚ğ‘O–Ê‚Éo‚·
 	ChangeImageFoward(obj);
 }
 
-// ï¿½ï¿½bï¿½ï¿½ï¿½bï¿½Zï¿½[ï¿½W
+// ‰ï˜bƒƒbƒZ[ƒW
 function SetTalk(obj, text)
 {
 	_SetTalk(obj, text, 0, 0);
@@ -311,7 +311,7 @@ function _SetTalk(obj, text, offset_x, offset_y)
 	Obj_SetValue(obj, "OFFSET_Y", offset_y);
 }
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½íœ
+// ‚«o‚µíœ
 sub DeleteAllFukidashi()
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -320,13 +320,13 @@ sub DeleteAllFukidashi()
 	}
 }
 
-// ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½\ï¿½ï¿½ï¿½iï¿½nï¿½Ì•ï¿½ï¿½pï¿½j
+// ‘I‘ğˆ•\¦i’n‚Ì•¶—pj
 function SetChoiseWindow(bx, by, selects)
 {
 	return(_MakeChoiseWindow(bx, by, selects, 99));
 }
 
-//  ï¿½{ï¿½^ï¿½ï¿½ï¿½Ò‹@
+//  ƒ{ƒ^ƒ“‘Ò‹@
 function WaitNext()
 {
 	if (FIRST_WAIT_FLAG)
@@ -346,33 +346,33 @@ function WaitNext()
 		yield;
 	}
 }
-//  ï¿½^ï¿½Cï¿½}ï¿½[ï¿½ï¿½ï¿½ï¿½
+//  ƒ^ƒCƒ}[‘—‚è
 function WaitNextTimer(timer)
 {
 	wait(timer);
 	return(1);
 }
 
-// ï¿½æ‘œï¿½ÏX
+// ‰æ‘œ•ÏX
 function ChangeTalkTexture(obj, imgType)
 {
 	ObjPrim_SetTexture(obj, GetBossTexture(obj, imgType));
 }
 
-// ï¿½ï¿½bï¿½Xï¿½Lï¿½bï¿½vï¿½ï¿½ï¿½H
+// ‰ï˜bƒXƒLƒbƒv’†H
 function IsSkip()
 {
 	return(SKIP_FLAG > 45);
 }
 
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½Ê’uï¿½ÏX
+// ‚«o‚µˆÊ’u•ÏX
 function SetFukidashiPosition(obj, fpos)
 {
 	Obj_SetValue(obj, "F_POSITION", fpos);
 }
 
 // -------------------------------------------------
-// ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½
+// ‰ï˜bˆ—
 // -------------------------------------------------
 task TTalkImage(obj, bx, by)
 {
@@ -393,22 +393,22 @@ task TTalkImage(obj, bx, by)
 			{
 				offset_r = max(-2, offset_r-0.15);
 				alpha = max(0, alpha-30);
-				Obj_SetRenderPriorityI(obj, priorityTalk);	//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½İ’ï¿½
+				Obj_SetRenderPriorityI(obj, priorityTalk);	//ƒŒƒCƒ„[İ’è
 			}
 			else if (Obj_GetValueD(obj, "FW", false))
 			{
 				offset_r = min(0, offset_r+0.15);
-				Obj_SetRenderPriorityI(obj, priorityTalk+1);	//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½İ’ï¿½
+				Obj_SetRenderPriorityI(obj, priorityTalk+1);	//ƒŒƒCƒ„[İ’è
 			}
 			else if (offset_r < -1)
 			{
 				offset_r = min(-1, offset_r+0.15);
-				Obj_SetRenderPriorityI(obj, priorityTalk);	//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½İ’ï¿½
+				Obj_SetRenderPriorityI(obj, priorityTalk);	//ƒŒƒCƒ„[İ’è
 			}
 			else
 			{
 				offset_r = max(-1, offset_r-0.15);
-				Obj_SetRenderPriorityI(obj, priorityTalk);	//ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½İ’ï¿½
+				Obj_SetRenderPriorityI(obj, priorityTalk);	//ƒŒƒCƒ„[İ’è
 			}
 			if (alpha < 255)
 			{
@@ -431,7 +431,7 @@ function SetImageVisible(obj, tmp_value)
 	Obj_SetValue(obj, "VIS", tmp_value);
 }
 
-// ï¿½æ‘œï¿½ï¿½ï¿½ï¿½Oï¿½ï¿½
+// ‰æ‘œ‚ğè‘O‚É
 function ChangeImageFoward(obj)
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -440,7 +440,7 @@ function ChangeImageFoward(obj)
 		else { Obj_SetValue(objTalkObject[i], "FW", false); }
 	}
 }
-// ï¿½ï¿½Ì•ï¿½ï¿½ï¿½ï¿½oï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½Í”zï¿½ï¿½
+// ã‚Ì•¡”ƒo[ƒWƒ‡ƒ“Aˆø”‚Í”z—ñ
 function ChangeImageFowardEx(objs)
 {
 	ascent(i in 0 .. length(objTalkObject))
@@ -487,7 +487,7 @@ task FadeTalkImage(obj, timer)
 		Obj_Delete(obj);
 	}
 }
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ÏXï¿½Äï¿½
+// ‚«o‚µ•ÏXŠÄ‹
 task ChangeFukidashi(parent, fuki_x, fuki_y)
 {
 	let objFukidashi = -1;
@@ -521,9 +521,9 @@ function SetFukidashiType(obj, f_type)
 
 
 // -------------------------------------------------
-// ï¿½nï¿½Ì•ï¿½
+// ’n‚Ì•¶
 // -------------------------------------------------
-// ï¿½ï¿½ï¿½ï¿½ï¿½oï¿½ï¿½ï¿½ÏXï¿½Äï¿½ï¿½iï¿½nï¿½Ì•ï¿½ï¿½pï¿½j
+// ‚«o‚µ•ÏXŠÄ‹i’n‚Ì•¶—pj
 task ChangeDescriptive(parent)
 {
 	let objFukidashi = -1;
@@ -547,7 +547,7 @@ task ChangeDescriptive(parent)
 }
 
 // -------------------------------------------------
-// ï¿½ï¿½ï¿½Oï¿½\ï¿½ï¿½
+// –¼‘O•\¦
 // -------------------------------------------------
 task SetBossName(obj)
 {
@@ -565,8 +565,8 @@ task _SetBossName(obj, x, y, timer, objEnemy)
 	if (Obj_GetValueD(obj, "B_NAME", false)) { return; }
 	Obj_SetValue(obj, "B_NAME", true);
 	
-	// ï¿½ï¿½ï¿½Ì”zï¿½u
-	// 384x384ï¿½î€ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½W=[0,0]
+	// ¯‚Ì”z’u
+	// 384x384Šî€A¶ãÀ•W=[0,0]
 	let STARS;
 	alternative(GetBossID(objEnemy))
 	case(BOSS_ID_FABRITIS, BOSS_ID_FABRITIS)
@@ -613,7 +613,7 @@ task _SetBossName(obj, x, y, timer, objEnemy)
 
 task _SetBossName_Text(obj, x, y, timer, objEnemy)
 {
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// •¶š•”•ª
 	let objText = ObjPrim_Create(OBJ_SPRITE_2D);
 	ObjPrim_SetTexture(objText, Boss_GetBossNameImage(objEnemy));
 	Obj_SetRenderPriorityI(objText, priorityTalk+2);
@@ -648,7 +648,7 @@ task _SetBossName_Image(obj, x, y, timer, objEnemy, STARS)
 	let starct = length(STARS);
 	let scale = 0.75;
 	let imgFile = Boss_GetBossNameImage(objEnemy);
-	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	// •¶š•”•ª
 	let objImg = ObjPrim_Create(OBJ_SPRITE_2D);
 	ObjPrim_SetTexture(objImg, imgFile);
 	Obj_SetRenderPriorityI(objImg, priorityTalk+1);
@@ -689,7 +689,7 @@ task _SetBossName_Image(obj, x, y, timer, objEnemy, STARS)
 		ObjRender_SetAlpha(objImg, alpha);
 		ObjRender_SetAngleZ(objImg, angle);
 		ObjRender_SetPosition(objImg, bx, by, 0);
-		// ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½vï¿½Z
+		// ¯‚ÌÀ•WŒvZ
 		ascent(i in 0 .. starct)
 		{
 			let pos = Rotate2D_XY(STARS[i][0]-192, STARS[i][1]-192, angle);
@@ -711,7 +711,7 @@ task _SetBossName_Image(obj, x, y, timer, objEnemy, STARS)
 		bx += tmp_v*vx; by += tmp_v*vy;
 		ObjRender_SetAngleZ(objImg, angle);
 		ObjRender_SetPosition(objImg, bx, by, 0);
-		// ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½vï¿½Z
+		// ¯‚ÌÀ•WŒvZ
 		ascent(i in 0 .. starct)
 		{
 			let pos = Rotate2D_XY(STARS[i][0]-192, STARS[i][1]-192, angle);
@@ -734,7 +734,7 @@ task _SetBossName_Image(obj, x, y, timer, objEnemy, STARS)
 		ObjRender_SetAngleZ(objImg, angle);
 		ObjRender_SetAlpha(objImg, tmp_a);
 		ObjRender_SetPosition(objImg, bx, by, 0);
-		// ï¿½ï¿½ï¿½Ìï¿½ï¿½Wï¿½vï¿½Z
+		// ¯‚ÌÀ•WŒvZ
 		ascent(i in 0 .. starct)
 		{
 			let pos = Rotate2D_XY(STARS[i][0]-192, STARS[i][1]-192, angle);

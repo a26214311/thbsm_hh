@@ -1,0 +1,30 @@
+#“Œ•û’e–‹•—[Package]
+#Title["“Œ•û–‚•óé"]
+#Text["‚¨‚½‚ß‚µ‚Î[‚¶‚å‚ñ"]
+#Player["./player/player_pl01a.dnh", "./player/player_pl01b.dnh", "./player/player_pl02a.dnh", "./player/player_pl02b.dnh", "./player/player_pl03a.dnh", "./player/player_pl03b.dnh"]
+
+#include "./title/Opening.dnh"
+#include "./lib/lib_CommonDataManager.dnh"
+let language=1;
+@Initialize
+{
+	LoadConfig(0);
+	let tmp_key = GetAreaCommonData(CAREA_CONFIG, "AccKey", 0);
+	SetSkipModeKey(KEY_LCONTROL);
+	if(tmp_key==0){
+		AddArchiveFile(imgDataFile);
+	}else{
+		AddArchiveFile(imgDataFile3);
+	}
+	initLoad();
+}
+
+
+@MainLoop
+{
+	yield;
+}
+
+@Finalize
+{
+}
