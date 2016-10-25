@@ -10,8 +10,8 @@
 // ŠÖ”æ‚è‚İ
 #include"./../../../lib/lib_boss.dnh"
 #include"./../../../lib/lib_talk.dnh"
-#include"./lib_Mishandra.dnh"
-#include"./06b_Spell07_Func.dnh"
+#include"script/th_bsm/stg/stage6/boss/lib_Mishandra.dnh"
+#include"script/th_bsm/stg/stage6/boss/06b_Spell07_Func.dnh"
 
 @Event {
 	alternative(GetEventType())
