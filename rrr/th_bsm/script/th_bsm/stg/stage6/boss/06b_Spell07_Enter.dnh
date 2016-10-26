@@ -105,7 +105,7 @@ task ENTER_EFFECT()
 	EnterBoss();
 
 	// îwåiîzíu
-let idBG = LoadScript("script/th_bsm/stg/stage6/boss/06c_Background.dnh");
+let idBG = LoadScript(GetCurrentScriptDirectory()~"../stg/stage6/boss/06c_Background.dnh");
 	StartScript(idBG);
 	
 	// BGM
