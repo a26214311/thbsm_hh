@@ -228,8 +228,8 @@ SetTalkEx(cutinBoss2, gettxt("05b_Talk01a.dnh.19",GetAreaCommonData("Config", "A
 			// 吹き出し削除
 			DeleteAllFukidashi();
 			// 会話
-			_SetTalk(cutinPlayer1, "生まれ持ったその役割、[r]おのれおのれが身の上に刻め！", -16, -48);
-			_SetTalk(cutinBoss2, "禰津が紡ぐ夏の呪詛、[r]弾幕と共にその身に刻め！", 16, 32);
+_SetTalk(cutinPlayer1, gettxt("05b_Talk01a.dnh.20",GetAreaCommonData("Config", "AccKey", 0)), -16, -48);
+_SetTalk(cutinBoss2, gettxt("05b_Talk01a.dnh.21",GetAreaCommonData("Config", "AccKey", 0)), 16, 32);
 			// カットインを前面に出す
 			ChangeImageFowardEx([cutinPlayer1, cutinBoss2]);
 		}
