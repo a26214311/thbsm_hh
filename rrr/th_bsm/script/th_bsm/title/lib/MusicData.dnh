@@ -1,0 +1,261 @@
+// MUSIC
+
+//サンプル数を返す
+function GetMusicSample(musicID)
+{
+	alternative(musicID)
+	case(0)  { return([773888,3693000]); }	//　タイトル
+	case(1)  { return([969984,2154336]); }	//　プレイヤーズスコア
+	case(2)  { return([339570,6174000]); }	//　1 road
+	case(3)  { return([817664,4410600]); }	//　1 boss
+	case(4)  { return([1055666,5428402]); }	//　2 road
+	case(5)  { return([843776,4887552]); }	//　2 boss
+	case(6)  { return([1278724,8097951]); }	//　3 road
+	case(7)  { return([566528,8127064]); }	//　3 boss
+	case(8)  { return([347100,9078000]); }	//　4 road
+	case(9)  { return([594700,11602560]); }	//　4 boss
+	case(10)  { return([713206,9688800]); }	//　5 road
+	case(11)  { return([6240750,11892899]); }	//　5 boss
+	case(12)  { return([1090100,4169400]); }	//　6 road
+	case(13)  { return([5221400,14593899]); }	//　6 boss
+	case(14)  { return([5405400,7495600]); }	//　6 boss2
+	case(15)  { return([1024300,8540100]); }	//　Ex road
+	case(16)  { return([534100,7038000]); }		//　Ex boss
+	case(17)  { return([868494,5486981]); }		//　ed
+	case(18)  { return([1222240,8560220]); }	//　st
+
+/*
+	case(10)  { return([414000,9526800]); }	//　5 road
+	case(11)  { return([0,999999999]); }	//　5 boss
+	case(12)  { return([1091300,4171000]); }	//　6 road
+	case(13)  { return([0,999999999]); }	//　6 boss
+	case(14)  { return([0,999999999]); }	//　6 boss2
+*/
+
+	others  { return([0,0]); }
+}
+
+//BGMのパスを返す
+function GetMusicPath(musicID)
+{
+	let musicDir = GetCurrentScriptDirectory() ~ "../../music/";
+	
+	alternative(musicID)
+	case(0)  { return(musicDir ~ "m1.ogg"); }	//　タイトル
+	case(1)  { return(musicDir ~ "m2.ogg"); }	//　プレイヤーズスコア
+	case(2)  { return(musicDir ~ "r1.ogg"); }	//　1 road
+	case(3)  { return(musicDir ~ "b1.ogg"); }	//　1 boss
+	case(4)  { return(musicDir ~ "r2.ogg"); }	//　2 road
+	case(5)  { return(musicDir ~ "b2.ogg"); }	//　2 boss
+	case(6)  { return(musicDir ~ "r3.ogg"); }	//　3 road
+	case(7)  { return(musicDir ~ "b3.ogg"); }	//　3 boss
+	case(8)  { return(musicDir ~ "r4.ogg"); }	//　4 road
+	case(9)  { return(musicDir ~ "b4.ogg"); }	//　4 boss
+	case(10) { return(musicDir ~ "r5.ogg"); }	//　5 road
+	case(11) { return(musicDir ~ "b5.ogg"); }	//　5 boss
+	case(12) { return(musicDir ~ "r6.ogg"); }	//　6 road
+	case(13) { return(musicDir ~ "b6.ogg"); }	//　6 boss
+	case(14) { return(musicDir ~ "b6b.ogg"); }	//　6 boss2
+	case(15) { return(musicDir ~ "r7.ogg"); }	//　Ex road
+	case(16) { return(musicDir ~ "b7.ogg"); }	//　Ex boss
+	case(17) { return(musicDir ~ "e1.ogg"); }	//　ed
+	case(18) { return(musicDir ~ "e2.ogg"); }	//　st
+	others { return(""); }
+}
+
+//BGMのパスを返す
+function GetMusicText(musicID)
+{
+	let obj = ObjText_Create();	//適当なオブジェクトを生成（データのやり取り用）
+
+	alternative(musicID)
+	case(0)	//　タイトル
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.3",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(1)	//　プレイヤーズスコア
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.6",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.8",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(2)	//　1 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.9",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.10",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.11",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.12",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(3)	//　1 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.13",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.14",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.15",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.16",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(4)	//　2 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.17",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.18",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.19",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.20",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(5)	//　2 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.21",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.22",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.23",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.24",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(6)	//　3 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.25",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.26",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.27",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.28",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(7)	//　3 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.29",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.30",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.31",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.32",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(8)	//　4 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.33",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.34",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.35",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.36",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(9)	//　4 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.37",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.38",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.39",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.40",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(10)	//　5 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.41",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.42",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.43",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.44",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(11)	//　5 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.45",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.46",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.47",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.48",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(12)	//　6 road
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.49",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.50",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.51",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.52",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(13)	//　6 boss
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.53",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.54",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.55",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.56",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(14)	//　6 boss2
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.57",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.58",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.59",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.60",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(17)	//　ed1
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.61",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.62",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.63",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.64",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	case(18)	//　ed2
+	{
+		// 名前
+			Obj_SetValue(obj, "NAME", gettxt("MusicData.dnh.65",GetAreaCommonData("Config", "AccKey", 0)));
+			Obj_SetValue(obj, "_NAME", gettxt("MusicData.dnh.66",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+			Obj_SetValue(obj, "COMP", gettxt("MusicData.dnh.67",GetAreaCommonData("Config", "AccKey", 0)));
+		// 作曲者
+		Obj_SetValue(obj, "COMMENT",
+			gettxt("MusicData.dnh.68",GetAreaCommonData("Config", "AccKey", 0)));
+	}
+	
+	return(obj);
+}
