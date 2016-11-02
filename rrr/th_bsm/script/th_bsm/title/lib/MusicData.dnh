@@ -39,7 +39,7 @@ function GetMusicSample(musicID)
 //BGMのパスを返す
 function GetMusicPath(musicID)
 {
-	let musicDir = GetCurrentScriptDirectory() ~ "../../music/";
+let musicDir = GetMainPackageScriptPath() ~ "script/th_bsm/music/";
 	
 	alternative(musicID)
 	case(0)  { return(musicDir ~ "m1.ogg"); }	//　タイトル
