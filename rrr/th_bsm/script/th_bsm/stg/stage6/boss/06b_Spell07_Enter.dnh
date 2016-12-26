@@ -75,6 +75,7 @@ task Task_Main
 
 	CallSound(sndPower1);
 	DisplayShake(180, 8);
+	SetAction(objEnemy, ACT_SHOT1, 240);
 	ascent(i in 0 .. 6)
 	{
 		EffectConcentrationLine(objDummy,

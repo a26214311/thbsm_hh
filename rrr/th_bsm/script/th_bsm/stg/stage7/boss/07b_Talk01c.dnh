@@ -1,0 +1,246 @@
+#東方弾幕風[Single]
+#ScriptVersion[3]
+#Title["Exボス　ボス会話"]
+#Text["Exボス　ボス会話"]
+#Background[""]
+#System["./../../../system/System.dnh"]
+
+//---------------------------------------------------------------------
+
+// 関数取り込み
+#include"./../../../lib/lib_boss.dnh"
+#include"./../../../lib/lib_talk.dnh"
+
+@Event {
+	alternative(GetEventType())
+	case(EV_REQUEST_LIFE)		{ SetScriptResult( 0);	}
+	case(EV_REQUEST_TIMER)		{ SetScriptResult(-1);	}
+	BossEvent();
+}
+
+@Initialize {
+	// アニメリセット
+	Reset_aTime(BOSS_ID_SANADA);
+	
+	Boss_Init();	//初期設定
+	
+	objEnemy  = CreateBossTalk(BOSS_ID_SANADA);
+	Task_Main();
+}
+
+@MainLoop {
+	yield;
+
+}
+
+// メインタスク
+task Task_Main()
+{
+	// 魔法陣リセット
+	BossEffect_ResetMagicCircle();
+
+	// 会話準備
+	StartTalk();
+
+	wait(120);
+
+	//会話処理
+	FuncTalk();
+	
+	//次のシーンへ
+	FinishTalk(true);
+	Boss_Finalize(objEnemy, false, false);
+	Obj_Delete(objScene);	// 会話シーン強制終了
+}
+
+// 会話処理
+function FuncTalk()
+{
+	// オブジェクト作成
+	let cutinBoss1   = CreateTalkObject(BOSS_ID_SANADA, true);
+	let cutinPlayer1 = CreateTalkObject(BOSS_ID_SANAE, false);
+	
+	// 初期設定
+	ChangeTalkTexture(cutinPlayer1, I_WORRY);
+	SetImageFoward(cutinPlayer1, true);
+	SetImageVisible(cutinBoss1, false);
+	wait(15);
+	
+	let talkID = 0;
+	loop
+	{
+		let talkType = FuncTalkSingle(talkID);
+		if (talkType == 0) { break; }
+		talkID = max(0, talkID+WaitNext());
+	}
+
+	// 会話処理単発（巻き戻しも出来るように）
+	function FuncTalkSingle(talkID)
+	{
+		let talk_type = 1;
+		alternative(talkID)
+		case(0)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_WORRY);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.1",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(1)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.2",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(2)
+		{
+			SetImageVisible(cutinBoss1, false);	// ボス画像出現フラグ
+			
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+			ChangeTalkTexture(cutinPlayer1, I_SURPRISE);
+SetTalkEx2(cutinBoss1, gettxt("07b_Talk01c.dnh.3",GetAreaCommonData("Config", "AccKey", 0)), -32, -280);
+		}
+		case(3)
+		{
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.4",GetAreaCommonData("Config", "AccKey", 0)));
+			EnterBoss();
+			wait(90);
+			BossScene_SetNameVisible(objScene, true);	//ボスネーム表示状態
+			SetImageVisible(cutinBoss1, true);	// ボス画像出現フラグ
+
+			ChangeTalkTexture(cutinBoss1, I_WORRY);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.5",GetAreaCommonData("Config", "AccKey", 0)));
+			SetBossName(cutinBoss1);	// ボスネーム表示
+		}
+		case(4)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.6",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(5)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.7",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(6)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.8",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(7)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.9",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(8)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.10",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(9)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_ANGER_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.11",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(10)
+		{
+			ChangeTalkTexture(cutinBoss1, I_WORRY2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.12",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(11)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_WORRY);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.13",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(12)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_NORMAL);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.14",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(13)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.15",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(14)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.16",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(15)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_UPSET);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.17",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(16)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.18",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(17)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_DOYA);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.19",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(18)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.20",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(19)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.21",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(20)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_ANGER);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.22",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(21)
+		{
+			ChangeTalkTexture(cutinPlayer1, I_SMILE3);
+SetTalkEx(cutinPlayer1, gettxt("07b_Talk01c.dnh.23",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(22)
+		{
+			//BGM
+			PlayMusicWithName(16, 120, 30);
+
+			ChangeTalkTexture(cutinBoss1, I_WORRY2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.24",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(23)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.25",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(24)
+		{
+			ChangeTalkTexture(cutinBoss1, I_SMILE2);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.26",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(25)
+		{
+			ChangeTalkTexture(cutinBoss1, I_NORMAL);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.27",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		case(26)
+		{
+			ChangeTalkTexture(cutinBoss1, I_DOYA);
+SetTalkEx(cutinBoss1, gettxt("07b_Talk01c.dnh.28",GetAreaCommonData("Config", "AccKey", 0)));
+		}
+		others
+		{
+			return(0);
+		}
+		return(talk_type);
+	}
+}
+
+// 登場モーション
+task EnterBoss()
+{
+	if (Obj_GetValueD(objEnemy, "BOSS_MOVED", false)) { return; }
+	Obj_SetValue(objEnemy, "BOSS_MOVED", true);
+
+	// 登場モーション
+	EffectEntryBoss(objEnemy, [EFF_SKY, EFF_BLUE, EFF_PURPLE], [CenX, 105]);
+}

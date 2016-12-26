@@ -78,6 +78,7 @@ TMenuItemInfo(objParent, 16, 420, gettxt("SceneSpellSelect.dnh.1",GetAreaCommonD
 				
 				//メニュー配置
 				let tmpDifficulty	= Obj_GetValueD(objParent, "VALUE_D", 0);
+				if (Obj_GetValueD(objParent, "VALUE", 0) == FLAG_EXTRA) { tmpDifficulty = D_EXTRA; }
 				
 				// 文字用
 				TMenuItemSpellImage(objParent, 210+350, 150-20-12,  0, 24, 32, 34);
@@ -184,6 +185,7 @@ TMenuItemInfo(objParent, 16, 420, gettxt("SceneSpellSelect.dnh.1",GetAreaCommonD
 
 					resultIndex = SLIST[Obj_GetValueD(objParent, "VALUE2", 0)];
 					resultIndexD = Obj_GetValueD(objParent, "VALUE_D", 0);
+					if (Obj_GetValueD(objParent, "VALUE", 0) == FLAG_EXTRA) { resultIndexD = D_EXTRA; }
 
 					break;
 				}

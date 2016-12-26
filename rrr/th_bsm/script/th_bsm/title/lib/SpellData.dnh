@@ -1,9 +1,8 @@
 #include "../../lib/txt.dnh"
 // スペカのデータ
 
-let STAGE_NAME = ["Stage1", "Stage2", "Stage3", "Stage4", "Stage5", "Stage6"];
-//let STAGE_NAME = ["Stage1", "Stage2", "Stage3", "Stage4", "Stage5", "Stage6", "Extra"];
-let STAGE_MAX = 6;
+let STAGE_NAME = ["Stage1", "Stage2", "Stage3", "Stage4", "Stage5", "Stage6", "Extra"];
+let STAGE_MAX = 7;
 let FLAG_EXTRA = 6;
 
 
@@ -47,7 +46,7 @@ function GetSpellCardList(idStage, idDifficult)
 	case(6)
 	{
 		// Ex
-		return([ 61, 62, 63, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80 ]);
+		return([ 61, 62, 63, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81 ]);
 	}
 	return([]);
 }
@@ -309,41 +308,45 @@ function GetSpellCardName(idSpell, idDifficult)
 	{
 			return(gettxt("SpellData.dnh.98",GetAreaCommonData("Config", "AccKey", 0)));
 	}
+	case(81)
+	{
+			return(gettxt("SpellData.dnh.99",GetAreaCommonData("Config", "AccKey", 0)));
+	}
 	/* LW */
 	case(101)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.99",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.100",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.100",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.101",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(102)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.101",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.102",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.102",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.103",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(103)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.103",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.104",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.104",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.105",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(104)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.105",GetAreaCommonData("Config", "AccKey", 0))); }
-			else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.106",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.107",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.106",GetAreaCommonData("Config", "AccKey", 0))); }
+			else if (idDifficult <= D_HARD) { return(gettxt("SpellData.dnh.107",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.108",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(105)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.108",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.109",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.109",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.110",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(106)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.110",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.111",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.111",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.112",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 	case(107)
 	{
-			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.112",GetAreaCommonData("Config", "AccKey", 0))); }
-			else { return(gettxt("SpellData.dnh.113",GetAreaCommonData("Config", "AccKey", 0))); }
+			if (idDifficult <= D_NORM) { return(gettxt("SpellData.dnh.113",GetAreaCommonData("Config", "AccKey", 0))); }
+			else { return(gettxt("SpellData.dnh.114",GetAreaCommonData("Config", "AccKey", 0))); }
 	}
 }

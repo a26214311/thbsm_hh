@@ -1,7 +1,7 @@
 // スクリプト全体の共通変数等
 #include "./lib_CommonDataManager.dnh"
 
-let GAME_VERSION = "1.00";	//バージョン
+let GAME_VERSION = "1.10";	//バージョン
 let DEBUG_MODE = false;
 let DEBUG_FILMING_MODE = false;	// 動画撮影用セッティング
 
@@ -56,6 +56,7 @@ let BOSS_ID_NEZU_M	= "Nezu_Marisa";
 let BOSS_ID_NEZU_S	= "Nezu_Sanae";
 let BOSS_ID_MISHANDRA	= "Mishandra";
 let BOSS_ID_SANADA	= "Sanada";
+let BOSS_ID_SANADA_S	= "Sanada_Shadow";
 // こちらは主に会話用
 let BOSS_ID_REIMU	= "Reimu";
 let BOSS_ID_MARISA	= "Marisa";
@@ -113,7 +114,7 @@ function IsDrawEffect() { return(GetAreaCommonData(CAREA_CONFIG, "Effect", 4)); 
 //コンティニュー
 function GetContinueCount() { return(GetAreaCommonData(CAREA_SYSTEM, "CONTINUE", 0 )); }
 //難易度取得
-function Difficult() { return(GetAreaCommonData(CAREA_STAGE, "Difficult", 2)); }
+function Difficult() { return(GetAreaCommonData(CAREA_STAGE, "Difficult", 3)); }
 //最大得点
 function GetMaxScore() { return(trunc(GetAreaCommonData(CAREA_SYSTEM, "MAX_SCORE", 10000 )/10)*10); }
 function GetMaxScoreEx() { return(trunc(GetAreaCommonData(CAREA_SYSTEM, "MAX_SCORE", 10000 )*GetMagnitudeScoreRate()/10)*10); }

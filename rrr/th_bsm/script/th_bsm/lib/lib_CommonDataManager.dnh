@@ -126,6 +126,10 @@ function CDM_GetExtraStageFlag(tmpPlayer)
 	return(GetAreaCommonData(CAREA_SAVE,
 		"EXTRA_" ~ IntToString(tmpPlayer), false ));
 }
+function CDM_GetExtraStageFlagAll()
+{
+	return(CDM_GetExtraStageFlag(0) || CDM_GetExtraStageFlag(3) || CDM_GetExtraStageFlag(6));
+}
 // スペプラ解禁フラグ（メニューのフラグのみ）
 function CDM_SetSpellPracticeFlag()
 {
@@ -155,14 +159,33 @@ function CDM_GetAllClearFlag(tmpPlayer, tmpDifficult)
 		"ALL_" ~ IntToString(tmpPlayer) ~ "_" ~ IntToString(tmpDifficult),
 		false ));
 }
+function CDM_GetAllClearFlagEx(tmpPlayer, tmpDifficult)
+{
+	let basePl = trunc(tmpPlayer/3)*3;
+	return(CDM_GetAllClearFlag(basePl, tmpDifficult) && CDM_GetAllClearFlag(basePl+1, tmpDifficult));
+}
+function CDM_GetAllClearFlagRank(tmpDifficult)
+{
+	let allPl = [0, 1, 3, 4, 6, 7];
+	let flg = true;
+	ascent(i in 0 .. 6)
+	{
+		if (!CDM_GetAllClearFlag(allPl[i], tmpDifficult))
+		{
+			flg = false;
+			break
+		}
+	}
+	return(flg);
+}
 // Exクリアフラグ
 function CDM_SetExtraClearFlag(tmpPlayer)
 {
-	CDM_SetPracticeStageFlag(tmpPlayer, 7, 0);
+	CDM_SetAllClearFlag(tmpPlayer, 10);
 }
 function CDM_GetExtraClearFlag(tmpPlayer)
 {
-	CDM_GetPracticeStageFlag(tmpPlayer, 7, 0);
+	return(CDM_GetAllClearFlag(tmpPlayer, 10));
 }
 // キャラ設定解禁フラグ
 function CDM_SetCharacterDataFlag(tmpCharacter)
