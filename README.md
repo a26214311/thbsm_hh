@@ -2,8 +2,10 @@
 东方魔宝城汉化
 # 喵
 th_bsm/script/th_bsm/stg需要修改的文本（待校对）<br>
-rrr/ 导入后
-<a href="https://pan.baidu.com/s/1o8pWmYQ" target="_blank">下载地址</a>
+rrr/ 导入后<br>
+汉化完成
+<a href="https://pan.baidu.com/s/1gfdxu99" target="_blank">下载地址</a>
+<a href="https://tieba.baidu.com/p/5016924037" target="_blank">发布帖</a>
 # TODO
 ```bash
 ObjText_SetFontSize(obj, 28);
